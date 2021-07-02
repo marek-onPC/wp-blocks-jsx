@@ -1,0 +1,44 @@
+{
+  "name": "gutenberg-plus",
+  "version": "1.0.0",
+  "description": "WordPress Gutenberg extension plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marek-onPC/gutenberg-plus.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "plus",
+    "plugin"
+  ],
+  "author": "Marek S. (marek-onPC)",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/marek-onPC/gutenberg-plus/issues"
+  },
+  "homepage": "https://github.com/marek-onPC/gutenberg-plus#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.27.4",
+    "browserify": "^17.0.0",
+    "del": "^6.0.0",
+    "eslint": "^7.29.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
