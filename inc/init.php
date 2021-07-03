@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Manage plugin's option on activation.
+ */
+function onGutenbergPlusPluginActivation() {
+  if (!get_option('gutenberg_plus_color_palette')) {
+    add_option('gutenberg_plus_color_palette', '');
+  }
+}
+register_activation_hook(GUTENBERG_PLUS_PATH, 'onGutenbergPlusPluginActivation');
+
+/**
  * Add new admin panel menu page.
  */
 function gutenbergPlusAdminMenu() {
@@ -29,12 +39,27 @@ function gutenbergPlusAdminMenuFunction() {
             <h2 class="hndle" style="cursor: auto"><?php echo __('Custom Gutenberg\'s color palette', 'gutenberg-plus') ?></h2>
           </div>
           <div class="inside">
-            <input type="text" value="#fff" class="gutenberg-plus-color-palette" data-default-color="#fff" />
+            <table class="form-table">
+              <tbody id="color_palette_table">
+                <tr>
+                  <td><strong>Color name</strong></td>
+                  <td><strong>Color value</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <input type="text" style="margin: 0 6px 6px 0"/>
+                  </th>
+                  <td>
+                    <input type="text" value="#fff" class="gutenberg-plus-color-palette" data-default-color="#fff" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button type="button" class="button" id="add_new_color_palette">Add new</button>
           </div>
         </div>
       </div>
-
     </div>
-
   <?php
 }

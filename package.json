@@ -4,7 +4,9 @@
   "description": "WordPress Gutenberg extension plugin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "gulp watch",
+    "admin": "gulp watch:admin",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
