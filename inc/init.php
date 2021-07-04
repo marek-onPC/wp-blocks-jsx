@@ -3,12 +3,12 @@
 /**
  * Manage plugin's option on activation.
  */
-function onGutenbergPlusPluginActivation() {
+function gutenbergPlusPluginOptions() {
   if (!get_option('gutenberg_plus_color_palette')) {
     add_option('gutenberg_plus_color_palette', '');
   }
 }
-register_activation_hook(GUTENBERG_PLUS_PATH, 'onGutenbergPlusPluginActivation');
+add_action('admin_init', 'gutenbergPlusPluginOptions');
 
 /**
  * Add new admin panel menu page.
@@ -45,21 +45,38 @@ function gutenbergPlusAdminMenuFunction() {
                   <td><strong>Color name</strong></td>
                   <td><strong>Color value</strong></td>
                 </tr>
-                <tr>
-                  <th scope="row">
-                    <input type="text" style="margin: 0 6px 6px 0"/>
-                  </th>
-                  <td>
-                    <input type="text" value="#fff" class="gutenberg-plus-color-palette" data-default-color="#fff" />
-                  </td>
-                </tr>
+
+                <?php if(!empty(get_option('gutenberg_plus_color_palette'))) : 
+                  foreach (get_option('gutenberg_plus_color_palette') as $paletteElement) : ?>
+                    <tr id="id_<?php echo rand(pow(10, 2-1), pow(10, 2)-1); ?>">
+                      <th scope="row">
+                        <input name="color_palette_name" type="text" value="<?php echo $paletteElement->colorName ?>" style="margin: 0 6px 6px 0"/>
+                      </th>
+                      <td>
+                        <input name="color_palette_value" type="text" value="<?php echo $paletteElement->colorValue ?>" class="gutenberg-plus-color-palette" data-default-color="#fff" />
+                        <button type="button" class="button button-primary button-row-delete" style="background: #dc3545; border: none;">X</button>
+                      </td>
+                    </tr>
+
+                  <?php endforeach;
+                  else : ?>
+                    <tr id="id_<?php echo rand(pow(10, 2-1), pow(10, 2)-1); ?>">
+                      <th scope="row">
+                        <input name="color_palette_name" type="text" style="margin: 0 6px 6px 0"/>
+                      </th>
+                      <td>
+                        <input name="color_palette_value" type="text" value="#fff" class="gutenberg-plus-color-palette" data-default-color="#fff" />
+                      </td>
+                    </tr>
+                <?php endif; ?>
+                
               </tbody>
             </table>
-
             <button type="button" class="button" id="add_new_color_palette">Add new</button>
           </div>
         </div>
       </div>
+      <button type="button" class="button button-primary" id="save_options">Save options</button>
     </div>
   <?php
 }

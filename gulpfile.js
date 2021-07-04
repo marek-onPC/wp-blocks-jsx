@@ -20,7 +20,7 @@ var scriptWatch = './assets/scripts/**/*.js';
 var scriptSrc = './assets/scripts/main.js';
 var scriptDist = './dist/scripts/';
 
-var adminScriptWatch = './assets/scripts/admin/*.js';
+var adminScriptWatch = './assets/scripts/**/*.js';
 var adminScriptSrc = './assets/scripts/admin.js';
 var adminScriptDist = './dist/scripts/';
 

@@ -9,7 +9,8 @@ function gutembergPlusMainScriptAndStyle() {
     GUTENBERG_PLUS_URL . 'dist/styles/main.css',
     array(),
     '1.0.0',
-    'all');
+    'all'
+  );
 
   wp_enqueue_script(
     'gutenberg-plus-script',
@@ -31,6 +32,12 @@ function gutembergPlusAdminScript() {
     'gutenberg-plus-admin-script',
     GUTENBERG_PLUS_URL . 'dist/scripts/admin.js',
     array()
+  );
+
+  wp_localize_script(
+    'gutenberg-plus-admin-script',
+    'gutenberg_plus_ajax',
+    admin_url('admin-ajax.php')
   );
 }
 add_action('admin_enqueue_scripts', 'gutembergPlusAdminScript');
