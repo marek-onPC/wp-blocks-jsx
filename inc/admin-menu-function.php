@@ -4,8 +4,8 @@
  * Plugin's menu page definition function.
  */
 function gutenbergPlusAdminMenuFunction() {
-  $colorPalleteOptionOn = get_option('gutenberg_plus_color_palette_enable');
-  $colorPalleteOptions = get_option('gutenberg_plus_color_palette');
+  $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
+  $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
   ?>
   <div class="wrap">
     <h1><?php echo __('Gutenberg Plus', 'gutenberg-plus') ?></h1>
@@ -16,14 +16,14 @@ function gutenbergPlusAdminMenuFunction() {
             <h2 class="hndle" style="cursor: auto"><?php echo __('Custom Gutenberg\'s color palette', 'gutenberg-plus') ?></h2>
             <h4 style="margin-right: 15px"><?php echo __('Enable option?', 'gutenberg-plus') ?></h4>
               <fieldset style="padding-right: 8px">
-                <?php if(!empty(get_option('gutenberg_plus_color_palette_enable')) && get_option('gutenberg_plus_color_palette_enable') == 'false') : ?>
+                <?php if (!empty(get_option('gutenberg_plus_color_palette_enable')) && get_option('gutenberg_plus_color_palette_enable') == 'false') : ?>
                   <label><input type="checkbox" name="color_palette_enable"></label>
                 <?php else : ?>
                   <label><input type="checkbox" name="color_palette_enable" checked></label>
                 <?php endif; ?>
               </fieldset>
           </div>
-          <div id="color_palette_area" class="inside" style="display: <?php echo ($colorPalleteOptionOn == 'false') ? 'none' : 'block'; ?>">
+          <div id="color_palette_area" class="inside" style="display: <?php echo ($colorPaletteOptionOn == 'false') ? 'none' : 'block'; ?>">
             <table class="form-table">
               <tbody id="color_palette_table">
                 <tr>
@@ -31,8 +31,8 @@ function gutenbergPlusAdminMenuFunction() {
                   <td><strong>Color value</strong></td>
                 </tr>
 
-                <?php if(!empty($colorPalleteOptions)) : 
-                  foreach ($colorPalleteOptions as $index => $paletteElement) : ?>
+                <?php if (!empty($colorPaletteOptions)) : 
+                  foreach ($colorPaletteOptions as $index => $paletteElement) : ?>
                     <tr id="id_<?php echo rand(pow(10, 2-1), pow(10, 2)-1); ?>">
                       <th scope="row">
                         <input name="color_palette_name" type="text" value="<?php echo $paletteElement->colorName ?>" style="margin: 0 6px 6px 0"/>

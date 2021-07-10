@@ -41,3 +41,36 @@ function gutembergPlusAdminScript() {
   );
 }
 add_action('admin_enqueue_scripts', 'gutembergPlusAdminScript');
+
+/**
+ * Define Gutenberg's Color Palette set of colors
+ */
+function gutenbergPlusColorPaletteSet() {
+  $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
+  $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
+  $colorPaletteArray = array();
+
+  if ($colorPaletteOptionOn == 'false') {
+    return;
+  } else {
+    if (empty($colorPaletteOptions)) {
+      return;
+    } else {
+      $colorPaletteArray = array();
+
+      foreach ($colorPaletteOptions as $paletteElement) {
+        array_push($colorPaletteArray, array(
+          'name' => $paletteElement->colorName,
+          'slug' => sanitize_title($paletteElement->colorName),
+          'color' => $paletteElement->colorValue
+        ));
+      }
+    }
+  }
+
+  add_theme_support(
+    'editor-color-palette',
+    $colorPaletteArray
+  );
+};
+add_action('init', 'gutenbergPlusColorPaletteSet');
