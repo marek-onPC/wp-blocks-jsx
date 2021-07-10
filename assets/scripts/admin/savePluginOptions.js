@@ -5,6 +5,7 @@ export default function savePluginOptions() {
   const saveButton = document.getElementById('save_options');
 
   saveButton.addEventListener('click', function() {
+    var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
     var colorPalette = document.querySelectorAll('tr[id*="id_"]');
     var optionsObject = {};
 
@@ -15,22 +16,27 @@ export default function savePluginOptions() {
       };
     });
 
-    savePluginOptionsAjax(optionsObject);
+    savePluginOptionsAjax(colorPaletteOn, optionsObject);
   });
 }
 
 /**
  * AJAX call function
  */
-function savePluginOptionsAjax(object) {
+function savePluginOptionsAjax(settings, object) {
+  var spinner = document.getElementById('ajax_spinner');
   var dataToSave = new URLSearchParams();
   dataToSave.append('action', 'savePluginOptions');
 
+  dataToSave.append('colorPalleteOptionOn', settings);
+
   if (Object.keys(object).length > 0) {
-    dataToSave.append('options', JSON.stringify(object));
+    dataToSave.append('colorPalleteOptions', JSON.stringify(object));
   } else {
-    dataToSave.append('options', null);
+    dataToSave.append('colorPalleteOptions', null);
   }
+
+  spinner.style.display = 'inline-block';
 
   // eslint-disable-next-line
   fetch(gutenberg_plus_ajax, {
@@ -39,8 +45,10 @@ function savePluginOptionsAjax(object) {
   })
   .then(data => {
     console.log('Success:', data);
+    spinner.style.display = 'none';
   })
   .catch((error) => {
     console.error('Error:', error);
+    spinner.style.display = 'none';
   });
 }
