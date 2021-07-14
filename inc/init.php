@@ -4,12 +4,20 @@
  * Manage plugin's option on activation.
  */
 function gutenbergPlusPluginOptions() {
+  if (!get_option('gutenberg_plus_color_palette_enable')) {
+    add_option('gutenberg_plus_color_palette_enable', 'true');
+  }
+
   if (!get_option('gutenberg_plus_color_palette')) {
     add_option('gutenberg_plus_color_palette', '');
   }
-  
-  if (!get_option('gutenberg_plus_color_palette_enable')) {
-    add_option('gutenberg_plus_color_palette_enable', 'true');
+
+  if (!get_option('gutenberg_plus_font_sizes_enable')) {
+    add_option('gutenberg_plus_font_sizes_enable', 'true');
+  }
+
+  if (!get_option('gutenberg_plus_font_sizes')) {
+    add_option('gutenberg_plus_font_sizes', '');
   }
 }
 add_action('admin_init', 'gutenbergPlusPluginOptions');

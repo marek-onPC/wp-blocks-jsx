@@ -6,7 +6,7 @@ export default function savePluginOptions() {
 
   saveButton.addEventListener('click', function() {
     var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
-    var colorPalette = document.querySelectorAll('tr[id*="id_"]');
+    var colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]');
     var optionsObject = {};
 
     colorPalette.forEach((paletteElement, index) => {
