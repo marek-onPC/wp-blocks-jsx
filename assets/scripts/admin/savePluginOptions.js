@@ -7,33 +7,46 @@ export default function savePluginOptions() {
   saveButton.addEventListener('click', function() {
     var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
     var colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]');
-    var optionsObject = {};
+    var colorPaletteOptionsObject = {};
+
+    var fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked;
+    var fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]');
+    var fontSizesOptionsObject = {};
 
     colorPalette.forEach((paletteElement, index) => {
-      optionsObject[index] = {
+      colorPaletteOptionsObject[index] = {
         colorName: paletteElement.querySelector('input[name="color_palette_name"]').value,
         colorValue: paletteElement.querySelector('input[name="color_palette_value"]').value
       };
     });
 
-    savePluginOptionsAjax(colorPaletteOn, optionsObject);
+    
+    fontSizes.forEach((fontSizeElement, index) => {
+      fontSizesOptionsObject[index] = {
+        fontName: fontSizeElement.querySelector('input[name="font_size_name"]').value,
+        fontSize: fontSizeElement.querySelector('input[name="font_size_value"]').value
+      };
+    });
+
+    savePluginOptionsAjax('colorPallete', colorPaletteOn, colorPaletteOptionsObject);
+    savePluginOptionsAjax('fontSizes', fontSizesOn, fontSizesOptionsObject);
   });
 }
 
 /**
  * AJAX call function
  */
-function savePluginOptionsAjax(settings, object) {
+function savePluginOptionsAjax(type, settings, object) {
   var spinner = document.getElementById('ajax_spinner');
   var dataToSave = new URLSearchParams();
   dataToSave.append('action', 'savePluginOptions');
-
-  dataToSave.append('colorPalleteOptionOn', settings);
+  dataToSave.append('type', type);
+  dataToSave.append(type + 'On', settings);
 
   if (Object.keys(object).length > 0) {
-    dataToSave.append('colorPalleteOptions', JSON.stringify(object));
+    dataToSave.append(type, JSON.stringify(object));
   } else {
-    dataToSave.append('colorPalleteOptions', null);
+    dataToSave.append(type, null);
   }
 
   spinner.style.display = 'inline-block';

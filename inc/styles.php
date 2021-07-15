@@ -74,3 +74,36 @@ function gutenbergPlusColorPaletteSet() {
   );
 };
 add_action('init', 'gutenbergPlusColorPaletteSet');
+
+/**
+ * Define Gutenberg's Font Sizes set of fonts
+ */
+function gutenbergPlusFontSizesSet() {
+  $fontSizesOptionOn = get_option('gutenberg_plus_font_sizes_enable');
+  $fontSizesOptions = get_option('gutenberg_plus_font_sizes');
+  $fontSizesArray = array();
+
+  if ($fontSizesOptionOn == 'false') {
+    return;
+  } else {
+    if (empty($fontSizesOptions)) {
+      return;
+    } else {
+      $fontSizesArray = array();
+
+      foreach ($fontSizesOptions as $fontElement) {
+        array_push($fontSizesArray, array(
+          'name' => $fontElement->fontName,
+          'slug' => sanitize_title($fontElement->fontName),
+          'size' => (int)$fontElement->fontSize
+        ));
+      }
+    }
+  }
+
+  add_theme_support(
+    'editor-font-sizes',
+    $fontSizesArray
+  );
+};
+add_action('init', 'gutenbergPlusFontSizesSet');
