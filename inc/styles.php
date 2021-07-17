@@ -48,7 +48,6 @@ add_action('admin_enqueue_scripts', 'gutembergPlusAdminScript');
 function gutenbergPlusColorPaletteSet() {
   $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
   $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
-  $colorPaletteArray = array();
 
   if ($colorPaletteOptionOn == 'false') {
     return;
@@ -81,7 +80,6 @@ add_action('init', 'gutenbergPlusColorPaletteSet');
 function gutenbergPlusFontSizesSet() {
   $fontSizesOptionOn = get_option('gutenberg_plus_font_sizes_enable');
   $fontSizesOptions = get_option('gutenberg_plus_font_sizes');
-  $fontSizesArray = array();
 
   if ($fontSizesOptionOn == 'false') {
     return;
@@ -107,3 +105,40 @@ function gutenbergPlusFontSizesSet() {
   );
 };
 add_action('init', 'gutenbergPlusFontSizesSet');
+
+/**
+ * Create and load Gutenberg's Color Palette and Font Sizes styles in <head> tag
+ */
+function gutenbergPlusFrontEndStyles() {
+  $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
+  $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
+  $fontSizesOptionOn = get_option('gutenberg_plus_font_sizes_enable');
+  $fontSizesOptions = get_option('gutenberg_plus_font_sizes');
+
+
+  if ($colorPaletteOptionOn != 'false') {
+    if (!empty($colorPaletteOptions)) {
+      echo '<style type="text/css" id="gutenberg-plus-color-palette">';
+      foreach ($colorPaletteOptions as $paletteElement) {
+        echo '
+        .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.$paletteElement->colorValue.';}
+        .has-background.has-'.sanitize_title($paletteElement->colorName).'-background-color { background-color: '.$paletteElement->colorValue.';}
+        ';
+      }
+      echo '</style>';
+    }
+  }
+  
+  if ($fontSizesOptionOn != 'false') {
+    if (!empty($fontSizesOptions)) {
+      echo '<style type="text/css" id="gutenberg-plus-font-sizes">';
+      foreach ($fontSizesOptions as $fontElement) {
+        echo '
+        .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.(int)$fontElement->fontSize.'px;}
+        ';
+      }
+      echo '</style>';
+    }
+  }
+};
+add_action('wp_head', 'gutenbergPlusFrontEndStyles');
