@@ -1,0 +1,12 @@
+.wp-block-gutenberg-plus-faq {
+  &__heading {
+    
+    &.--collapsed + div {
+      display: none;
+    }
+  
+    &.--active + div {
+      display: block;
+    }
+  }
+}

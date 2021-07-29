@@ -4,33 +4,35 @@
 export default function savePluginOptions() {
   const saveButton = document.getElementById('save_options');
 
-  saveButton.addEventListener('click', function() {
-    var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
-    var colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]');
-    var colorPaletteOptionsObject = {};
-
-    var fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked;
-    var fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]');
-    var fontSizesOptionsObject = {};
-
-    colorPalette.forEach((paletteElement, index) => {
-      colorPaletteOptionsObject[index] = {
-        colorName: paletteElement.querySelector('input[name="color_palette_name"]').value,
-        colorValue: paletteElement.querySelector('input[name="color_palette_value"]').value
-      };
+  if (saveButton) {
+    saveButton.addEventListener('click', function() {
+      var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
+      var colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]');
+      var colorPaletteOptionsObject = {};
+  
+      var fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked;
+      var fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]');
+      var fontSizesOptionsObject = {};
+  
+      colorPalette.forEach((paletteElement, index) => {
+        colorPaletteOptionsObject[index] = {
+          colorName: paletteElement.querySelector('input[name="color_palette_name"]').value,
+          colorValue: paletteElement.querySelector('input[name="color_palette_value"]').value
+        };
+      });
+  
+      
+      fontSizes.forEach((fontSizeElement, index) => {
+        fontSizesOptionsObject[index] = {
+          fontName: fontSizeElement.querySelector('input[name="font_size_name"]').value,
+          fontSize: fontSizeElement.querySelector('input[name="font_size_value"]').value
+        };
+      });
+  
+      savePluginOptionsAjax('colorPallete', colorPaletteOn, colorPaletteOptionsObject);
+      savePluginOptionsAjax('fontSizes', fontSizesOn, fontSizesOptionsObject);
     });
-
-    
-    fontSizes.forEach((fontSizeElement, index) => {
-      fontSizesOptionsObject[index] = {
-        fontName: fontSizeElement.querySelector('input[name="font_size_name"]').value,
-        fontSize: fontSizeElement.querySelector('input[name="font_size_value"]').value
-      };
-    });
-
-    savePluginOptionsAjax('colorPallete', colorPaletteOn, colorPaletteOptionsObject);
-    savePluginOptionsAjax('fontSizes', fontSizesOn, fontSizesOptionsObject);
-  });
+  }
 }
 
 /**

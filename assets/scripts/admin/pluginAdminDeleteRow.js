@@ -4,9 +4,11 @@
 export default function pluginAdminDeleteRow() {
   var deleteButtons = document.getElementsByClassName('button-row-delete');
 
-  Array.from(deleteButtons).forEach(deleteButton => {
-    deleteButton.addEventListener('click', function() {
-      deleteButton.parentNode.parentNode.remove();
+  if (deleteButtons.length > 0) {
+    Array.from(deleteButtons).forEach(deleteButton => {
+      deleteButton.addEventListener('click', function() {
+        deleteButton.parentNode.parentNode.remove();
+      });
     });
-  });
+  }
 }
