@@ -1,12 +1,14 @@
 .wp-block-gutenberg-plus-faq {
   &__heading {
-    
-    &.--collapsed + div {
-      display: none;
+    cursor: pointer;
+
+    & + div {
+      overflow: hidden;
+      transition: max-height 1s ease;
     }
-  
-    &.--active + div {
-      display: block;
+
+    &.--collapsed + div {
+      max-height: 0 !important;
     }
   }
 }

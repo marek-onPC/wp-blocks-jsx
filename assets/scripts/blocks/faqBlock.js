@@ -43,6 +43,7 @@ export function faqBlock() {
           >
             { attributes.heading }
           </h4>
+
           <div className="wp-block-gutenberg-plus-faq__content">
             <InnerBlocks.Content />
           </div>
@@ -56,12 +57,13 @@ export function expandFaq() {
   const faqBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-faq__heading')
 
   faqBlocks.forEach(faqBlock => {
+    faqBlock.nextSibling.style.maxHeight = faqBlock.nextSibling.scrollHeight + 'px';
+    
     faqBlock.addEventListener('click', (e) => {
 
       faqBlocks.forEach(faqBlock => {
         if(e.currentTarget === faqBlock) {
           faqBlock.classList.toggle('--collapsed');
-          faqBlock.classList.toggle('--active');
         }
       });
 
