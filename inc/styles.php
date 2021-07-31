@@ -15,7 +15,13 @@ function gutembergPlusMainScriptAndStyle() {
   wp_enqueue_script(
     'gutenberg-plus-script',
     GUTENBERG_PLUS_URL . 'dist/scripts/main.js',
-    array('wp-blocks', 'wp-editor', 'wp-block-editor')
+    array(
+      'wp-blocks',
+      'wp-editor',
+      'wp-block-editor',
+      'wp-element',
+      'wp-components'
+    )
   );
 };
 add_action('wp_enqueue_scripts', 'gutembergPlusMainScriptAndStyle');
