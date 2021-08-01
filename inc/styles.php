@@ -23,6 +23,8 @@ function gutembergPlusMainScriptAndStyle() {
       'wp-components'
     )
   );
+
+  wp_enqueue_style('dashicons');
 };
 add_action('wp_enqueue_scripts', 'gutembergPlusMainScriptAndStyle');
 add_action('admin_enqueue_scripts', 'gutembergPlusMainScriptAndStyle');
