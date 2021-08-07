@@ -7,7 +7,10 @@ export function faqBlock() {
   const { Fragment } = wp.element;
   const { DropdownMenu } = wp.components;
 
-  registerBlockType('gutenberg-plus/faq', {
+  /**
+   * Register new block - FAQ
+   */
+  registerBlockType('gutenberg-plus/faq-block', {
     title: 'FAQ',
     description: 'FAQ block with clickable heading and collapsible content',
     icon: 'insert-before',
@@ -60,6 +63,9 @@ export function faqBlock() {
         },
       ];
 
+      /**
+       * Render selected heading tag based on user selection (headingTag attribute)
+       */
       function renderTagOptionsIcon(tag) {
         switch(tag) {
           case 'h3':
@@ -142,20 +148,25 @@ export function faqBlock() {
   });
 }
 
+/**
+ * FAQ answer show/hide CSS class toggle function (on front-end)
+ */
 export function expandFaq() {
   const faqBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-faq__heading')
 
-  faqBlocks.forEach(faqBlock => {
-    faqBlock.nextSibling.style.maxHeight = faqBlock.nextSibling.scrollHeight + 'px';
-    
-    faqBlock.addEventListener('click', (e) => {
-
-      faqBlocks.forEach(faqBlock => {
-        if(e.currentTarget === faqBlock) {
-          faqBlock.classList.toggle('--collapsed');
-        }
-      });
-
-    })
-  });
+  if(faqBlocks.length > 0) {
+    faqBlocks.forEach(faqBlock => {
+      faqBlock.nextSibling.style.maxHeight = faqBlock.nextSibling.scrollHeight + 'px';
+      
+      faqBlock.addEventListener('click', (e) => {
+  
+        faqBlocks.forEach(faqBlock => {
+          if(e.currentTarget === faqBlock) {
+            faqBlock.classList.toggle('--collapsed');
+          }
+        });
+  
+      })
+    });
+  }
 }
