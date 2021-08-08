@@ -137,7 +137,18 @@ export function imageComparisonBlock() {
 
     save({ attributes }) {
       return (
-        <div>
+        <div style={ attributes.imagesPosition == 'initial' ? { flexDirection: 'row' } : { flexDirection: 'row-reverse' } }>
+          <div className="wp-block-gutenberg-plus-image-comparison-block__image">
+            <img
+              src={ attributes.imageOne.imageSrc }
+            />
+          </div>
+          <div class="wp-block-gutenberg-plus-image-comparison-block__slider"></div>
+          <div className="wp-block-gutenberg-plus-image-comparison-block__image">
+            <img
+              src={ attributes.imageTwo.imageSrc }
+            />
+          </div>
         </div>
       )
     }

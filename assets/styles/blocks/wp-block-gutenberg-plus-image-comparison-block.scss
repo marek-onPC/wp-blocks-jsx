@@ -1,0 +1,45 @@
+.wp-block-gutenberg-plus-image-comparison-block {
+  position: relative;
+
+  /* Height defined here only during development stage */
+  height: 500px;
+
+  &__image {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__slider {
+    width: 40px;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 1;
+    cursor: col-resize;
+    position: absolute;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 3px;
+      background-color: #fff;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+    }
+  }
+}

@@ -1,9 +1,9 @@
-.wp-block-gutenberg-plus-faq {
+.wp-block-gutenberg-plus-faq-block {
   &__heading {
     cursor: pointer;
     position: relative;
 
-    &:after {
+    &::after {
       position: absolute;
       top: calc(50% - 10px);
       right: 10px;
@@ -11,7 +11,7 @@
       content: "\f345";
       width: 20px;
       height: 20px;
-      font: normal 20px/2 'dashicons';
+      font: normal 20px/2 'dashicons', sans-serif;
       line-height: 19px;
       -webkit-font-smoothing: antialiased;
       transform: rotateZ(90deg);
@@ -19,7 +19,7 @@
       transition: transform 1s ease;
     }
 
-    &.--collapsed:after {
+    &.--collapsed::after {
       transform: rotateZ(0deg);
     }
 
