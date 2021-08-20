@@ -136,7 +136,6 @@ export function faqBlock() {
             tagName={ attributes.headingTag }
             value={ attributes.heading }
             className="wp-block-gutenberg-plus-faq-block__heading --collapsed"
-            onClick={ expandFaq }
           />
 
           <div className="wp-block-gutenberg-plus-faq-block__content">
@@ -151,8 +150,8 @@ export function faqBlock() {
 /**
  * FAQ answer show/hide CSS class toggle function (on front-end)
  */
-export function expandFaq() {
-  const faqBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-faq-block__heading')
+export function faqBlockFront() {
+  const faqBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-faq-block__heading');
 
   if(faqBlocks.length > 0) {
     faqBlocks.forEach(faqBlock => {

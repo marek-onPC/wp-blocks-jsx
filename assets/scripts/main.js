@@ -1,8 +1,9 @@
-import { faqBlock, expandFaq } from './blocks/faqBlock';
-import { imageComparisonBlock } from './blocks/imageComparisonBlock';
+import { faqBlock, faqBlockFront } from './blocks/faqBlock';
+import { imageComparisonBlock, imageComparisonBlockFront } from './blocks/imageComparisonBlock';
 faqBlock();
 imageComparisonBlock();
 
 document.addEventListener("DOMContentLoaded", function(){
-  expandFaq();
+  faqBlockFront();
+  imageComparisonBlockFront();
 });
