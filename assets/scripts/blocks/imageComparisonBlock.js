@@ -1,8 +1,8 @@
 export function imageComparisonBlock() {
   const { registerBlockType } = wp.blocks;
-  const { MediaUpload, MediaUploadCheck, MediaPlaceholder, BlockControls  } = wp.editor;
+  const { MediaUpload, MediaUploadCheck, MediaPlaceholder, BlockControls, InspectorControls } = wp.editor;
   const { Fragment } = wp.element;
-  const { Toolbar } = wp.components;
+  const { Toolbar, PanelBody, Button } = wp.components;
 
   /**
    * Register new block - Image Comparison
@@ -43,14 +43,14 @@ export function imageComparisonBlock() {
       /**
        * Conditional image box rendering covered by separate functions
        */
-      function imageOnePlaceholder(openEvent) {
+      function imageOnePlaceholder(openEvent, widthOn) {
         if(attributes.imageOne) {
           return (
             <img
               src={ attributes.imageOne.imageSrc }
               onClick={ openEvent }
               className="image"
-              style={ { width: 'calc(50% - 40px)', margin: '20px' } }
+              style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
             />
           );
         }
@@ -61,21 +61,21 @@ export function imageComparisonBlock() {
               allowedTypes={ ['image'] }
               multiple={ false }
               labels={ { title: 'Upload' } }
-              style={ { width: 'calc(50% - 40px)', margin: '20px' } }
+              style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
             >
             </MediaPlaceholder>
           );
         }
       };
 
-      function imageTwoPlaceholder(openEvent) {
+      function imageTwoPlaceholder(openEvent, widthOn) {
         if(attributes.imageTwo) {
           return (
             <img
               src={ attributes.imageTwo.imageSrc }
               onClick={ openEvent }
               className="image"
-              style={ { width: 'calc(50% - 40px)', margin: '20px' } }
+              style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
             />
           );
         }
@@ -86,11 +86,21 @@ export function imageComparisonBlock() {
               allowedTypes={ ['image'] }
               multiple={ false }
               labels={ { title: 'Upload' } }
-              style={ { width: 'calc(50% - 40px)', margin: '20px' } }
+              style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
             >
             </MediaPlaceholder>
           );
         }
+      };
+
+      /**
+       * Image removal function - reseting image attributes
+       */
+      function removeImageOne() {
+        setAttributes({ imageOne: null })
+      };
+      function removeImageTwo() {
+        setAttributes({ imageTwo: null })
       };
 
       /**
@@ -113,6 +123,51 @@ export function imageComparisonBlock() {
 
       return (
         <Fragment>
+          <InspectorControls style={ { marginBottom: '40px' } }>
+            <PanelBody title={'Images settings'}>
+              <p><strong>Select images to compare:</strong></p>
+
+              <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', flexDirection: 'column' } : { display: 'flex', flexDirection: 'column-reverse' } }>
+                <div
+                  style={ { display: 'flex', flexDirection: 'column', marginBottom: '20px' } }
+                >
+                  <MediaUploadCheck>
+                    <MediaUpload
+                      onSelect={ media => { setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }) } }
+                      type="image"
+                      render={ ({ open }) => imageOnePlaceholder(open) }
+                    />
+                    <Button onClick={ removeImageOne }
+                      isLink 
+                      isDestructive
+                      style={ { margin: 'auto' } }
+                    >
+                    Remove image
+                    </Button>
+                  </MediaUploadCheck>
+                </div>
+
+                <div
+                  style={ { display: 'flex', flexDirection: 'column', marginBottom: '20px' } }
+                >
+                  <MediaUploadCheck>
+                    <MediaUpload
+                      onSelect={ media => { setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } }) } }
+                      type="image"
+                      render={ ({ open }) => imageTwoPlaceholder(open) }
+                    />
+                    <Button onClick={ removeImageTwo }
+                      isLink 
+                      isDestructive
+                      style={ { margin: 'auto' } }
+                    >
+                    Remove image
+                    </Button>
+                  </MediaUploadCheck>
+                </div>
+              </div>
+            </PanelBody>
+          </InspectorControls>
           <BlockControls>
             <Toolbar controls={ toolbarOptions } />
           </BlockControls>
@@ -122,14 +177,14 @@ export function imageComparisonBlock() {
                 <MediaUpload
                   onSelect={ media => { setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }) } }
                   type="image"
-                  render={ ({ open }) => imageOnePlaceholder(open) }
+                  render={ ({ open }) => imageOnePlaceholder(open, true) }
                 />
               </MediaUploadCheck>
               <MediaUploadCheck>
                 <MediaUpload
                   onSelect={ media => { setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } }) } }
                   type="image"
-                  render={ ({ open }) => imageTwoPlaceholder(open) }
+                  render={ ({ open }) => imageTwoPlaceholder(open, true) }
                 />
               </MediaUploadCheck>
             </div>
@@ -140,16 +195,16 @@ export function imageComparisonBlock() {
 
     save({ attributes }) {
       return (
-        <div style={ attributes.imagesPosition == 'initial' ? { flexDirection: 'row' } : { flexDirection: 'row-reverse' } }>
+        <div>
           <div className="wp-block-gutenberg-plus-image-comparison-block__image">
             <img
-              src={ attributes.imageOne.imageSrc }
+              src={ attributes.imagesPosition == 'initial' ? attributes.imageTwo.imageSrc : attributes.imageOne.imageSrc }
             />
           </div>
           <div class="wp-block-gutenberg-plus-image-comparison-block__slider"></div>
           <div className="wp-block-gutenberg-plus-image-comparison-block__image">
             <img
-              src={ attributes.imageTwo.imageSrc }
+              src={ attributes.imagesPosition == 'initial' ? attributes.imageOne.imageSrc : attributes.imageTwo.imageSrc }
             />
           </div>
         </div>
@@ -188,7 +243,6 @@ export function imageComparisonBlock() {
     imageToComparison[1].style.width = (universalWidth / 2) + 'px';
     comparisonSlider.style.top = (universalHeight / 2) - (comparisonSlider.offsetHeight / 2) + 'px';
     comparisonSlider.style.left = (universalWidth / 2) - (comparisonSlider.offsetWidth / 2) + 'px';
-
 
     /**
      * Detect click/touch event
