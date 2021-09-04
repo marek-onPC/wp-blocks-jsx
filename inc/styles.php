@@ -39,6 +39,9 @@ function gutembergPlusBlocksRegistration() {
   register_block_type( 'gutenberg-plus/image-comparison-block', array(
     'editor_script' => 'gutenberg-plus-script'
   ));
+  register_block_type( 'gutenberg-plus/modal-block', array(
+    'editor_script' => 'gutenberg-plus-script'
+  ));
 };
 add_action('init', 'gutembergPlusBlocksRegistration');
 
