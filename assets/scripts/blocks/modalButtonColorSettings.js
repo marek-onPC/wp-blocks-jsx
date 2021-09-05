@@ -1,14 +1,15 @@
+import { GutenbergPlusFontSizePicker } from './GutenbergPlusFontSizePicker'
+
 const { Button } = wp.components;
 const { RichText, InspectorControls } = wp.editor;
 const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
 
-export const modalPanelColorSettings = (props) => {
-  console.log(props)
+export const modalButtonColorSettings = (props) => {
   const { attributes, setAttributes, buttonTextColor, setButtonTextColor, buttonBgColor, setButtonBgColor } = props;
 
   function buttonTextUpdate(buttonText) {
-    setAttributes({ buttonText: buttonText })
+    setAttributes({ buttonText: buttonText });
   }
 
   return(
@@ -29,6 +30,7 @@ export const modalPanelColorSettings = (props) => {
             },
           ]}
         />
+        <GutenbergPlusFontSizePicker/>
       </InspectorControls>
       <div>
         <Button 

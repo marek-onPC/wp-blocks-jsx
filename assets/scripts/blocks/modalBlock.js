@@ -1,4 +1,4 @@
-import { modalPanelColorSettings } from './modalPanelColorSettings';
+import { modalButtonColorSettings } from './modalButtonColorSettings';
 
 export function modalBlock() {
   const { registerBlockType } = wp.blocks;
@@ -27,7 +27,7 @@ export function modalBlock() {
       }
     },
 
-    edit: withColors({ buttonTextColor: 'color', buttonBgColor: 'background-color' })(modalPanelColorSettings),
+    edit: withColors({ buttonTextColor: 'color', buttonBgColor: 'background-color' })(modalButtonColorSettings),
 
     save({ attributes }) {
       return (
