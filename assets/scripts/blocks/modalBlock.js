@@ -1,9 +1,8 @@
+import { modalPanelColorSettings } from './modalPanelColorSettings';
+
 export function modalBlock() {
   const { registerBlockType } = wp.blocks;
-  const { Button, PanelBody } = wp.components;
-  const { RichText, InspectorControls } = wp.editor;
-  const { InnerBlocks } = wp.blockEditor;
-  const { Fragment } = wp.element;
+  const { withColors } = wp.blockEditor;
 
   /**
    * Register new block - Modal
@@ -28,43 +27,7 @@ export function modalBlock() {
       }
     },
 
-    edit({ attributes, setAttributes }) {
-      function buttonTextUpdate(buttonText) {
-        setAttributes({ buttonText: buttonText })
-      }
-
-      return (
-        <Fragment>
-          <InspectorControls style={ { marginBottom: '40px' } }>
-            <PanelBody title={'Color settings'}>
-              <p><strong>Select colors:</strong></p>
-
-            </PanelBody>
-          </InspectorControls>
-          <div>
-            <Button 
-              isDefault
-              style={ {
-                borderRadius: 0,
-                boxShadow: 'none'
-              } }
-            >
-              <RichText
-                allowedFormats={ [] }
-                placeholder="Button text"
-                value={ attributes.button }
-                onChange={ buttonTextUpdate }
-              />
-            </Button>
-            <div
-              style={ {  padding: '20px' } }
-            >
-              <InnerBlocks />
-            </div>
-          </div>
-        </Fragment>
-      )
-    },
+    edit: withColors({ buttonTextColor: 'color', buttonBgColor: 'background-color' })(modalPanelColorSettings),
 
     save({ attributes }) {
       return (
