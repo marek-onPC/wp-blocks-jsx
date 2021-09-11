@@ -12,6 +12,14 @@ export const modalButtonColorSettings = (props) => {
     setAttributes({ buttonText: buttonText });
   }
 
+  if (buttonTextColor.color === undefined) {
+    buttonTextColor.color = '#222222'
+  }
+
+  if (buttonBgColor.color === undefined) {
+    buttonBgColor.color = '#ffffff'
+  }
+
   return(
     <Fragment>
       <InspectorControls>
@@ -30,31 +38,37 @@ export const modalButtonColorSettings = (props) => {
             },
           ]}
         />
-        <GutenbergPlusFontSizePicker/>
+        <GutenbergPlusFontSizePicker {...props} />
       </InspectorControls>
       <div>
-        <Button 
-          isDefault
-          style={ {
-            borderRadius: 0,
-            boxShadow: 'none',
-            color: buttonTextColor.color,
-            backgroundColor: buttonBgColor.color
-          } }
+        <div style={ { display: 'flex', justifyContent: 'flex-start' } }>
+          <Button 
+            isDefault
+            style={ {
+              height: 'auto',
+              color: buttonTextColor.color,
+              backgroundColor: buttonBgColor.color,
+              borderRadius: 0,
+              boxShadow: 'none'
+            } }
+          >
+            <RichText
+              allowedFormats={ [] }
+              placeholder="Button text"
+              value={ attributes.buttonText }
+              onChange={ buttonTextUpdate }
+              style={ {
+                fontSize: attributes.buttonTextSize,
+              } }
+            />
+          </Button>
+        </div>
+        <div
+          style={ {  padding: '0 10px' } }
         >
-        <RichText
-          allowedFormats={ [] }
-          placeholder="Button text"
-          value={ attributes.buttonText }
-          onChange={ buttonTextUpdate }
-        />
-      </Button>
-      <div
-        style={ {  padding: '0 10px' } }
-      >
-        <InnerBlocks />
+          <InnerBlocks />
+        </div>
       </div>
-    </div>
-  </Fragment>
+    </Fragment>
 	);
 }
