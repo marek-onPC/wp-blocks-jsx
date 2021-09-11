@@ -1,9 +1,10 @@
 import { GutenbergPlusFontSizePicker } from './GutenbergPlusFontSizePicker'
 
-const { Button } = wp.components;
-const { RichText, InspectorControls } = wp.editor;
+const { Button, Toolbar } = wp.components;
+const { RichText, InspectorControls, BlockControls } = wp.editor;
 const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
+
 
 export const modalButtonColorSettings = (props) => {
   const { attributes, setAttributes, buttonTextColor, setButtonTextColor, buttonBgColor, setButtonBgColor } = props;
@@ -19,6 +20,30 @@ export const modalButtonColorSettings = (props) => {
   if (buttonBgColor.color === undefined) {
     buttonBgColor.color = '#ffffff'
   }
+
+  /**
+   * Toolbar options for selecting button's position
+   */
+  const toolbarOptions = [
+    {
+      icon: 'align-left',
+      title: 'Align button to left',
+      isActive: attributes.buttonPosition === 'flex-start',
+      onClick: () => setAttributes( { buttonPosition: 'flex-start' } ),
+    },
+    {
+      icon: 'align-center',
+      title: 'Align button to center',
+      isActive: attributes.buttonPosition === 'center',
+      onClick: () => setAttributes( { buttonPosition: 'center' } ),
+    },
+    {
+      icon: 'align-right',
+      title: 'Align button to right',
+      isActive: attributes.buttonPosition === 'flex-end',
+      onClick: () => setAttributes( { buttonPosition: 'flex-end' } ),
+    },
+  ];
 
   return(
     <Fragment>
@@ -40,8 +65,11 @@ export const modalButtonColorSettings = (props) => {
         />
         <GutenbergPlusFontSizePicker {...props} />
       </InspectorControls>
+      <BlockControls>
+        <Toolbar controls={ toolbarOptions } />
+      </BlockControls>
       <div>
-        <div style={ { display: 'flex', justifyContent: 'flex-start' } }>
+        <div style={ { display: 'flex', justifyContent: attributes.buttonPosition } }>
           <Button 
             isDefault
             style={ {

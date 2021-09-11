@@ -25,6 +25,10 @@ export function modalBlock() {
       },
       buttonBgColor: {
         type: 'string'
+      },
+      buttonPosition: {
+        type: 'string',
+        default: 'flex-start'
       }
     },
 
