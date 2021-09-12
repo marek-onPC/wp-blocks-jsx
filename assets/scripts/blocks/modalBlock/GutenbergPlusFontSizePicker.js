@@ -1,6 +1,11 @@
 const { FontSizePicker } = wp.components;
 const { useSelect } = wp.data;
- 
+
+/**
+ * Component to cover Modal block's font size picking functionality
+ *  
+ * @param {props} props to store block's data and attributes
+ */
 export const GutenbergPlusFontSizePicker = (props) => {
   const { attributes, setAttributes } = props;
   const fallbackFontSize = 16;

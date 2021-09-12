@@ -5,8 +5,12 @@ const { RichText, InspectorControls, BlockControls } = wp.editor;
 const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
 
-
-export const modalButtonColorSettings = (props) => {
+/**
+ * Edit function for Modal block's Gutenberg Block Editor functionality
+ *  
+ * @param {props} props to store block's data and attributes
+ */
+export const edit = (props) => {
   const { attributes, setAttributes, buttonTextColor, setButtonTextColor, buttonBgColor, setButtonBgColor } = props;
 
   function buttonTextUpdate(buttonText) {

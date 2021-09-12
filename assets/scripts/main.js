@@ -1,6 +1,8 @@
-import { faqBlock, faqBlockFront } from './blocks/faqBlock';
-import { imageComparisonBlock, imageComparisonBlockFront } from './blocks/imageComparisonBlock';
-import { modalBlock } from './blocks/modalBlock';
+import { faqBlock } from './blocks/faqBlock/faqBlock';
+import { faqBlockFront } from './blocks/faqBlock/faqBlockFront';
+import { imageComparisonBlock } from './blocks/imageComparisonBlock/imageComparisonBlock';
+import { imageComparisonBlockFront } from './blocks/imageComparisonBlock/imageComparisonBlockFront';
+import { modalBlock } from './blocks/modalBlock/modalBlock';
 
 faqBlock();
 imageComparisonBlock();
