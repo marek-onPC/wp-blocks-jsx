@@ -1,7 +1,7 @@
 import { edit } from './edit';
+import { save } from './save';
 
 const { registerBlockType } = wp.blocks;
-const { withColors } = wp.blockEditor;
 
 export function modalBlock() {
 
@@ -33,14 +33,8 @@ export function modalBlock() {
       }
     },
 
-    edit: withColors({ buttonTextColor: 'color', buttonBgColor: 'background-color' })(edit),
+    edit: edit,
 
-    save({ attributes }) {
-      return (
-        <div>
-
-        </div>
-      )
-    }
+    save: save
   });
 }

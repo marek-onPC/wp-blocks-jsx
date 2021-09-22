@@ -11,18 +11,26 @@ const { Fragment } = wp.element;
  * @param {props} props to store block's data and attributes
  */
 export const edit = (props) => {
-  const { attributes, setAttributes, buttonTextColor, setButtonTextColor, buttonBgColor, setButtonBgColor } = props;
+  const { attributes, setAttributes } = props;
 
   function buttonTextUpdate(buttonText) {
     setAttributes({ buttonText: buttonText });
   }
 
-  if (buttonTextColor.color === undefined) {
-    buttonTextColor.color = '#222222'
+  function buttonTextColorUpdate(buttonTextColor) {
+    setAttributes({ buttonTextColor: buttonTextColor });
   }
 
-  if (buttonBgColor.color === undefined) {
-    buttonBgColor.color = '#ffffff'
+  function buttonBgColorUpdate(buttonBgColor) {
+    setAttributes({ buttonBgColor: buttonBgColor });
+  }
+
+  if (attributes.buttonTextColor === undefined) {
+    setAttributes({ buttonTextColor: '#222222' });
+  }
+
+  if (attributes.buttonBgColor === undefined) {
+    setAttributes({ buttonBgColor: '#ffffff' });
   }
 
   /**
@@ -56,13 +64,13 @@ export const edit = (props) => {
           title="Color settings"
           colorSettings={[
             {
-              value: buttonTextColor.color,
-              onChange: setButtonTextColor,
+              value: attributes.buttonTextColor,
+              onChange: buttonTextColorUpdate,
               label: "Text color"
             },
             {
-              value: buttonBgColor.color,
-              onChange: setButtonBgColor,
+              value: attributes.buttonBgColor,
+              onChange: buttonBgColorUpdate,
               label: "Background color"
             },
           ]}
@@ -78,8 +86,8 @@ export const edit = (props) => {
             isDefault
             style={ {
               height: 'auto',
-              color: buttonTextColor.color,
-              backgroundColor: buttonBgColor.color,
+              color: attributes.buttonTextColor,
+              backgroundColor: attributes.buttonBgColor,
               borderRadius: 0,
               boxShadow: 'none'
             } }
