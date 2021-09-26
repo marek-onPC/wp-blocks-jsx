@@ -13,12 +13,12 @@ export const save = (props) => {
           src={ attributes.imagesPosition == 'initial' ? attributes.imageTwo.imageSrc : attributes.imageOne.imageSrc }
         />
       </div>
-      <div class="wp-block-gutenberg-plus-image-comparison-block__slider"></div>
+      <div className="wp-block-gutenberg-plus-image-comparison-block__slider"></div>
       <div className="wp-block-gutenberg-plus-image-comparison-block__image">
         <img
           src={ attributes.imagesPosition == 'initial' ? attributes.imageOne.imageSrc : attributes.imageTwo.imageSrc }
         />
       </div>
     </div>
-  )
-}
+  );
+};

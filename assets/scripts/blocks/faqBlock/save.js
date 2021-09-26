@@ -21,5 +21,5 @@ export const save = (props) => {
         <InnerBlocks.Content />
       </div>
     </div>
-  )
-}
+  );
+};

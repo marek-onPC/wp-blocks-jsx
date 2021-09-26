@@ -1,4 +1,4 @@
-import { GutenbergPlusFontSizePicker } from './GutenbergPlusFontSizePicker'
+import { GutenbergPlusFontSizePicker } from './GutenbergPlusFontSizePicker';
 
 const { Button, Toolbar } = wp.components;
 const { RichText, InspectorControls, BlockControls } = wp.editor;
@@ -111,4 +111,4 @@ export const edit = (props) => {
       </div>
     </Fragment>
 	);
-}
+};

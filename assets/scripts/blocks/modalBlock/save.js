@@ -28,11 +28,11 @@ const { InnerBlocks } = wp.blockEditor;
         </Button>
       </div>
       <div className="wp-block-gutenberg-plus-modal-block__modal">
-        <div class="wp-block-gutenberg-plus-modal-block__content">
-          <span class="wp-block-gutenberg-plus-modal-block__close">&times;</span>
+        <div className="wp-block-gutenberg-plus-modal-block__content">
+          <span className="wp-block-gutenberg-plus-modal-block__close">&times;</span>
           <InnerBlocks.Content />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

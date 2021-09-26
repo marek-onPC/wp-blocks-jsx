@@ -1,4 +1,4 @@
-import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons'
+import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons';
 
 const { RichText, BlockControls } = wp.editor;
 const { InnerBlocks } = wp.blockEditor;
@@ -14,7 +14,7 @@ export const edit = (props) => {
   const { attributes, setAttributes } = props;
 
   function headingUpdate(heading) {
-    setAttributes({ heading: heading })
+    setAttributes({ heading: heading });
   }
 
   /**
@@ -78,7 +78,7 @@ export const edit = (props) => {
       default:
         return pIcon;
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -118,5 +118,5 @@ export const edit = (props) => {
         <InnerBlocks />
       </div>
     </Fragment>
-  )
-}
+  );
+};

@@ -19,7 +19,7 @@ export const GutenbergPlusFontSizePicker = (props) => {
       name: fontSize.name,
       slug: fontSize.slug,
       size: fontSize.size,
-    })
+    });
   });
 
   function buttonTextSize(buttonTextSize) {

@@ -30,7 +30,9 @@ export const edit = (props) => {
     else {
       return (
         <MediaPlaceholder
-          onSelect={ media => { setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }) } }
+          onSelect={ media => { 
+            setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }); 
+          } }
           allowedTypes={ ['image'] }
           multiple={ false }
           labels={ { title: 'Upload' } }
@@ -39,7 +41,7 @@ export const edit = (props) => {
         </MediaPlaceholder>
       );
     }
-  };
+  }
 
   function imageTwoPlaceholder(openEvent, widthOn) {
     if(attributes.imageTwo) {
@@ -55,7 +57,9 @@ export const edit = (props) => {
     else {
       return (
         <MediaPlaceholder
-          onSelect={ media => { setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } }) } }
+          onSelect={ media => { 
+            setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
+          } }
           allowedTypes={ ['image'] }
           multiple={ false }
           labels={ { title: 'Upload' } }
@@ -64,17 +68,17 @@ export const edit = (props) => {
         </MediaPlaceholder>
       );
     }
-  };
+  }
 
   /**
    * Image removal function - reseting image attributes
    */
   function removeImageOne() {
-    setAttributes({ imageOne: null })
-  };
+    setAttributes({ imageOne: null });
+  }
   function removeImageTwo() {
-    setAttributes({ imageTwo: null })
-  };
+    setAttributes({ imageTwo: null });
+  }
 
   /**
    * Toolbar options for image position selection in Gutenberg Editor
@@ -106,7 +110,9 @@ export const edit = (props) => {
             >
               <MediaUploadCheck>
                 <MediaUpload
-                  onSelect={ media => { setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }) } }
+                  onSelect={ media => { 
+                    setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } });
+                  } }
                   type="image"
                   render={ ({ open }) => imageOnePlaceholder(open) }
                 />
@@ -125,7 +131,9 @@ export const edit = (props) => {
             >
               <MediaUploadCheck>
                 <MediaUpload
-                  onSelect={ media => { setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } }) } }
+                  onSelect={ media => { 
+                    setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
+                  } }
                   type="image"
                   render={ ({ open }) => imageTwoPlaceholder(open) }
                 />
@@ -148,14 +156,18 @@ export const edit = (props) => {
         <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', flexDirection: 'row' } : { display: 'flex', flexDirection: 'row-reverse' } }>
           <MediaUploadCheck>
             <MediaUpload
-              onSelect={ media => { setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }) } }
+              onSelect={ media => { 
+                setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } });
+              } }
               type="image"
               render={ ({ open }) => imageOnePlaceholder(open, true) }
             />
           </MediaUploadCheck>
           <MediaUploadCheck>
             <MediaUpload
-              onSelect={ media => { setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } }) } }
+              onSelect={ media => { 
+                setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
+              } }
               type="image"
               render={ ({ open }) => imageTwoPlaceholder(open, true) }
             />
@@ -163,5 +175,5 @@ export const edit = (props) => {
         </div>
       </div>
     </Fragment>
-  )
-}
+  );
+};

@@ -1,7 +1,15 @@
 {
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
+  },
+  "globals": {
+      "wp": "readonly"
   },
   "env": {
       "browser": true,
