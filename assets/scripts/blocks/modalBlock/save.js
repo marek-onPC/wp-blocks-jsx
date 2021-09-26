@@ -11,7 +11,7 @@ const { InnerBlocks } = wp.blockEditor;
   const { attributes } = props;
 
   return (
-    <div>
+    <div className="wp-block-gutenberg-plus-modal-block">
       <div style={ { display: 'flex', justifyContent: attributes.buttonPosition } }>
         <Button
           className="wp-block-gutenberg-plus-modal-block__button"
@@ -29,7 +29,7 @@ const { InnerBlocks } = wp.blockEditor;
       </div>
       <div className="wp-block-gutenberg-plus-modal-block__modal">
         <div class="wp-block-gutenberg-plus-modal-block__content">
-          <span class="close">&times;</span>
+          <span class="wp-block-gutenberg-plus-modal-block__close">&times;</span>
           <InnerBlocks.Content />
         </div>
       </div>

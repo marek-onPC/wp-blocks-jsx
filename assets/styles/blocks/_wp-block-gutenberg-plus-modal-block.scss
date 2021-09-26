@@ -1,0 +1,39 @@
+.wp-block-gutenberg-plus-modal-block {
+  &__modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.4);
+    overflow: auto;
+    z-index: 1;
+
+    &.--active {
+      display: block;
+    }
+  }
+
+  &__content {
+    width: 85%;
+    background-color: #fff;
+    padding: 15px 30px 30px;
+    margin: 10% auto;
+  }
+
+  &__close {
+    color: #333;
+    float: right;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
