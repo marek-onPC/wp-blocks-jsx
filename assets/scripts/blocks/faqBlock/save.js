@@ -15,6 +15,16 @@ export const save = (props) => {
         tagName={ attributes.headingTag }
         value={ attributes.heading }
         className="wp-block-gutenberg-plus-faq-block__heading --collapsed"
+        style={ attributes.headingBgColor
+          ? {
+            color: attributes.headingTextColor,
+            backgroundColor: attributes.headingBgColor,
+            padding: '15px 25px'
+          } 
+          : {
+            color: attributes.headingTextColor,
+          } 
+        }
       />
 
       <div className="wp-block-gutenberg-plus-faq-block__content">

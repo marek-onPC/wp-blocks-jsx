@@ -20,7 +20,13 @@ export function faqBlock() {
       headingTag: {
         type: 'string',
         default: 'p'
-      }
+      },
+      headingTextColor: {
+        type: 'string'
+      },
+      headingBgColor: {
+        type: 'string'
+      },
     },
 
     edit: edit,

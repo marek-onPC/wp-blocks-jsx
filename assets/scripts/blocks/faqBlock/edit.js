@@ -1,7 +1,7 @@
 import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons';
 
-const { RichText, BlockControls } = wp.editor;
-const { InnerBlocks } = wp.blockEditor;
+const { RichText, BlockControls, InspectorControls } = wp.editor;
+const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
 const { DropdownMenu } = wp.components;
 
@@ -15,6 +15,14 @@ export const edit = (props) => {
 
   function headingUpdate(heading) {
     setAttributes({ heading: heading });
+  }
+
+  function headingTextColorUpdate(headingTextColor) {
+    setAttributes({ headingTextColor: headingTextColor });
+  }
+
+  function headingBgColorUpdate(headingBgColor) {
+    setAttributes({ headingBgColor: headingBgColor });
   }
 
   /**
@@ -98,6 +106,23 @@ export const edit = (props) => {
           }\
         "}
       </style>
+      <InspectorControls>
+        <PanelColorSettings 
+          title="Heading colors"
+          colorSettings={[
+            {
+              value: attributes.headingTextColor,
+              onChange: headingTextColorUpdate,
+              label: "Text color"
+            },
+            {
+              value: attributes.headingBgColor,
+              onChange: headingBgColorUpdate,
+              label: "Background color"
+            },
+          ]}
+        />
+      </InspectorControls>
       <BlockControls>
         <div className="gutenberg-plus-toolbar">
         <DropdownMenu
@@ -114,6 +139,16 @@ export const edit = (props) => {
           placeholder="FAQ heading"
           value={ attributes.heading }
           onChange={ headingUpdate }
+          style={ attributes.headingBgColor
+            ? {
+              color: attributes.headingTextColor,
+              backgroundColor: attributes.headingBgColor,
+              padding: '15px 25px'
+            } 
+            : {
+              color: attributes.headingTextColor,
+            } 
+          }
         />
         <InnerBlocks />
       </div>
