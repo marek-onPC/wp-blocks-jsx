@@ -12,10 +12,19 @@
       
       modalButton.addEventListener('click', () => {
         modalBox.classList.toggle('--active');
+        document.body.classList.toggle('--modal');
       });
       
       modalClose.addEventListener('click', () => {
         modalBox.classList.remove('--active');
+        document.body.classList.toggle('--modal');
+      });
+      
+      modalBox.addEventListener('click', (e) => {
+        if (e.target === modalBox) {
+          modalBox.classList.remove('--active');
+          document.body.classList.toggle('--modal');
+        }
       });
     });
   }

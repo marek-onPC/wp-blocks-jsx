@@ -61,7 +61,7 @@ export const edit = (props) => {
     <Fragment>
       <InspectorControls>
         <PanelColorSettings 
-          title="Color settings"
+          title="Button colors"
           colorSettings={[
             {
               value: attributes.buttonTextColor,
@@ -89,7 +89,8 @@ export const edit = (props) => {
               color: attributes.buttonTextColor,
               backgroundColor: attributes.buttonBgColor,
               borderRadius: 0,
-              boxShadow: 'none'
+              boxShadow: 'none',
+              padding: '15px 25px'
             } }
           >
             <RichText
