@@ -1,9 +1,10 @@
-import { GutenbergPlusFontSizePicker } from './GutenbergPlusFontSizePicker';
+import GutenbergPlusFontSizePicker from '../../components/GutenbergPlusFontSizePicker';
 
-const { Button, Toolbar } = wp.components;
+const { Button, Toolbar, PanelBody } = wp.components;
 const { RichText, InspectorControls, BlockControls } = wp.editor;
 const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
+const { useSelect } = wp.data;
 
 /**
  * Edit function for Modal block's Gutenberg Block Editor functionality
@@ -12,6 +13,21 @@ const { Fragment } = wp.element;
  */
 export const edit = (props) => {
   const { attributes, setAttributes } = props;
+  const editorFontSizes = useSelect(( select ) => {
+    return select('core').getThemeSupports();
+  });
+
+  var fontSizes = [];
+
+  if (editorFontSizes['editor-font-sizes']) {
+    editorFontSizes['editor-font-sizes'].map(function(fontSize) {
+      fontSizes.push({
+        name: fontSize.name,
+        slug: fontSize.slug,
+        size: fontSize.size,
+      });
+    });
+  }
 
   function buttonTextUpdate(buttonText) {
     setAttributes({ buttonText: buttonText });
@@ -31,6 +47,10 @@ export const edit = (props) => {
 
   if (attributes.buttonBgColor === undefined) {
     setAttributes({ buttonBgColor: '#ffffff' });
+  }
+
+  function handleFontPickerCallback(fontPickerData) {
+    setAttributes({ buttonTextSize: fontPickerData });
   }
 
   /**
@@ -75,7 +95,13 @@ export const edit = (props) => {
             },
           ]}
         />
-        <GutenbergPlusFontSizePicker {...props} />
+        <PanelBody title={'Button font size'}>
+          <GutenbergPlusFontSizePicker 
+            selectedFontSize={ attributes.buttonTextSize }
+            fontSizes={ fontSizes }
+            fontPickerCallback={ handleFontPickerCallback }
+          />
+        </PanelBody>
       </InspectorControls>
       <BlockControls>
         <Toolbar controls={ toolbarOptions } />
@@ -98,7 +124,8 @@ export const edit = (props) => {
               placeholder="Button text"
               value={ attributes.buttonText }
               onChange={ buttonTextUpdate }
-              style={ {
+              style={ Number.isInteger(attributes.buttonTextSize) 
+              && {
                 fontSize: attributes.buttonTextSize,
               } }
             />

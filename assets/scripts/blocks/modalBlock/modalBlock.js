@@ -18,8 +18,7 @@ export function modalBlock() {
         type: 'string'
       },
       buttonTextSize: {
-        type: 'number',
-        default: 16
+        type: 'number'
       },
       buttonTextColor: {
         type: 'string'

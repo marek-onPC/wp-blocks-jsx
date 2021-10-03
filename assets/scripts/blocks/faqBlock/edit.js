@@ -1,9 +1,11 @@
 import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons';
+import GutenbergPlusFontSizePicker from '../../components/GutenbergPlusFontSizePicker';
 
 const { RichText, BlockControls, InspectorControls } = wp.editor;
 const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
 const { Fragment } = wp.element;
-const { DropdownMenu } = wp.components;
+const { DropdownMenu, PanelBody } = wp.components;
+const { useSelect } = wp.data;
 
 /**
  * Edit function for FAQ block's Gutenberg Block Editor functionality
@@ -12,6 +14,21 @@ const { DropdownMenu } = wp.components;
  */
 export const edit = (props) => {
   const { attributes, setAttributes } = props;
+  const editorFontSizes = useSelect(( select ) => {
+    return select('core').getThemeSupports();
+  });
+
+  var fontSizes = [];
+
+  if (editorFontSizes['editor-font-sizes']) {
+    editorFontSizes['editor-font-sizes'].map(function(fontSize) {
+      fontSizes.push({
+        name: fontSize.name,
+        slug: fontSize.slug,
+        size: fontSize.size,
+      });
+    });
+  }
 
   function headingUpdate(heading) {
     setAttributes({ heading: heading });
@@ -23,6 +40,10 @@ export const edit = (props) => {
 
   function headingBgColorUpdate(headingBgColor) {
     setAttributes({ headingBgColor: headingBgColor });
+  }
+
+  function handleFontPickerCallback(fontPickerData) {
+    setAttributes({ headingTextSize: fontPickerData });
   }
 
   /**
@@ -122,6 +143,13 @@ export const edit = (props) => {
             },
           ]}
         />
+        <PanelBody title={'Heading font size'}>
+          <GutenbergPlusFontSizePicker 
+            selectedFontSize={ attributes.headingTextSize }
+            fontSizes={ fontSizes }
+            fontPickerCallback={ handleFontPickerCallback }
+          />
+        </PanelBody>
       </InspectorControls>
       <BlockControls>
         <div className="gutenberg-plus-toolbar">
@@ -142,12 +170,18 @@ export const edit = (props) => {
           style={ attributes.headingBgColor
             ? {
               color: attributes.headingTextColor,
+              fontSize: attributes.headingTextSize,
               backgroundColor: attributes.headingBgColor,
               padding: '15px 25px'
             } 
             : {
               color: attributes.headingTextColor,
-            } 
+              fontSize: attributes.headingTextSize
+            },
+            Number.isInteger(attributes.headingTextSize)
+            && {
+              fontSize: attributes.headingTextSize
+            }
           }
         />
         <InnerBlocks />

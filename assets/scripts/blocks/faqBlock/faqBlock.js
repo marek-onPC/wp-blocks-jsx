@@ -27,6 +27,9 @@ export function faqBlock() {
       headingBgColor: {
         type: 'string'
       },
+      headingTextSize: {
+        type: 'number'
+      }
     },
 
     edit: edit,

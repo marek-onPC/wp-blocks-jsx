@@ -18,12 +18,18 @@ export const save = (props) => {
         style={ attributes.headingBgColor
           ? {
             color: attributes.headingTextColor,
+            fontSize: attributes.headingTextSize,
             backgroundColor: attributes.headingBgColor,
             padding: '15px 25px'
           } 
           : {
             color: attributes.headingTextColor,
-          } 
+            fontSize: attributes.headingTextSize
+          },
+          Number.isInteger(attributes.headingTextSize)
+          && {
+            fontSize: attributes.headingTextSize
+          }
         }
       />
 

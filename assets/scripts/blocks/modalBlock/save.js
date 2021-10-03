@@ -20,6 +20,10 @@ const { InnerBlocks } = wp.blockEditor;
             fontSize: attributes.buttonTextSize,
             color: attributes.buttonTextColor,
             backgroundColor: attributes.buttonBgColor
+          },
+          Number.isInteger(attributes.buttonTextSize) 
+          && {
+            fontSize: attributes.buttonTextSize,
           } }
         >
           <RichText.Content
