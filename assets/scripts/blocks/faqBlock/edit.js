@@ -1,10 +1,11 @@
 import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons';
 import GutenbergPlusFontSizePicker from '../../components/GutenbergPlusFontSizePicker';
+import GutenbergPlusColorPicker from '../../components/GutenbergPlusColorPicker';
 
 const { RichText, BlockControls, InspectorControls } = wp.editor;
-const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
+const { InnerBlocks } = wp.blockEditor;
 const { Fragment } = wp.element;
-const { DropdownMenu, PanelBody } = wp.components;
+const { DropdownMenu } = wp.components;
 const { useSelect } = wp.data;
 
 /**
@@ -34,11 +35,11 @@ export const edit = (props) => {
     setAttributes({ heading: heading });
   }
 
-  function headingTextColorUpdate(headingTextColor) {
+  function headingTextColorCallback(headingTextColor) {
     setAttributes({ headingTextColor: headingTextColor });
   }
 
-  function headingBgColorUpdate(headingBgColor) {
+  function headingBgColorCallback(headingBgColor) {
     setAttributes({ headingBgColor: headingBgColor });
   }
 
@@ -128,28 +129,21 @@ export const edit = (props) => {
         "}
       </style>
       <InspectorControls>
-        <PanelColorSettings 
-          title="Heading colors"
-          colorSettings={[
-            {
-              value: attributes.headingTextColor,
-              onChange: headingTextColorUpdate,
-              label: "Text color"
-            },
-            {
-              value: attributes.headingBgColor,
-              onChange: headingBgColorUpdate,
-              label: "Background color"
-            },
-          ]}
+        <GutenbergPlusColorPicker
+          title={ 'Color settings' }
+          textColor={ attributes.headingTextColor }
+          textColorCallback={ headingTextColorCallback }
+          textLabel={ 'Text color' }
+          bgColor={ attributes.headingBgColor }
+          bgColorCallback={ headingBgColorCallback }
+          bgLabel={ 'Background color' }
         />
-        <PanelBody title={'Heading font size'}>
-          <GutenbergPlusFontSizePicker 
-            selectedFontSize={ attributes.headingTextSize }
-            fontSizes={ fontSizes }
-            fontPickerCallback={ handleFontPickerCallback }
-          />
-        </PanelBody>
+        <GutenbergPlusFontSizePicker
+          title={ 'Typography' }
+          selectedFontSize={ attributes.headingTextSize }
+          fontSizes={ fontSizes }
+          fontPickerCallback={ handleFontPickerCallback }
+        />
       </InspectorControls>
       <BlockControls>
         <div className="gutenberg-plus-toolbar">
@@ -161,28 +155,19 @@ export const edit = (props) => {
         </div>
       </BlockControls>
       <div>
+      { attributes.headingTextColor && console.log('tak') }
         <RichText
           tagName={ attributes.headingTag }
           allowedFormats={ [] }
           placeholder="FAQ heading"
           value={ attributes.heading }
           onChange={ headingUpdate }
-          style={ attributes.headingBgColor
-            ? {
-              color: attributes.headingTextColor,
-              fontSize: attributes.headingTextSize,
-              backgroundColor: attributes.headingBgColor,
-              padding: '15px 25px'
-            } 
-            : {
-              color: attributes.headingTextColor,
-              fontSize: attributes.headingTextSize
-            },
-            Number.isInteger(attributes.headingTextSize)
-            && {
-              fontSize: attributes.headingTextSize
-            }
-          }
+          style={ {
+              fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
+              color: attributes.headingTextColor && attributes.headingTextColor,
+              backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
+              padding: attributes.headingBgColor && '15px 25px',
+          } }
         />
         <InnerBlocks />
       </div>

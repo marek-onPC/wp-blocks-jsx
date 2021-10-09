@@ -15,22 +15,12 @@ export const save = (props) => {
         tagName={ attributes.headingTag }
         value={ attributes.heading }
         className="wp-block-gutenberg-plus-faq-block__heading --collapsed"
-        style={ attributes.headingBgColor
-          ? {
-            color: attributes.headingTextColor,
-            fontSize: attributes.headingTextSize,
-            backgroundColor: attributes.headingBgColor,
-            padding: '15px 25px'
-          } 
-          : {
-            color: attributes.headingTextColor,
-            fontSize: attributes.headingTextSize
-          },
-          Number.isInteger(attributes.headingTextSize)
-          && {
-            fontSize: attributes.headingTextSize
-          }
-        }
+        style={ {
+            fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
+            color: attributes.headingTextColor && attributes.headingTextColor,
+            backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
+            padding: attributes.headingBgColor && '15px 25px',
+        } }
       />
 
       <div className="wp-block-gutenberg-plus-faq-block__content">

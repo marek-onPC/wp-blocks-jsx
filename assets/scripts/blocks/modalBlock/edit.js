@@ -1,8 +1,9 @@
 import GutenbergPlusFontSizePicker from '../../components/GutenbergPlusFontSizePicker';
+import GutenbergPlusColorPicker from '../../components/GutenbergPlusColorPicker';
 
-const { Button, Toolbar, PanelBody } = wp.components;
+const { Button, Toolbar } = wp.components;
 const { RichText, InspectorControls, BlockControls } = wp.editor;
-const { InnerBlocks, PanelColorSettings } = wp.blockEditor;
+const { InnerBlocks } = wp.blockEditor;
 const { Fragment } = wp.element;
 const { useSelect } = wp.data;
 
@@ -33,11 +34,11 @@ export const edit = (props) => {
     setAttributes({ buttonText: buttonText });
   }
 
-  function buttonTextColorUpdate(buttonTextColor) {
+  function buttonTextColorCallback(buttonTextColor) {
     setAttributes({ buttonTextColor: buttonTextColor });
   }
 
-  function buttonBgColorUpdate(buttonBgColor) {
+  function buttonBgColorCallback(buttonBgColor) {
     setAttributes({ buttonBgColor: buttonBgColor });
   }
 
@@ -80,28 +81,21 @@ export const edit = (props) => {
   return(
     <Fragment>
       <InspectorControls>
-        <PanelColorSettings 
-          title="Button colors"
-          colorSettings={[
-            {
-              value: attributes.buttonTextColor,
-              onChange: buttonTextColorUpdate,
-              label: "Text color"
-            },
-            {
-              value: attributes.buttonBgColor,
-              onChange: buttonBgColorUpdate,
-              label: "Background color"
-            },
-          ]}
+        <GutenbergPlusColorPicker 
+          title={ 'Color settings (button)' }
+          textColor={ attributes.buttonTextColor }
+          textColorCallback={ buttonTextColorCallback }
+          textLabel={ 'Text color' }
+          bgColor={ attributes.buttonBgColor }
+          bgColorCallback={ buttonBgColorCallback }
+          bgLabel={ 'Background color' }
         />
-        <PanelBody title={'Button font size'}>
-          <GutenbergPlusFontSizePicker 
-            selectedFontSize={ attributes.buttonTextSize }
-            fontSizes={ fontSizes }
-            fontPickerCallback={ handleFontPickerCallback }
-          />
-        </PanelBody>
+        <GutenbergPlusFontSizePicker
+          title={ 'Typography' }
+          selectedFontSize={ attributes.buttonTextSize }
+          fontSizes={ fontSizes }
+          fontPickerCallback={ handleFontPickerCallback }
+        />
       </InspectorControls>
       <BlockControls>
         <Toolbar controls={ toolbarOptions } />
@@ -112,8 +106,8 @@ export const edit = (props) => {
             isDefault
             style={ {
               height: 'auto',
-              color: attributes.buttonTextColor,
-              backgroundColor: attributes.buttonBgColor,
+              color: attributes.buttonTextColor && attributes.buttonTextColor,
+              backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor,
               borderRadius: 0,
               boxShadow: 'none',
               padding: '15px 25px'
@@ -124,9 +118,8 @@ export const edit = (props) => {
               placeholder="Button text"
               value={ attributes.buttonText }
               onChange={ buttonTextUpdate }
-              style={ Number.isInteger(attributes.buttonTextSize) 
-              && {
-                fontSize: attributes.buttonTextSize,
+              style={ {
+                fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
               } }
             />
           </Button>

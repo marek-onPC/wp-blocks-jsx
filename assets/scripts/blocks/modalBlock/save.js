@@ -17,13 +17,9 @@ const { InnerBlocks } = wp.blockEditor;
           className="wp-block-gutenberg-plus-modal-block__button"
           isDefault
           style={ {
-            fontSize: attributes.buttonTextSize,
+            fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
             color: attributes.buttonTextColor,
             backgroundColor: attributes.buttonBgColor
-          },
-          Number.isInteger(attributes.buttonTextSize) 
-          && {
-            fontSize: attributes.buttonTextSize,
           } }
         >
           <RichText.Content
