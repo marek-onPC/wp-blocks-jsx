@@ -31,6 +31,9 @@ export const edit = (props) => {
     });
   }
 
+  /**
+   * Component's attribute set functions
+   */
   function headingUpdate(heading) {
     setAttributes({ heading: heading });
   }
@@ -155,7 +158,6 @@ export const edit = (props) => {
         </div>
       </BlockControls>
       <div>
-      { attributes.headingTextColor && console.log('tak') }
         <RichText
           tagName={ attributes.headingTag }
           allowedFormats={ [] }

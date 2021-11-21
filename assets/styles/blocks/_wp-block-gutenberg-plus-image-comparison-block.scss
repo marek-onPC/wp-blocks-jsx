@@ -18,27 +18,22 @@
   &__slider {
     width: 40px;
     height: 100%;
-    opacity: 0.85;
     z-index: 1;
     cursor: col-resize;
     position: absolute;
 
-    &::before {
-      content: "";
+    &-line {
       display: block;
       height: 100%;
       width: 3px;
-      background-color: #fff;
       position: absolute;
       left: 18.5px;
     }
 
-    &::after {
-      content: "";
+    &-circle {
       display: block;
       width: 40px;
       height: 40px;
-      background-color: #fff;
       border-radius: 50%;
       position: absolute;
       top: calc(50% - 20px);

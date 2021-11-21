@@ -38,6 +38,14 @@ export function imageComparisonBlock() {
         type: 'string',
         default: 'initial',
       },
+      sliderColor: {
+        type: 'string',
+        default: '#ffffff'
+      },
+      sliderOpacity: {
+        type: 'number',
+        default: 0.85
+      },
     },
 
     edit: edit,

@@ -20,6 +20,9 @@ export const edit = (props) => {
 
   var fontSizes = [];
 
+  /**
+   * Setting the theme's custom font sizes
+   */
   if (editorFontSizes['editor-font-sizes']) {
     editorFontSizes['editor-font-sizes'].map(function(fontSize) {
       fontSizes.push({
@@ -30,6 +33,9 @@ export const edit = (props) => {
     });
   }
 
+  /**
+   * Component's attribute set functions
+   */
   function buttonTextUpdate(buttonText) {
     setAttributes({ buttonText: buttonText });
   }

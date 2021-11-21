@@ -1,6 +1,6 @@
-const { MediaUpload, MediaUploadCheck, MediaPlaceholder, BlockControls, InspectorControls } = wp.editor;
+const { MediaUpload, MediaUploadCheck, MediaPlaceholder, BlockControls, InspectorControls, ColorPalette } = wp.editor;
 const { Fragment } = wp.element;
-const { Toolbar, PanelBody, Button } = wp.components;
+const { Toolbar, PanelBody, Button, RangeControl, ColorIndicator } = wp.components;
 
 /**
  * Edit function for Image Comparison block's Gutenberg Block Editor functionality
@@ -68,6 +68,17 @@ export const edit = (props) => {
         </MediaPlaceholder>
       );
     }
+  }
+
+  /**
+   * Component's attribute set functions
+   */
+  function sliderColorUpdate(newSliderColor) {
+    setAttributes({ sliderColor: newSliderColor });
+  }
+
+  function sliderOpacityUpdate(newSliderOpacity) {
+    setAttributes({ sliderOpacity: newSliderOpacity });
   }
 
   /**
@@ -147,6 +158,23 @@ export const edit = (props) => {
               </MediaUploadCheck>
             </div>
           </div>
+        </PanelBody>
+        <PanelBody title={'Color settings'}>
+          <p>Select a Slider color: <ColorIndicator colorValue={ attributes.sliderColor }/></p>
+          <ColorPalette
+            value={ attributes.sliderColor }
+            onChange={ sliderColorUpdate } 
+          />
+        </PanelBody>
+        <PanelBody title={'Opacity settings'}>
+          <p>Select a Slider opacity:</p>
+          <RangeControl
+              value={ attributes.sliderOpacity }
+              onChange={ sliderOpacityUpdate }
+              min={ 0 }
+              max={ 1 }
+              step={ 0.05 }
+          />
         </PanelBody>
       </InspectorControls>
       <BlockControls>

@@ -1,3 +1,7 @@
 @import 'blocks/wp-block-gutenberg-plus-faq-block';
 @import 'blocks/wp-block-gutenberg-plus-image-comparison-block';
 @import 'blocks/wp-block-gutenberg-plus-modal-block';
+
+.components-color-picker__saturation-color {
+  touch-action: none;
+}
