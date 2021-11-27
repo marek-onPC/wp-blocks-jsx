@@ -23,22 +23,23 @@ export const edit = (props) => {
           src={ attributes.imageOne.imageSrc }
           onClick={ openEvent }
           className="image"
-          style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
+          style={ widthOn && { width: 'calc(50% - 10px)'} }
         />
       );
     }
     else {
       return (
-        <MediaPlaceholder
-          onSelect={ media => { 
-            setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }); 
-          } }
-          allowedTypes={ ['image'] }
-          multiple={ false }
-          labels={ { title: 'Upload' } }
-          style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
-        >
-        </MediaPlaceholder>
+        <div style={ widthOn && { width: 'calc(50% - 10px)'} }>
+          <MediaPlaceholder
+            onSelect={ media => { 
+              setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }); 
+            } }
+            allowedTypes={ ['image'] }
+            multiple={ false }
+            labels={ { title: 'Upload' } }
+          >
+          </MediaPlaceholder>
+        </div>
       );
     }
   }
@@ -50,22 +51,23 @@ export const edit = (props) => {
           src={ attributes.imageTwo.imageSrc }
           onClick={ openEvent }
           className="image"
-          style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
+          style={ widthOn && { width: 'calc(50% - 10px)'} }
         />
       );
     }
     else {
       return (
-        <MediaPlaceholder
-          onSelect={ media => { 
-            setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
-          } }
-          allowedTypes={ ['image'] }
-          multiple={ false }
-          labels={ { title: 'Upload' } }
-          style={ widthOn && { width: 'calc(50% - 40px)', margin: '20px' } }
-        >
-        </MediaPlaceholder>
+        <div style={ widthOn && { width: 'calc(50% - 10px)'} }>
+          <MediaPlaceholder
+            onSelect={ media => { 
+              setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
+            } }
+            allowedTypes={ ['image'] }
+            multiple={ false }
+            labels={ { title: 'Upload' } }
+          >
+          </MediaPlaceholder>
+        </div>
       );
     }
   }
@@ -181,7 +183,7 @@ export const edit = (props) => {
         <Toolbar controls={ toolbarOptions } />
       </BlockControls>
       <div>
-        <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', flexDirection: 'row' } : { display: 'flex', flexDirection: 'row-reverse' } }>
+        <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', justifyContent: 'space-between', flexDirection: 'row' } : { display: 'flex', justifyContent: 'space-between', flexDirection: 'row-reverse' } }>
           <MediaUploadCheck>
             <MediaUpload
               onSelect={ media => { 

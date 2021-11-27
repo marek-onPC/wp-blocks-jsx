@@ -130,9 +130,7 @@ export const edit = (props) => {
             />
           </Button>
         </div>
-        <div
-          style={ {  padding: '0 10px' } }
-        >
+        <div>
           <InnerBlocks />
         </div>
       </div>
