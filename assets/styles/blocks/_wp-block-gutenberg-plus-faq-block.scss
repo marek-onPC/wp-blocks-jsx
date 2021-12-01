@@ -19,6 +19,10 @@
       transition: transform 1s ease;
     }
 
+    &.--padding {
+      padding: 15px 25px;
+    }
+
     &.--collapsed::after {
       transform: rotateZ(0deg);
     }

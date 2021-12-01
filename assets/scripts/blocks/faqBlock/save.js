@@ -11,15 +11,15 @@ export const save = (props) => {
 
   return (
     <div>
+    {console.log(attributes.headingBgColor)}
       <RichText.Content
         tagName={ attributes.headingTag }
         value={ attributes.heading }
-        className="wp-block-gutenberg-plus-faq-block__heading --collapsed"
+        className={ `wp-block-gutenberg-plus-faq-block__heading --collapsed ${ attributes.headingBgColor != undefined ? "--padding" : "" }` }
         style={ {
-            fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
+            fontSize: Number.isInteger(attributes.headingTextSize) != false ? attributes.headingTextSize : null,
             color: attributes.headingTextColor && attributes.headingTextColor,
             backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
-            padding: attributes.headingBgColor && '15px 25px',
         } }
       />
 

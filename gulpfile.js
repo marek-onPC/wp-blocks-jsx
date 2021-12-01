@@ -16,6 +16,9 @@ var styleWatch = './assets/styles/**/*.scss';
 var styleSrc = './assets/styles/main.scss';
 var styleDist = './dist/styles/';
 
+var editorStyleWatch = './assets/styles/editor/**/*.scss';
+var editorStyleSrc = './assets/styles/editor.scss';
+
 var scriptWatch = './assets/scripts/**/*.js';
 var scriptSrc = './assets/scripts/main.js';
 var scriptDist = './dist/scripts/';
@@ -50,8 +53,36 @@ gulp.task('styles', function () {
     }))
 });
 
+gulp.task('styles:editor', function () {
+  return gulp.src(editorStyleSrc)
+  .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(cleanCss(
+      {
+        compatibility: 'ie8'
+      }
+    ))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(styleDist))
+  .pipe(browserSync.reload({
+    stream: true
+    }))
+});
+
 gulp.task('stylelint', function () {
   return gulp.src(styleWatch)
+  .pipe(stylelint({
+    failAfterError: global.production ? true : false,
+    reporters: [
+      {
+        formatter: 'string', console: true
+      }
+    ]
+  }));
+});
+
+gulp.task('stylelint:editor', function () {
+  return gulp.src(editorStyleWatch)
   .pipe(stylelint({
     failAfterError: global.production ? true : false,
     reporters: [
@@ -98,9 +129,11 @@ gulp.task('eslint', function () {
   .pipe(eslint.format())
 });
 
-gulp.task('watch', gulp.parallel('browserSync', 'stylelint', 'styles', 'eslint', 'scripts', function () {
+gulp.task('watch', gulp.parallel('browserSync', 'stylelint', 'styles', 'stylelint:editor', 'styles:editor', 'eslint', 'scripts', function () {
   gulp.watch(styleWatch, gulp.series('stylelint'));
   gulp.watch(styleWatch, gulp.series('styles'));
+  gulp.watch(styleWatch, gulp.series('stylelint:editor'));
+  gulp.watch(styleWatch, gulp.series('styles:editor'));
   gulp.watch(scriptWatch, gulp.series('eslint'));
   gulp.watch(scriptWatch, gulp.series('scripts'));
 }));
@@ -158,5 +191,5 @@ gulp.task('clean:dist', async function () {
 })
 
 gulp.task('build' , gulp.series(
-  gulp.parallel('clean:dist', 'styles', 'scripts', 'scripts:admin')
+  gulp.parallel('clean:dist', 'styles', 'styles:editor', 'scripts', 'scripts:admin')
 ));

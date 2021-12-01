@@ -115,22 +115,6 @@ export const edit = (props) => {
 
   return (
     <Fragment>
-      <style>
-        {"\
-          .gutenberg-plus-toolbar {\
-            display: flex;\
-            height: 100%;\
-            border-right: 1px solid  #1e1e1e;\
-            margin: auto;\
-          }\
-          .gutenberg-plus-toolbar > div {\
-            margin: auto;\
-          }\
-          .dashicon.dashicons {\
-            margin: 0 !important;\
-          }\
-        "}
-      </style>
       <InspectorControls>
         <GutenbergPlusColorPicker
           title={ 'Color settings' }
@@ -164,11 +148,11 @@ export const edit = (props) => {
           placeholder="FAQ heading"
           value={ attributes.heading }
           onChange={ headingUpdate }
+          className={ attributes.headingBgColor && "gutenberg-plus-editor-faq-block" }
           style={ {
               fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
               color: attributes.headingTextColor && attributes.headingTextColor,
               backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
-              padding: attributes.headingBgColor && '15px 25px',
           } }
         />
         <InnerBlocks />
