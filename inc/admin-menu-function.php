@@ -119,7 +119,15 @@ function gutenbergPlusAdminMenuFunction() {
           </div>
         </div>
       </div>
-      <button type="button" class="button button-primary" id="save_options">Save options</button>
+      <button type="button" class="button button-primary" id="save_options">
+        <span class="gutenberg-plus-tooltip --validation">
+          Colours and fonts names needs to use <strong>alphabetic characters</strong> only (spaces allowed)
+        </span>
+        <span class="gutenberg-plus-tooltip --saved">
+          <strong>Options saved!</strong>
+        </span>
+        Save options
+      </button>
       <span id="ajax_spinner" style="display: none; margin-top: 5px;"><img src="<?php echo GUTENBERG_PLUS_URL . 'assets/images/spinner.gif'; ?>" alt="Loading spinner"></span>
     </div>
   <?php

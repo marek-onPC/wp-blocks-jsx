@@ -30,12 +30,12 @@ add_action('wp_enqueue_scripts', 'gutembergPlusMainScriptAndStyle');
 add_action('admin_enqueue_scripts', 'gutembergPlusMainScriptAndStyle');
 
 /**
- * Register plugin's Gutenberg editor style (for block's editor styling)
+ * Register plugin's admin style (for dashboard and block's editor styling)
  */
 function gutembergPlusEditorStyle() {
   wp_enqueue_style(
-    'gutenberg-plus-editor',
-    GUTENBERG_PLUS_URL . 'dist/styles/editor.css',
+    'gutenberg-plus-admin',
+    GUTENBERG_PLUS_URL . 'dist/styles/admin.css',
     array(),
     '1.0.0',
     'all'

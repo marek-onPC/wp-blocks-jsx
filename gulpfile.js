@@ -16,8 +16,8 @@ var styleWatch = './assets/styles/**/*.scss';
 var styleSrc = './assets/styles/main.scss';
 var styleDist = './dist/styles/';
 
-var editorStyleWatch = './assets/styles/editor/**/*.scss';
-var editorStyleSrc = './assets/styles/editor.scss';
+var adminStyleWatch = './assets/styles/admin/**/*.scss';
+var adminStyleSrc = './assets/styles/admin.scss';
 
 var scriptWatch = './assets/scripts/**/*.js';
 var scriptSrc = './assets/scripts/main.js';
@@ -25,7 +25,6 @@ var scriptDist = './dist/scripts/';
 
 var adminScriptWatch = './assets/scripts/**/*.js';
 var adminScriptSrc = './assets/scripts/admin.js';
-var adminScriptDist = './dist/scripts/';
 
 /**
  * Main task for styles and scripts.
@@ -53,8 +52,8 @@ gulp.task('styles', function () {
     }))
 });
 
-gulp.task('styles:editor', function () {
-  return gulp.src(editorStyleSrc)
+gulp.task('styles:admin', function () {
+  return gulp.src(adminStyleSrc)
   .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(cleanCss(
@@ -81,8 +80,8 @@ gulp.task('stylelint', function () {
   }));
 });
 
-gulp.task('stylelint:editor', function () {
-  return gulp.src(editorStyleWatch)
+gulp.task('stylelint:admin', function () {
+  return gulp.src(adminStyleWatch)
   .pipe(stylelint({
     failAfterError: global.production ? true : false,
     reporters: [
@@ -129,18 +128,6 @@ gulp.task('eslint', function () {
   .pipe(eslint.format())
 });
 
-gulp.task('watch', gulp.parallel('browserSync', 'stylelint', 'styles', 'stylelint:editor', 'styles:editor', 'eslint', 'scripts', function () {
-  gulp.watch(styleWatch, gulp.series('stylelint'));
-  gulp.watch(styleWatch, gulp.series('styles'));
-  gulp.watch(styleWatch, gulp.series('stylelint:editor'));
-  gulp.watch(styleWatch, gulp.series('styles:editor'));
-  gulp.watch(scriptWatch, gulp.series('eslint'));
-  gulp.watch(scriptWatch, gulp.series('scripts'));
-}));
-
-/**
- * Admin panel only scripts.
- */
 gulp.task('scripts:admin', function() {
   return browserify({
     entries: [adminScriptSrc],
@@ -165,7 +152,7 @@ gulp.task('scripts:admin', function() {
   ))
   .pipe(uglify())
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest(adminScriptDist))
+  .pipe(gulp.dest(scriptDist))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -177,10 +164,15 @@ gulp.task('eslint:admin', function () {
   .pipe(eslint.format())
 });
 
-
-gulp.task('watch:admin', gulp.parallel('browserSync', 'eslint:admin', 'scripts:admin', function () {
+gulp.task('watch', gulp.parallel('browserSync', 'stylelint', 'styles', 'stylelint:admin', 'styles:admin', 'eslint', 'scripts', 'eslint:admin', 'scripts:admin', function () {
+  gulp.watch(styleWatch, gulp.series('stylelint'));
+  gulp.watch(styleWatch, gulp.series('styles'));
+  gulp.watch(styleWatch, gulp.series('stylelint:admin'));
+  gulp.watch(styleWatch, gulp.series('styles:admin'));
   gulp.watch(adminScriptWatch, gulp.series('eslint:admin'));
   gulp.watch(adminScriptWatch, gulp.series('scripts:admin'));
+  gulp.watch(scriptWatch, gulp.series('eslint'));
+  gulp.watch(scriptWatch, gulp.series('scripts'));
 }));
 
 /**
@@ -191,5 +183,5 @@ gulp.task('clean:dist', async function () {
 })
 
 gulp.task('build' , gulp.series(
-  gulp.parallel('clean:dist', 'styles', 'styles:editor', 'scripts', 'scripts:admin')
+  gulp.parallel('clean:dist', 'styles', 'styles:admin', 'scripts', 'scripts:admin')
 ));

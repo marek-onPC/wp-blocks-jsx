@@ -1,0 +1,15 @@
+@import 'admin/gutenberg-plus-tooltip';
+@import 'admin/gutenberg-plus-toolbar';
+@import 'admin/gutenberg-plus-editor-faq-block';
+
+.components-color-picker__saturation-color {
+  touch-action: none;
+}
+
+.dashicon.dashicons {
+  margin: 0 !important;
+}
+
+.button {
+  position: relative;
+}

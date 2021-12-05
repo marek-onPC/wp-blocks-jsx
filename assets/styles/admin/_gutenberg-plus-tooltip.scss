@@ -1,0 +1,52 @@
+.gutenberg-plus-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  width: 255px;
+  text-align: center;
+  line-height: 18px;
+  color: #fff;
+  background-color: #f44336;
+  border-radius: 6px;
+  padding: 10px 10px 15px 10px;
+  margin-left: -137.5px;
+  z-index: 1;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+
+  &.--saved {
+    width: 150px;
+    background-color: #4caf50;
+    margin-left: -85px;
+
+    &::after {
+      border-color: #4caf50 transparent transparent transparent;
+    }
+  }
+
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f44336 transparent transparent transparent;
+  }
+}
+
+.button.--invalid-validation {
+  .gutenberg-plus-tooltip.--validation {
+    opacity: 1;
+  }
+}
+
+.button.--settings-saved {
+  .gutenberg-plus-tooltip.--saved {
+    opacity: 1;
+  }
+}
