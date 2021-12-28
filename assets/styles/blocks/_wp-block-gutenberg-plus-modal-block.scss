@@ -7,6 +7,10 @@ body {
 .wp-block-gutenberg-plus-modal-block {
   $mainClass: &;
 
+  &__button-wrapper {
+    display: flex;
+  }
+
   &__modal {
     position: fixed;
     left: 0;

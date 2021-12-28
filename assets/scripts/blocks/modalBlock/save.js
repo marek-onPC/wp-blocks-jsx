@@ -12,7 +12,10 @@ const { InnerBlocks } = wp.blockEditor;
 
   return (
     <div className="wp-block-gutenberg-plus-modal-block">
-      <div style={ { display: 'flex', justifyContent: attributes.buttonPosition } }>
+      <div
+        className="wp-block-gutenberg-plus-modal-block__button-wrapper"
+        style={ { justifyContent: attributes.buttonPosition } }
+      >
         <Button
           className="wp-block-gutenberg-plus-modal-block__button"
           isDefault

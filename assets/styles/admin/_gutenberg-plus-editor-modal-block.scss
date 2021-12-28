@@ -1,0 +1,12 @@
+.gutenberg-plus-editor-modal-block {
+  &__button-wrapper {
+    display: flex;
+  }
+
+  &__button {
+    height: auto;
+    border-radius: 0;
+    box-shadow: none !important;
+    padding: 15px 25px !important;
+  }
+}

@@ -107,16 +107,16 @@ export const edit = (props) => {
         <Toolbar controls={ toolbarOptions } />
       </BlockControls>
       <div>
-        <div style={ { display: 'flex', justifyContent: attributes.buttonPosition } }>
+        <div
+          className="gutenberg-plus-editor-modal-block__button-wrapper"
+          style={ { justifyContent: attributes.buttonPosition } }
+        >
           <Button 
             isDefault
+            className="gutenberg-plus-editor-modal-block__button"
             style={ {
-              height: 'auto',
               color: attributes.buttonTextColor && attributes.buttonTextColor,
-              backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor,
-              borderRadius: 0,
-              boxShadow: 'none',
-              padding: '15px 25px'
+              backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor
             } }
           >
             <RichText
@@ -125,7 +125,7 @@ export const edit = (props) => {
               value={ attributes.buttonText }
               onChange={ buttonTextUpdate }
               style={ {
-                fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
+                fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize
               } }
             />
           </Button>

@@ -22,14 +22,15 @@ export const edit = (props) => {
         <img
           src={ attributes.imageOne.imageSrc }
           onClick={ openEvent }
-          className="image"
-          style={ widthOn && { width: 'calc(50% - 10px)'} }
+          className={ `image ${ widthOn != undefined ? "gutenberg-plus-editor-image-comparison-block__half-width" : "" }` }
         />
       );
     }
     else {
       return (
-        <div style={ widthOn && { width: 'calc(50% - 10px)'} }>
+        <div
+          className={ `${ widthOn != undefined ? "gutenberg-plus-editor-image-comparison-block__half-width" : "" }` }
+        >
           <MediaPlaceholder
             onSelect={ media => { 
               setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }); 
@@ -50,14 +51,15 @@ export const edit = (props) => {
         <img
           src={ attributes.imageTwo.imageSrc }
           onClick={ openEvent }
-          className="image"
-          style={ widthOn && { width: 'calc(50% - 10px)'} }
+          className={ `image ${ widthOn != undefined ? "gutenberg-plus-editor-image-comparison-block__half-width" : "" }` }
         />
       );
     }
     else {
       return (
-        <div style={ widthOn && { width: 'calc(50% - 10px)'} }>
+        <div
+          className={ `${ widthOn != undefined ? "gutenberg-plus-editor-image-comparison-block__half-width" : "" }` }
+        >
           <MediaPlaceholder
             onSelect={ media => { 
               setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
@@ -113,14 +115,14 @@ export const edit = (props) => {
 
   return (
     <Fragment>
-      <InspectorControls style={ { marginBottom: '40px' } }>
+      <InspectorControls className="gutenberg-plus-editor-image-comparison-block__inspector">
         <PanelBody title={'Images settings'}>
           <p><strong>Select images to compare:</strong></p>
 
-          <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', flexDirection: 'column' } : { display: 'flex', flexDirection: 'column-reverse' } }>
-            <div
-              style={ { display: 'flex', flexDirection: 'column', marginBottom: '20px' } }
-            >
+          <div 
+            className={ `gutenberg-plus-editor-image-comparison-block__sidebar-images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+          >
+            <div className="gutenberg-plus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
                   onSelect={ media => { 
@@ -132,16 +134,14 @@ export const edit = (props) => {
                 <Button onClick={ removeImageOne }
                   isLink 
                   isDestructive
-                  style={ { margin: 'auto' } }
+                  className="gutenberg-plus-editor-image-comparison-block__sidebar-remove"
                 >
                 Remove image
                 </Button>
               </MediaUploadCheck>
             </div>
 
-            <div
-              style={ { display: 'flex', flexDirection: 'column', marginBottom: '20px' } }
-            >
+            <div className="gutenberg-plus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
                   onSelect={ media => { 
@@ -153,7 +153,7 @@ export const edit = (props) => {
                 <Button onClick={ removeImageTwo }
                   isLink 
                   isDestructive
-                  style={ { margin: 'auto' } }
+                  className="gutenberg-plus-editor-image-comparison-block__sidebar-remove"
                 >
                 Remove image
                 </Button>
@@ -183,7 +183,9 @@ export const edit = (props) => {
         <Toolbar controls={ toolbarOptions } />
       </BlockControls>
       <div>
-        <div style={ attributes.imagesPosition == 'initial' ? { display: 'flex', justifyContent: 'space-between', flexDirection: 'row' } : { display: 'flex', justifyContent: 'space-between', flexDirection: 'row-reverse' } }>
+        <div
+          className={ `gutenberg-plus-editor-image-comparison-block__images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+        >
           <MediaUploadCheck>
             <MediaUpload
               onSelect={ media => { 

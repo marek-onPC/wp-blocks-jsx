@@ -1,0 +1,38 @@
+.gutenberg-plus-editor-image-comparison-block {
+  &__half-width {
+    width: calc(50% - 10px);
+  }
+
+  &__inspector {
+    margin-bottom: 40px;
+  }
+
+  &__sidebar-images {
+    display: flex;
+    flex-direction: column;
+
+    &.--reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__sidebar-image {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &__sidebar-remove {
+    margin: auto !important;
+  }
+
+  &__images {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    &.--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+}
