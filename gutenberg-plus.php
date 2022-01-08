@@ -1,12 +1,14 @@
 <?php
 /**
 * Plugin Name: Gutenberg Plus
-* Plugin URI: https://marek-onPC.com/gutenbergplus
-* Description: WordPress Gutenberg extension plugin
+* Plugin URI: https://marek-onpc.com/plugin
+* Description: A Gutenberg extension plugin, which provides often used blocks with clean and user-friendly design.
 * Version: 1.0.0
-* Author: marek-onPC
+* Author: marek-onpc
 * Author URI: https://marek-onPC.com
-* License: GPL2
+* License: GPLv2
+* License URI: https://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain: gutenberg-plus
 */
 
 define('GUTENBERG_PLUS_PATH', plugin_dir_path( __FILE__ ));
