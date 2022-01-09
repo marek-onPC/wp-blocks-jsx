@@ -4,7 +4,7 @@ const { PanelColorSettings } = wp.blockEditor;
 /**
  * Component that renders UI that allows users to select a element's text/background color
  */
- export default class GutenbergPlusColorPicker extends Component {
+ export default class GutenPlusColorPicker extends Component {
   render() {
     return (
       <PanelColorSettings 

@@ -2,14 +2,14 @@
  * Block apperance applied by JavaScript and slider functinality (image width control)
  */
  export function imageComparisonBlockFront() {
-  const imageComparisonBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-image-comparison-block');
+  const imageComparisonBlocks = document.querySelectorAll('.wp-block-gutenplus-image-comparison-block');
   
   /**
    * Apply same height for block container and images within
    */
   imageComparisonBlocks.forEach(imageComparisonBlock => {
-    var imageToComparison = imageComparisonBlock.querySelectorAll('.wp-block-gutenberg-plus-image-comparison-block__image > img'),
-        comparisonSlider = imageComparisonBlock.querySelector('.wp-block-gutenberg-plus-image-comparison-block__slider'),
+    var imageToComparison = imageComparisonBlock.querySelectorAll('.wp-block-gutenplus-image-comparison-block__image > img'),
+        comparisonSlider = imageComparisonBlock.querySelector('.wp-block-gutenplus-image-comparison-block__slider'),
         universalWidth = imageToComparison[0].offsetWidth,
         universalHeight,
         clickedEvent = false;

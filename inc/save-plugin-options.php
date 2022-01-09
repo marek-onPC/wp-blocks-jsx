@@ -11,16 +11,16 @@ function savePluginOptions() {
       $colorPalleteOptionOn = json_decode(stripslashes($_POST['colorPalleteOn'])) ? 'true' : 'false';
       $colorPalleteOptions = json_decode(stripslashes($_POST['colorPallete']));
     
-      update_option('gutenberg_plus_color_palette_enable', $colorPalleteOptionOn);
-      update_option('gutenberg_plus_color_palette', $colorPalleteOptions);
+      update_option('gutenplus_color_palette_enable', $colorPalleteOptionOn);
+      update_option('gutenplus_color_palette', $colorPalleteOptions);
       break;
 
     case 'fontSizes':
       $fontSizesOptionOn = json_decode(stripslashes($_POST['fontSizesOn'])) ? 'true' : 'false';
       $fontSizesOptions = json_decode(stripslashes($_POST['fontSizes']));
     
-      update_option('gutenberg_plus_font_sizes_enable', $fontSizesOptionOn);
-      update_option('gutenberg_plus_font_sizes', $fontSizesOptions);
+      update_option('gutenplus_font_sizes_enable', $fontSizesOptionOn);
+      update_option('gutenplus_font_sizes', $fontSizesOptions);
       break;
   }
 }

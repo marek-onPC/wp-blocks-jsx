@@ -3,6 +3,6 @@
  */
 export default function loadWpColorPicker() {
   jQuery(document).ready(function($) {
-    $('.gutenberg-plus-color-palette').wpColorPicker();
+    $('.gutenplus-color-palette').wpColorPicker();
   });
 }

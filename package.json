@@ -1,28 +1,27 @@
 {
-  "name": "gutenberg-plus",
+  "name": "gutenplus",
   "version": "1.0.0",
   "description": "WordPress Gutenberg extension plugin",
   "main": "index.js",
   "scripts": {
     "watch": "gulp watch",
-    "admin": "gulp watch:admin",
     "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marek-onPC/gutenberg-plus.git"
+    "url": "git+https://github.com/marek-onPC/gutenplus.git"
   },
   "keywords": [
     "gutenberg",
-    "plus",
+    "gutenplus",
     "plugin"
   ],
   "author": "Marek S. (marek-onPC)",
   "license": "GNU",
   "bugs": {
-    "url": "https://github.com/marek-onPC/gutenberg-plus/issues"
+    "url": "https://github.com/marek-onPC/gutenplus/issues"
   },
-  "homepage": "https://github.com/marek-onPC/gutenberg-plus#readme",
+  "homepage": "https://github.com/marek-onPC/gutenplus#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",

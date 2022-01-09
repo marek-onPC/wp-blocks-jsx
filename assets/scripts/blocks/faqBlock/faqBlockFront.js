@@ -2,7 +2,7 @@
  * FAQ answer show/hide CSS class toggle function (on front-end)
  */
  export function faqBlockFront() {
-  const faqBlocks = document.querySelectorAll('.wp-block-gutenberg-plus-faq-block__heading');
+  const faqBlocks = document.querySelectorAll('.wp-block-gutenplus-faq-block__heading');
 
   if(faqBlocks.length > 0) {
     faqBlocks.forEach(faqBlock => {

@@ -9,7 +9,7 @@ faqBlock();
 imageComparisonBlock();
 modalBlock();
 
-document.addEventListener("DOMContentLoaded", function(){
+window.addEventListener('load', function() {
   faqBlockFront();
   imageComparisonBlockFront();
   modalBlockFront();

@@ -16,7 +16,7 @@ export default function pluginAdminColorPalette() {
           '<input name="color_palette_name" type="text" style="margin: 0 6px 6px 0"/>' +
         '</th>' +
         '<td>' +
-          '<input name="color_palette_value" type="text" value="#fff" class="gutenberg-plus-color-palette" data-default-color="#fff" />' +
+          '<input name="color_palette_value" type="text" value="#fff" class="gutenplus-color-palette" data-default-color="#fff" />' +
           '<button type="button" class="button button-primary button-row-delete" style="background: #dc3545; border: none;">X</button>' +
         '</td>' +
       '</tr>';

@@ -8,11 +8,11 @@ export function modalBlock() {
   /**
    * Register new block - Modal
    */
-  registerBlockType('gutenberg-plus/modal-block', {
+  registerBlockType('gutenplus/modal-block', {
     title: 'Modal',
     description: 'Modal block with button to open modal with content',
     icon: 'feedback',
-    category: 'gutenberg-plus',
+    category: 'gutenplus',
     attributes: {
       buttonText: {
         type: 'string'

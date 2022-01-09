@@ -8,11 +8,11 @@ export function faqBlock() {
   /**
    * Register new block - FAQ
    */
-  registerBlockType('gutenberg-plus/faq-block', {
+  registerBlockType('gutenplus/faq-block', {
     title: 'FAQ',
     description: 'FAQ block with clickable heading and collapsible content',
     icon: 'insert-before',
-    category: 'gutenberg-plus',
+    category: 'gutenplus',
     attributes: {
       heading: {
         type: 'string'

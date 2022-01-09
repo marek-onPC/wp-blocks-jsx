@@ -3,9 +3,9 @@
 /**
  * Define Gutenberg's Color Palette set of colors
  */
-function gutenbergPlusColorPaletteSet() {
-  $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
-  $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
+function gutenPlusColorPaletteSet() {
+  $colorPaletteOptionOn = get_option('gutenplus_color_palette_enable');
+  $colorPaletteOptions = get_option('gutenplus_color_palette');
 
   if ($colorPaletteOptionOn == 'false') {
     return;
@@ -30,14 +30,14 @@ function gutenbergPlusColorPaletteSet() {
     $colorPaletteArray
   );
 };
-add_action('init', 'gutenbergPlusColorPaletteSet');
+add_action('init', 'gutenPlusColorPaletteSet');
 
 /**
  * Define Gutenberg's Font Sizes set of fonts
  */
-function gutenbergPlusFontSizesSet() {
-  $fontSizesOptionOn = get_option('gutenberg_plus_font_sizes_enable');
-  $fontSizesOptions = get_option('gutenberg_plus_font_sizes');
+function gutenPlusFontSizesSet() {
+  $fontSizesOptionOn = get_option('gutenplus_font_sizes_enable');
+  $fontSizesOptions = get_option('gutenplus_font_sizes');
 
   if ($fontSizesOptionOn == 'false') {
     return;
@@ -62,21 +62,21 @@ function gutenbergPlusFontSizesSet() {
     $fontSizesArray
   );
 };
-add_action('init', 'gutenbergPlusFontSizesSet');
+add_action('init', 'gutenPlusFontSizesSet');
 
 /**
  * Create and load Gutenberg's Color Palette and Font Sizes styles in <head> tag
  */
-function gutenbergPlusFrontEndStyles() {
-  $colorPaletteOptionOn = get_option('gutenberg_plus_color_palette_enable');
-  $colorPaletteOptions = get_option('gutenberg_plus_color_palette');
-  $fontSizesOptionOn = get_option('gutenberg_plus_font_sizes_enable');
-  $fontSizesOptions = get_option('gutenberg_plus_font_sizes');
+function gutenPlusFrontEndStyles() {
+  $colorPaletteOptionOn = get_option('gutenplus_color_palette_enable');
+  $colorPaletteOptions = get_option('gutenplus_color_palette');
+  $fontSizesOptionOn = get_option('gutenplus_font_sizes_enable');
+  $fontSizesOptions = get_option('gutenplus_font_sizes');
 
 
   if ($colorPaletteOptionOn != 'false') {
     if (!empty($colorPaletteOptions)) {
-      echo '<style type="text/css" id="gutenberg-plus-color-palette">';
+      echo '<style type="text/css" id="gutenplus-color-palette">';
       foreach ($colorPaletteOptions as $paletteElement) {
         echo '
         .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.esc_html($paletteElement->colorValue).';}
@@ -89,7 +89,7 @@ function gutenbergPlusFrontEndStyles() {
   
   if ($fontSizesOptionOn != 'false') {
     if (!empty($fontSizesOptions)) {
-      echo '<style type="text/css" id="gutenberg-plus-font-sizes">';
+      echo '<style type="text/css" id="gutenplus-font-sizes">';
       foreach ($fontSizesOptions as $fontElement) {
         echo '
         .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.esc_html((int)$fontElement->fontSize).'px;}
@@ -99,4 +99,4 @@ function gutenbergPlusFrontEndStyles() {
     }
   }
 };
-add_action('wp_head', 'gutenbergPlusFrontEndStyles');
+add_action('wp_head', 'gutenPlusFrontEndStyles');

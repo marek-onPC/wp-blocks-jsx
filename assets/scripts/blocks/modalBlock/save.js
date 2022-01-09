@@ -11,13 +11,13 @@ const { InnerBlocks } = wp.blockEditor;
   const { attributes } = props;
 
   return (
-    <div className="wp-block-gutenberg-plus-modal-block">
+    <div className="wp-block-gutenplus-modal-block">
       <div
-        className="wp-block-gutenberg-plus-modal-block__button-wrapper"
+        className="wp-block-gutenplus-modal-block__button-wrapper"
         style={ { justifyContent: attributes.buttonPosition } }
       >
         <Button
-          className="wp-block-gutenberg-plus-modal-block__button"
+          className="wp-block-gutenplus-modal-block__button"
           isDefault
           style={ {
             fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
@@ -30,9 +30,9 @@ const { InnerBlocks } = wp.blockEditor;
           />
         </Button>
       </div>
-      <div className="wp-block-gutenberg-plus-modal-block__modal">
-        <div className="wp-block-gutenberg-plus-modal-block__content">
-          <span className="wp-block-gutenberg-plus-modal-block__close">&times;</span>
+      <div className="wp-block-gutenplus-modal-block__modal">
+        <div className="wp-block-gutenplus-modal-block__content">
+          <span className="wp-block-gutenplus-modal-block__close">&times;</span>
           <InnerBlocks.Content />
         </div>
       </div>

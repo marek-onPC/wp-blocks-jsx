@@ -1,4 +1,4 @@
-.gutenberg-plus-tooltip {
+.gutenplus-tooltip {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
@@ -40,13 +40,13 @@
 }
 
 .button.--invalid-validation {
-  .gutenberg-plus-tooltip.--validation {
+  .gutenplus-tooltip.--validation {
     opacity: 1;
   }
 }
 
 .button.--settings-saved {
-  .gutenberg-plus-tooltip.--saved {
+  .gutenplus-tooltip.--saved {
     opacity: 1;
   }
 }
