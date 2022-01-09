@@ -79,8 +79,8 @@ function gutenPlusFrontEndStyles() {
       echo '<style type="text/css" id="gutenplus-color-palette">';
       foreach ($colorPaletteOptions as $paletteElement) {
         echo '
-        .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.esc_html($paletteElement->colorValue).';}
-        .has-background.has-'.sanitize_title($paletteElement->colorName).'-background-color { background-color: '.esc_html($paletteElement->colorValue).';}
+        .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.esc_html($paletteElement->colorValue).' !important;}
+        .has-background.has-'.sanitize_title($paletteElement->colorName).'-background-color { background-color: '.esc_html($paletteElement->colorValue).' !important;}
         ';
       }
       echo '</style>';
@@ -92,7 +92,7 @@ function gutenPlusFrontEndStyles() {
       echo '<style type="text/css" id="gutenplus-font-sizes">';
       foreach ($fontSizesOptions as $fontElement) {
         echo '
-        .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.esc_html((int)$fontElement->fontSize).'px;}
+        .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.esc_html((int)$fontElement->fontSize).'px !important;}
         ';
       }
       echo '</style>';
