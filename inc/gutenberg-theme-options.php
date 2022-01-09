@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Define Gutenberg's Color Palette set of colors
  */
@@ -16,9 +17,9 @@ function gutenbergPlusColorPaletteSet() {
 
       foreach ($colorPaletteOptions as $paletteElement) {
         array_push($colorPaletteArray, array(
-          'name' => $paletteElement->colorName,
+          'name' => sanitize_text_field($paletteElement->colorName),
           'slug' => sanitize_title($paletteElement->colorName),
-          'color' => $paletteElement->colorValue
+          'color' => sanitize_text_field($paletteElement->colorValue)
         ));
       }
     }
@@ -48,9 +49,9 @@ function gutenbergPlusFontSizesSet() {
 
       foreach ($fontSizesOptions as $fontElement) {
         array_push($fontSizesArray, array(
-          'name' => $fontElement->fontName,
+          'name' => sanitize_text_field($fontElement->fontName),
           'slug' => sanitize_title($fontElement->fontName),
-          'size' => (int)$fontElement->fontSize
+          'size' => sanitize_text_field((int)$fontElement->fontSize)
         ));
       }
     }
@@ -78,8 +79,8 @@ function gutenbergPlusFrontEndStyles() {
       echo '<style type="text/css" id="gutenberg-plus-color-palette">';
       foreach ($colorPaletteOptions as $paletteElement) {
         echo '
-        .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.$paletteElement->colorValue.';}
-        .has-background.has-'.sanitize_title($paletteElement->colorName).'-background-color { background-color: '.$paletteElement->colorValue.';}
+        .has-text-color.has-'.sanitize_title($paletteElement->colorName).'-color { color: '.esc_html($paletteElement->colorValue).';}
+        .has-background.has-'.sanitize_title($paletteElement->colorName).'-background-color { background-color: '.esc_html($paletteElement->colorValue).';}
         ';
       }
       echo '</style>';
@@ -91,7 +92,7 @@ function gutenbergPlusFrontEndStyles() {
       echo '<style type="text/css" id="gutenberg-plus-font-sizes">';
       foreach ($fontSizesOptions as $fontElement) {
         echo '
-        .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.(int)$fontElement->fontSize.'px;}
+        .has-'.sanitize_title($fontElement->fontName).'-font-size { font-size: '.esc_html((int)$fontElement->fontSize).'px;}
         ';
       }
       echo '</style>';

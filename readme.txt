@@ -1,5 +1,5 @@
 === Gutenberg Plus ===
-Contributors: marek-onpc
+Contributors: marekonpc
 Tags: gutenberg, plus, gutenberg-plus, extension, color, palette, font, sizes, color-palette, font-sizes, blocks, faq, modal, image, comparison
 Requires at least: 5.0
 Tested up to: 5.8.3

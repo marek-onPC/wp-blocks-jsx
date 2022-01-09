@@ -12,7 +12,7 @@ export default function pluginAdminFontSizes() {
       var codeBlock = 
       '<tr id=' + elementId + '>' +
         '<th scope="row">' +
-          '<input name="font_size_name" type="text" style="margin: 0 6px 6px 0"/>' +
+          '<input name="font_size_name" type="text" style="margin: 0 6px 0 0"/>' +
         '</th>' +
         '<td>' +
           '<input name="font_size_value" type="number" value=""/>' +
