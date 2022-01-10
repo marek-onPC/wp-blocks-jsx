@@ -22,14 +22,14 @@ export const edit = (props) => {
         <img
           src={ attributes.imageOne.imageSrc }
           onClick={ openEvent }
-          className={ `image ${ widthOn != undefined ? "gutenplus-editor-image-comparison-block__half-width" : "" }` }
+          className={ `image ${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
         />
       );
     }
     else {
       return (
         <div
-          className={ `${ widthOn != undefined ? "gutenplus-editor-image-comparison-block__half-width" : "" }` }
+          className={ `${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
         >
           <MediaPlaceholder
             onSelect={ media => { 
@@ -51,14 +51,14 @@ export const edit = (props) => {
         <img
           src={ attributes.imageTwo.imageSrc }
           onClick={ openEvent }
-          className={ `image ${ widthOn != undefined ? "gutenplus-editor-image-comparison-block__half-width" : "" }` }
+          className={ `image ${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
         />
       );
     }
     else {
       return (
         <div
-          className={ `${ widthOn != undefined ? "gutenplus-editor-image-comparison-block__half-width" : "" }` }
+          className={ `${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
         >
           <MediaPlaceholder
             onSelect={ media => { 
@@ -115,14 +115,14 @@ export const edit = (props) => {
 
   return (
     <Fragment>
-      <InspectorControls className="gutenplus-editor-image-comparison-block__inspector">
+      <InspectorControls className="blocksplus-editor-image-comparison-block__inspector">
         <PanelBody title={'Images settings'}>
           <p><strong>Select images to compare:</strong></p>
 
           <div 
-            className={ `gutenplus-editor-image-comparison-block__sidebar-images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+            className={ `blocksplus-editor-image-comparison-block__sidebar-images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
           >
-            <div className="gutenplus-editor-image-comparison-block__sidebar-image">
+            <div className="blocksplus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
                   onSelect={ media => { 
@@ -134,14 +134,14 @@ export const edit = (props) => {
                 <Button onClick={ removeImageOne }
                   isLink 
                   isDestructive
-                  className="gutenplus-editor-image-comparison-block__sidebar-remove"
+                  className="blocksplus-editor-image-comparison-block__sidebar-remove"
                 >
                 Remove image
                 </Button>
               </MediaUploadCheck>
             </div>
 
-            <div className="gutenplus-editor-image-comparison-block__sidebar-image">
+            <div className="blocksplus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
                   onSelect={ media => { 
@@ -153,7 +153,7 @@ export const edit = (props) => {
                 <Button onClick={ removeImageTwo }
                   isLink 
                   isDestructive
-                  className="gutenplus-editor-image-comparison-block__sidebar-remove"
+                  className="blocksplus-editor-image-comparison-block__sidebar-remove"
                 >
                 Remove image
                 </Button>
@@ -184,7 +184,7 @@ export const edit = (props) => {
       </BlockControls>
       <div>
         <div
-          className={ `gutenplus-editor-image-comparison-block__images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+          className={ `blocksplus-editor-image-comparison-block__images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
         >
           <MediaUploadCheck>
             <MediaUpload

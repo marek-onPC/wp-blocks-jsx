@@ -8,11 +8,11 @@ export function imageComparisonBlock() {
   /**
    * Register new block - Image Comparison
    */
-  registerBlockType('gutenplus/image-comparison-block', {
+  registerBlockType('blocksplus/image-comparison-block', {
     title: 'Image Comparison',
     description: 'Image Comparison block with slider option to compare images',
     icon: 'format-gallery',
-    category: 'gutenplus',
+    category: 'blocksplus',
     attributes: {
       imageOne: {
         imageAlt: {

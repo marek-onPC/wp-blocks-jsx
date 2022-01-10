@@ -15,7 +15,7 @@ export const save = (props) => {
       <RichText.Content
         tagName={ attributes.headingTag }
         value={ attributes.heading }
-        className={ `wp-block-gutenplus-faq-block__heading --collapsed ${ attributes.headingBgColor != undefined ? "--padding" : "" }` }
+        className={ `wp-block-blocksplus-faq-block__heading --collapsed ${ attributes.headingBgColor != undefined ? "--padding" : "" }` }
         style={ {
             fontSize: Number.isInteger(attributes.headingTextSize) != false ? attributes.headingTextSize : null,
             color: attributes.headingTextColor && attributes.headingTextColor,
@@ -23,7 +23,7 @@ export const save = (props) => {
         } }
       />
 
-      <div className="wp-block-gutenplus-faq-block__content">
+      <div className="wp-block-blocksplus-faq-block__content">
         <InnerBlocks.Content />
       </div>
     </div>

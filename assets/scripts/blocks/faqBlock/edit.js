@@ -1,6 +1,6 @@
 import { h3Icon, h4Icon, h5Icon, h6Icon, pIcon } from '../utils/icons';
-import GutenPlusFontSizePicker from '../../components/GutenPlusFontSizePicker';
-import GutenPlusColorPicker from '../../components/GutenPlusColorPicker';
+import BlocksPlusFontSizePicker from '../../components/BlocksPlusFontSizePicker';
+import BlocksPlusColorPicker from '../../components/BlocksPlusColorPicker';
 
 const { RichText, BlockControls, InspectorControls } = wp.editor;
 const { InnerBlocks } = wp.blockEditor;
@@ -116,7 +116,7 @@ export const edit = (props) => {
   return (
     <Fragment>
       <InspectorControls>
-        <GutenPlusColorPicker
+        <BlocksPlusColorPicker
           title={ 'Color settings' }
           textColor={ attributes.headingTextColor }
           textColorCallback={ headingTextColorCallback }
@@ -125,7 +125,7 @@ export const edit = (props) => {
           bgColorCallback={ headingBgColorCallback }
           bgLabel={ 'Background color' }
         />
-        <GutenPlusFontSizePicker
+        <BlocksPlusFontSizePicker
           title={ 'Typography' }
           selectedFontSize={ attributes.headingTextSize }
           fontSizes={ fontSizes }
@@ -133,7 +133,7 @@ export const edit = (props) => {
         />
       </InspectorControls>
       <BlockControls>
-        <div className="gutenplus-toolbar">
+        <div className="blocksplus-toolbar">
         <DropdownMenu
             icon={ renderTagOptionsIcon(attributes.headingTag) }
             label="Select a direction"
@@ -148,7 +148,7 @@ export const edit = (props) => {
           placeholder="FAQ heading"
           value={ attributes.heading }
           onChange={ headingUpdate }
-          className={ attributes.headingBgColor && "gutenplus-editor-faq-block" }
+          className={ attributes.headingBgColor && "blocksplus-editor-faq-block" }
           style={ {
               fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
               color: attributes.headingTextColor && attributes.headingTextColor,

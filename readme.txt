@@ -1,6 +1,6 @@
-=== GutenPlus ===
+=== BlocksPlus ===
 Contributors: marekonpc
-Tags: gutenberg, guten, plus, gutenplus, extension, color, palette, font, sizes, color-palette, font-sizes, blocks, faq, modal, image, comparison
+Tags: gutenberg, editor, blocks, plus, blocksplus, extension, color, palette, font, sizes, color-palette, font-sizes, blocks, faq, modal, image, comparison
 Requires at least: 5.0
 Tested up to: 5.8.3
 Stable tag: 1.0
@@ -12,8 +12,8 @@ A Gutenberg extension plugin, which provides often used blocks with clean and us
 
 == Description ==
 
-GutenPlus is a WordPress extension plugin for Gutenberg editor. It provides new features and useful blocks to use right away on your page. You can use it freely as you want. Any suggestions can be made by GitHub or WordPress plugin’s page. As possible, new features and blocks will be implemented in the future.
-Entire source code is publicly available for review on [GitHub](https://github.com/marek-onPC/gutenplus).
+BlocksPlus is a WordPress extension plugin for Gutenberg editor. It provides new features and useful blocks to use right away on your page. You can use it freely as you want. Any suggestions can be made by GitHub or WordPress plugin’s page. As possible, new features and blocks will be implemented in the future.
+Entire source code is publicly available for review on [GitHub](https://github.com/marek-onPC/blocksplus).
 
 GitHub repository
 The plugin’s main cons are:

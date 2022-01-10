@@ -1,5 +1,5 @@
-import GutenPlusFontSizePicker from '../../components/GutenPlusFontSizePicker';
-import GutenPlusColorPicker from '../../components/GutenPlusColorPicker';
+import BlocksPlusFontSizePicker from '../../components/BlocksPlusFontSizePicker';
+import BlocksPlusColorPicker from '../../components/BlocksPlusColorPicker';
 
 const { Button, Toolbar } = wp.components;
 const { RichText, InspectorControls, BlockControls } = wp.editor;
@@ -87,7 +87,7 @@ export const edit = (props) => {
   return(
     <Fragment>
       <InspectorControls>
-        <GutenPlusColorPicker 
+        <BlocksPlusColorPicker 
           title={ 'Color settings (button)' }
           textColor={ attributes.buttonTextColor }
           textColorCallback={ buttonTextColorCallback }
@@ -96,7 +96,7 @@ export const edit = (props) => {
           bgColorCallback={ buttonBgColorCallback }
           bgLabel={ 'Background color' }
         />
-        <GutenPlusFontSizePicker
+        <BlocksPlusFontSizePicker
           title={ 'Typography' }
           selectedFontSize={ attributes.buttonTextSize }
           fontSizes={ fontSizes }
@@ -108,12 +108,12 @@ export const edit = (props) => {
       </BlockControls>
       <div>
         <div
-          className="gutenplus-editor-modal-block__button-wrapper"
+          className="blocksplus-editor-modal-block__button-wrapper"
           style={ { justifyContent: attributes.buttonPosition } }
         >
           <Button 
             isDefault
-            className="gutenplus-editor-modal-block__button"
+            className="blocksplus-editor-modal-block__button"
             style={ {
               color: attributes.buttonTextColor && attributes.buttonTextColor,
               backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor

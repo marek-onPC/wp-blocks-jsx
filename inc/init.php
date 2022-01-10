@@ -3,38 +3,38 @@
 /**
  * Manage plugin's option on activation.
  */
-function gutenPlusPluginOptions() {
-  if (!get_option('gutenplus_color_palette_enable')) {
-    add_option('gutenplus_color_palette_enable', 'true');
+function blocksPlusPluginOptions() {
+  if (!get_option('blocksplus_color_palette_enable')) {
+    add_option('blocksplus_color_palette_enable', 'true');
   }
 
-  if (!get_option('gutenplus_color_palette')) {
-    add_option('gutenplus_color_palette', '');
+  if (!get_option('blocksplus_color_palette')) {
+    add_option('blocksplus_color_palette', '');
   }
 
-  if (!get_option('gutenplus_font_sizes_enable')) {
-    add_option('gutenplus_font_sizes_enable', 'true');
+  if (!get_option('blocksplus_font_sizes_enable')) {
+    add_option('blocksplus_font_sizes_enable', 'true');
   }
 
-  if (!get_option('gutenplus_font_sizes')) {
-    add_option('gutenplus_font_sizes', '');
+  if (!get_option('blocksplus_font_sizes')) {
+    add_option('blocksplus_font_sizes', '');
   }
 }
-add_action('admin_init', 'gutenPlusPluginOptions');
+add_action('admin_init', 'blocksPlusPluginOptions');
 
 /**
  * Add new admin panel menu page.
  */
-function gutenPlusAdminMenu() {
+function blocksPlusAdminMenu() {
   add_menu_page(
-    'GutenPlus', 
-    'GutenPlus', 
+    'BlocksPlus', 
+    'BlocksPlus', 
     'manage_options', 
-    'gutenplus', 
-    'gutenPlusAdminMenuFunction', 
+    'blocksplus', 
+    'blocksPlusAdminMenuFunction', 
     'dashicons-table-col-after', 
     200);
 }
-add_action('admin_menu','gutenPlusAdminMenu');
+add_action('admin_menu','blocksPlusAdminMenu');
 
-include(GUTENPLUS_PATH . 'inc/admin-menu-function.php');
+include(BLOCKSPLUS_PATH . 'inc/admin-menu-function.php');

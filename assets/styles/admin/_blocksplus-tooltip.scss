@@ -1,4 +1,4 @@
-.gutenplus-tooltip {
+.blocksplus-tooltip {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
@@ -40,13 +40,13 @@
 }
 
 .button.--invalid-validation {
-  .gutenplus-tooltip.--validation {
+  .blocksplus-tooltip.--validation {
     opacity: 1;
   }
 }
 
 .button.--settings-saved {
-  .gutenplus-tooltip.--saved {
+  .blocksplus-tooltip.--saved {
     opacity: 1;
   }
 }

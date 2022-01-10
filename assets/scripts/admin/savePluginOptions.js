@@ -65,7 +65,7 @@ function savePluginOptionsAjax(type, settings, object) {
   spinner.style.display = 'inline-block';
 
   // eslint-disable-next-line
-  fetch(gutenplus_ajax, {
+  fetch(blocksplus_ajax, {
     method: 'POST',
     body: dataToSave
   })

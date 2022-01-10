@@ -3,6 +3,6 @@
  */
 export default function loadWpColorPicker() {
   jQuery(document).ready(function($) {
-    $('.gutenplus-color-palette').wpColorPicker();
+    $('.blocksplus-color-palette').wpColorPicker();
   });
 }
