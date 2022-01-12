@@ -11,7 +11,6 @@ export const save = (props) => {
 
   return (
     <div>
-    {console.log(attributes.headingBgColor)}
       <RichText.Content
         tagName={ attributes.headingTag }
         value={ attributes.heading }

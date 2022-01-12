@@ -1,4 +1,5 @@
 <?php
+include(BLOCKSPLUS_PATH . 'inc/admin-menu-function.php');
 
 /**
  * Manage plugin's option on activation.
@@ -36,5 +37,3 @@ function blocksPlusAdminMenu() {
     200);
 }
 add_action('admin_menu','blocksPlusAdminMenu');
-
-include(BLOCKSPLUS_PATH . 'inc/admin-menu-function.php');

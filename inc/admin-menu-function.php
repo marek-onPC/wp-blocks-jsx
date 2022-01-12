@@ -10,7 +10,7 @@ function blocksPlusAdminMenuFunction() {
   $fontSizesOptions = get_option('blocksplus_font_sizes');
   ?>
 
-  <div class="wrap">
+  <div class="wrap" id="blocksplus_admin">
     <h1><?php esc_html_e('BlocksPlus', 'blocksplus'); ?></h1>
     <div class="metabox-holder">
       <div class="postbox-container" style="width: 100%">

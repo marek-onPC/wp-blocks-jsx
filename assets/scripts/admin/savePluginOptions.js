@@ -52,7 +52,7 @@ export default function savePluginOptions() {
 function savePluginOptionsAjax(type, settings, object) {
   var spinner = document.getElementById('ajax_spinner');
   var dataToSave = new URLSearchParams();
-  dataToSave.append('action', 'savePluginOptions');
+  dataToSave.append('action', 'blocksPlusSavePluginOptions');
   dataToSave.append('type', type);
   dataToSave.append(type + 'On', settings);
 
