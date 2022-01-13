@@ -124,6 +124,9 @@ function blocksPlusAdminMenuFunction() {
         <span class="blocksplus-tooltip --validation">
           <?php esc_html_e('Colours and fonts names needs to use alphabetic characters only (spaces allowed)', 'blocksplus'); ?>
         </span>
+        <span class="blocksplus-tooltip --forbidden">
+          <strong><?php esc_html_e('403 Access forbidden!', 'blocksplus'); ?></strong>
+        </span>
         <span class="blocksplus-tooltip --saved">
           <strong><?php esc_html_e('Options saved!', 'blocksplus'); ?></strong>
         </span>

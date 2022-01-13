@@ -45,6 +45,12 @@
   }
 }
 
+.button.--forbidden {
+  .blocksplus-tooltip.--forbidden {
+    opacity: 1;
+  }
+}
+
 .button.--settings-saved {
   .blocksplus-tooltip.--saved {
     opacity: 1;

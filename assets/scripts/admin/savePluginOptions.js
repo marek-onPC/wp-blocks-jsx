@@ -53,6 +53,8 @@ function savePluginOptionsAjax(type, settings, object) {
   var spinner = document.getElementById('ajax_spinner');
   var dataToSave = new URLSearchParams();
   dataToSave.append('action', 'blocksPlusSavePluginOptions');
+  // eslint-disable-next-line
+  dataToSave.append('securityCheck', blocksplus_ajax.nonce);
   dataToSave.append('type', type);
   dataToSave.append(type + 'On', settings);
 
@@ -65,7 +67,7 @@ function savePluginOptionsAjax(type, settings, object) {
   spinner.style.display = 'inline-block';
 
   // eslint-disable-next-line
-  fetch(blocksplus_ajax, {
+  fetch(blocksplus_ajax.url, {
     method: 'POST',
     body: dataToSave
   })
@@ -73,11 +75,19 @@ function savePluginOptionsAjax(type, settings, object) {
     console.log('Success:', data);
     spinner.style.display = 'none';
 
-    document.getElementById('save_options').classList.add('--settings-saved');
+    if (data.status === 403) {
+      document.getElementById('save_options').classList.add('--forbidden');
 
-    setTimeout(() => {
-      document.getElementById('save_options').classList.remove('--settings-saved');
-    }, 3000);
+      setTimeout(() => {
+        document.getElementById('save_options').classList.remove('--forbidden');
+      }, 3000);
+    } else {
+      document.getElementById('save_options').classList.add('--settings-saved');
+
+      setTimeout(() => {
+        document.getElementById('save_options').classList.remove('--settings-saved');
+      }, 3000);
+    }
   })
   .catch((error) => {
     console.error('Error:', error);

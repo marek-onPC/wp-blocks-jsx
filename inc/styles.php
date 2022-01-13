@@ -80,7 +80,6 @@ add_filter('block_categories', 'blocksPlusBlocksCategory');
  * Register "color picker" style used on admin page.
  */
 function blocksPlusAdminScript() {
-
   wp_enqueue_style('wp-color-picker');
   wp_enqueue_script('wp-color-picker');
   wp_enqueue_script(
@@ -92,7 +91,10 @@ function blocksPlusAdminScript() {
   wp_localize_script(
     'blocksplus-admin-script',
     'blocksplus_ajax',
-    admin_url('admin-ajax.php')
+    array(
+      'url' => admin_url('admin-ajax.php'),
+      'nonce' => wp_create_nonce('blocksplus-nonce')
+    )
   );
 }
 add_action('admin_enqueue_scripts', 'blocksPlusAdminScript');
