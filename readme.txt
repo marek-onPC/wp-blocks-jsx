@@ -25,14 +25,14 @@ The features are:
 * defining custom color palette
 * defining custom font sizes
 * FAQ block
-* Image Comparition block
+* Image Comparison block
 * Modal block
 
 == Screenshots ==
 
 1. Dashboard plugin's page options
 2. FAQ block
-3. Image Comparition block
+3. Image Comparison block
 4. Modal block
 
 == Changelog ==
@@ -40,5 +40,5 @@ The features are:
 = 1.0 =
 * Gutenberg's global color palette and font sizes controls
 * FAQ block added
-* Image Comparition block
+* Image Comparison block
 * Modal block
