@@ -20,6 +20,18 @@ function blocksPlusPluginOptions() {
   if (!get_option('blocksplus_font_sizes')) {
     add_option('blocksplus_font_sizes', '');
   }
+
+  if (!get_option('blocksplus_custom_line_height_enable')) {
+    add_option('blocksplus_custom_line_height_enable', 'false');
+  }
+
+  if (!get_option('blocksplus_custom_spacing_enable')) {
+    add_option('blocksplus_custom_spacing_enable', 'false');
+  }
+
+  if (!get_option('blocksplus_custom_background_enable')) {
+    add_option('blocksplus_custom_background_enable', 'false');
+  }
 }
 add_action('admin_init', 'blocksPlusPluginOptions');
 
