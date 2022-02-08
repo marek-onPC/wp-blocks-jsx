@@ -1,6 +1,6 @@
 === BlocksPlus ===
 Contributors: marekonpc
-Tags: faq, modal, comparison
+Tags: blocks, faq, modal, comparison
 Requires at least: 5.0
 Tested up to: 5.9
 Stable tag: 1.0.1
