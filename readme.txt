@@ -37,7 +37,10 @@ The features are:
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Modal block - change structure to <a> tag for button, due to critical error with <Button> component in WP Core 5.9
+
+= 1.0.0 =
 * Gutenberg's global color palette and font sizes controls
 * FAQ block added
 * Image Comparison block
