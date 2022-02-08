@@ -1,9 +1,9 @@
 === BlocksPlus ===
 Contributors: marekonpc
-Tags: gutenberg, editor, blocks, plus, blocksplus, extension, color, palette, font, sizes, color-palette, font-sizes, blocks, faq, modal, image, comparison
+Tags: blocks, faq, modal, comparison
 Requires at least: 5.0
-Tested up to: 5.8.3
-Stable tag: 1.0.0
+Tested up to: 5.9
+Stable tag: 1.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,7 +37,10 @@ The features are:
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Modal block - change structure to <a> tag for button, due to critical error with <Button> component in WP Core 5.9
+
+= 1.0.0 =
 * Gutenberg's global color palette and font sizes controls
 * FAQ block added
 * Image Comparison block

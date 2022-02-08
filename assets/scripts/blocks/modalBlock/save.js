@@ -1,4 +1,3 @@
-const { Button } = wp.components;
 const { RichText } = wp.editor;
 const { InnerBlocks } = wp.blockEditor;
 
@@ -13,22 +12,19 @@ const { InnerBlocks } = wp.blockEditor;
   return (
     <div className="wp-block-blocksplus-modal-block">
       <div
-        className="wp-block-blocksplus-modal-block__button-wrapper"
+        className="wp-block-blocksplus-modal-block__button-wrapper wp-block-button"
         style={ { justifyContent: attributes.buttonPosition } }
       >
-        <Button
-          className="wp-block-blocksplus-modal-block__button"
-          isDefault
+        <RichText.Content
+          tagName="a"
+          className="wp-block-blocksplus-modal-block__button wp-block-button__link"
           style={ {
             fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
             color: attributes.buttonTextColor,
             backgroundColor: attributes.buttonBgColor
           } }
-        >
-          <RichText.Content
-            value={ attributes.buttonText }
-          />
-        </Button>
+          value={ attributes.buttonText }
+        />
       </div>
       <div className="wp-block-blocksplus-modal-block__modal">
         <div className="wp-block-blocksplus-modal-block__content">
