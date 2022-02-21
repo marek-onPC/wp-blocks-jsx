@@ -9,13 +9,16 @@ export default function savePluginOptions() {
   if (saveButton) {
     saveButton.addEventListener('click', function() {
       if (inputValidation('color_palette_name', /^[a-zA-Z() ]+$/) && inputValidation('font_size_name', /^[a-zA-Z() ]+$/)) {
-        var colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked;
-        var colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]');
-        var colorPaletteOptionsObject = {};
-    
-        var fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked;
-        var fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]');
-        var fontSizesOptionsObject = {};
+        var dataToSave = {},
+            colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked,
+            colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]'),
+            colorPaletteOptionsObject = {},
+            fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked,
+            fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]'),
+            fontSizesOptionsObject = {},
+            customLineHeightOptionOn = document.querySelector('input[name="custom_line_height_enable"]').checked,
+            customSpacingOptionOn = document.querySelector('input[name="custom_spacing_enable"]').checked,
+            customBackgroundOptionOn = document.querySelector('input[name="custom_background_enable"]').checked;
 
         saveButton.classList.remove('--invalid-validation');
     
@@ -32,9 +35,24 @@ export default function savePluginOptions() {
             fontSize: fontSizeElement.querySelector('input[name="font_size_value"]').value
           };
         });
+
+        dataToSave = {
+          colorPalette : {
+            colorPaletteOn,
+            colorPaletteOptionsObject
+          },
+          fontSizes : {
+            fontSizesOn,
+            fontSizesOptionsObject
+          },
+          customOptions : {
+            customLineHeightOptionOn,
+            customSpacingOptionOn,
+            customBackgroundOptionOn
+          }
+        };
     
-        savePluginOptionsAjax('colorPallete', colorPaletteOn, colorPaletteOptionsObject);
-        savePluginOptionsAjax('fontSizes', fontSizesOn, fontSizesOptionsObject);
+        savePluginOptionsAjax(dataToSave);
       } else {
         saveButton.classList.add('--invalid-validation');
 
@@ -49,19 +67,18 @@ export default function savePluginOptions() {
 /**
  * AJAX call function
  */
-function savePluginOptionsAjax(type, settings, object) {
+function savePluginOptionsAjax(object) {
   var spinner = document.getElementById('ajax_spinner');
   var dataToSave = new URLSearchParams();
+
   dataToSave.append('action', 'blocksPlusSavePluginOptions');
   // eslint-disable-next-line
   dataToSave.append('securityCheck', blocksplus_ajax.nonce);
-  dataToSave.append('type', type);
-  dataToSave.append(type + 'On', settings);
 
   if (Object.keys(object).length > 0) {
-    dataToSave.append(type, JSON.stringify(object));
+    dataToSave.append('dataToSave', JSON.stringify(object));
   } else {
-    dataToSave.append(type, null);
+    dataToSave.append('dataToSave', null);
   }
 
   spinner.style.display = 'inline-block';
