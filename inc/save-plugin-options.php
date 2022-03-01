@@ -32,11 +32,9 @@ function blocksPlusSavePluginOptions() {
     }
 
     if (!empty($dataToSave->customOptions)) {
-      $customLineHeightOptionOn = $dataToSave->customOptions->customLineHeightOptionOn ? 'true' : 'false';
       $customSpacingOptionOn = $dataToSave->customOptions->customSpacingOptionOn ? 'true' : 'false';
       $customBackgroundOptionOn = $dataToSave->customOptions->customBackgroundOptionOn ? 'true' : 'false';
     
-      update_option('blocksplus_custom_line_height_enable', $customLineHeightOptionOn);
       update_option('blocksplus_custom_spacing_enable', $customSpacingOptionOn);
       update_option('blocksplus_custom_background_enable', $customBackgroundOptionOn);
     }

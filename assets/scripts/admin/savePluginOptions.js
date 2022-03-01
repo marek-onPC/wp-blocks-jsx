@@ -16,7 +16,6 @@ export default function savePluginOptions() {
             fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked,
             fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]'),
             fontSizesOptionsObject = {},
-            customLineHeightOptionOn = document.querySelector('input[name="custom_line_height_enable"]').checked,
             customSpacingOptionOn = document.querySelector('input[name="custom_spacing_enable"]').checked,
             customBackgroundOptionOn = document.querySelector('input[name="custom_background_enable"]').checked;
 
@@ -46,7 +45,6 @@ export default function savePluginOptions() {
             fontSizesOptionsObject
           },
           customOptions : {
-            customLineHeightOptionOn,
             customSpacingOptionOn,
             customBackgroundOptionOn
           }

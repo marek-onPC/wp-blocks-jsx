@@ -100,3 +100,20 @@ function blocksPlusFrontEndStyles() {
   }
 };
 add_action('wp_head', 'blocksPlusFrontEndStyles');
+
+/**
+ * Define custom options
+ */
+function blocksPlusCustomOptions() {
+  $customSpacingOptionOn = get_option('blocksplus_custom_spacing_enable');
+  $customBackgroundOptionOn = get_option('blocksplus_custom_background_enable');
+
+  if ($customSpacingOptionOn != 'false') {
+    add_theme_support('custom-spacing');
+  }
+
+  if ($customBackgroundOptionOn != 'false') {
+    add_theme_support('custom-background');
+  }
+};
+add_action('init', 'blocksPlusCustomOptions');

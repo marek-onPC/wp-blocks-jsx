@@ -21,10 +21,6 @@ function blocksPlusPluginOptions() {
     add_option('blocksplus_font_sizes', '');
   }
 
-  if (!get_option('blocksplus_custom_line_height_enable')) {
-    add_option('blocksplus_custom_line_height_enable', 'false');
-  }
-
   if (!get_option('blocksplus_custom_spacing_enable')) {
     add_option('blocksplus_custom_spacing_enable', 'false');
   }
