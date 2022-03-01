@@ -38,7 +38,7 @@ The features are:
 == Changelog ==
 
 = 1.1.0 =
-* Setup for Gutenberg features added: custom line height, custom blocks spacing, custom site's background
+* Setup for Gutenberg features added: custom blocks spacing, custom site's background
 
 = 1.0.1 =
 * Modal block - change structure to anchor tag for button, due to critical error with <Button> component in WP Core 5.9

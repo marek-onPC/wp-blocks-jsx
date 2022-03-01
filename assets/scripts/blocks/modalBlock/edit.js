@@ -1,7 +1,7 @@
 import BlocksPlusFontSizePicker from '../../components/BlocksPlusFontSizePicker';
 import BlocksPlusColorPicker from '../../components/BlocksPlusColorPicker';
 
-const { Button, Toolbar } = wp.components;
+const { Toolbar } = wp.components;
 const { RichText, InspectorControls, BlockControls } = wp.editor;
 const { InnerBlocks } = wp.blockEditor;
 const { Fragment } = wp.element;
@@ -19,7 +19,6 @@ export const edit = (props) => {
   });
 
   var fontSizes = [];
-
   /**
    * Setting the theme's custom font sizes
    */
@@ -108,27 +107,21 @@ export const edit = (props) => {
       </BlockControls>
       <div>
         <div
-          className="blocksplus-editor-modal-block__button-wrapper"
+          className="blocksplus-editor-modal-block__button-wrapper wp-block-button"
           style={ { justifyContent: attributes.buttonPosition } }
         >
-          <Button 
-            isDefault
-            className="blocksplus-editor-modal-block__button"
+          <RichText
+            allowedFormats={ [] }
+            className="blocksplus-editor-modal-block__button wp-block-button__link"
+            placeholder="Button text"
+            value={ attributes.buttonText }
+            onChange={ buttonTextUpdate }
             style={ {
+              fontSize: typeof attributes.buttonTextSize === 'number' && attributes.buttonTextSize,
               color: attributes.buttonTextColor && attributes.buttonTextColor,
               backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor
             } }
-          >
-            <RichText
-              allowedFormats={ [] }
-              placeholder="Button text"
-              value={ attributes.buttonText }
-              onChange={ buttonTextUpdate }
-              style={ {
-                fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize
-              } }
-            />
-          </Button>
+          />
         </div>
         <div>
           <InnerBlocks />
