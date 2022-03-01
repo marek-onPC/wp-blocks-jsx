@@ -2,8 +2,8 @@
 Contributors: marekonpc
 Tags: blocks, faq, modal, comparison
 Requires at least: 5.0
-Tested up to: 5.9
-Stable tag: 1.0.1
+Tested up to: 5.9.1
+Stable tag: 1.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,8 +37,12 @@ The features are:
 
 == Changelog ==
 
+= 1.1.0 =
+* Setup for WP features added: custom blocks spacing, custom site's background
+* Tested for WP 5.9.1
+
 = 1.0.1 =
-* Modal block - change structure to <a> tag for button, due to critical error with <Button> component in WP Core 5.9
+* Modal block - change structure to anchor tag for button, due to critical error with <Button> component in WP Core 5.9
 
 = 1.0.0 =
 * Gutenberg's global color palette and font sizes controls

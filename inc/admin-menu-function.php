@@ -8,6 +8,8 @@ function blocksPlusAdminMenuFunction() {
   $colorPaletteOptions = get_option('blocksplus_color_palette');
   $fontSizesOptionOn = get_option('blocksplus_font_sizes_enable');
   $fontSizesOptions = get_option('blocksplus_font_sizes');
+  $customSpacingOptionOn = get_option('blocksplus_custom_spacing_enable');
+  $customBackgroundOptionOn = get_option('blocksplus_custom_background_enable');
   ?>
 
   <div class="wrap" id="blocksplus_admin">
@@ -16,7 +18,7 @@ function blocksPlusAdminMenuFunction() {
       <div class="postbox-container" style="width: 100%">
         <div class="postbox">
           <div class="postbox-header">
-            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom Gutenberg\'s color palette', 'blocksplus'); ?></h2>
+            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom editor color palette', 'blocksplus'); ?></h2>
             <h4 style="margin-right: 15px"><?php esc_html_e('Enable option?', 'blocksplus'); ?></h4>
             <fieldset style="padding-right: 8px">
             <?php if (!empty($colorPaletteOptionOn) && $colorPaletteOptionOn == 'false') : ?>
@@ -70,7 +72,7 @@ function blocksPlusAdminMenuFunction() {
       <div class="postbox-container" style="width: 100%">
         <div class="postbox">
           <div class="postbox-header">
-            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom Gutenberg\'s font sizes', 'blocksplus'); ?></h2>
+            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom editor font sizes', 'blocksplus'); ?></h2>
             <h4 style="margin-right: 15px"><?php esc_html_e('Enable option?', 'blocksplus'); ?></h4>
             <fieldset style="padding-right: 8px">
             <?php if (!empty($fontSizesOptionOn) && $fontSizesOptionOn == 'false') : ?>
@@ -120,6 +122,40 @@ function blocksPlusAdminMenuFunction() {
           </div>
         </div>
       </div>
+
+      <div class="postbox-container" style="width: 100%">
+        <div class="postbox">
+          <div class="postbox-header">
+            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom (layout) blocks spacing', 'blocksplus'); ?></h2>
+            <h4 style="margin-right: 15px"><?php esc_html_e('Enable option?', 'blocksplus'); ?></h4>
+            <fieldset style="padding-right: 8px">
+            <?php if (!empty($customSpacingOptionOn) && $customSpacingOptionOn == 'false') : ?>
+              <label><input type="checkbox" name="custom_spacing_enable"></label>
+            <?php else : ?>
+              <label><input type="checkbox" name="custom_spacing_enable" checked></label>
+            <?php endif; ?>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <div class="postbox-container" style="width: 100%">
+        <div class="postbox">
+          <div class="postbox-header">
+            <h2 class="hndle" style="cursor: auto"><?php esc_html_e('Custom site background', 'blocksplus'); ?></h2>
+            <small style="margin-right: 15px"><?php esc_html_e('Only if your theme support that option', 'blocksplus'); ?></small>
+            <h4 style="margin-right: 15px"><?php esc_html_e('Enable option?', 'blocksplus'); ?></h4>
+            <fieldset style="padding-right: 8px">
+            <?php if (!empty($customBackgroundOptionOn) && $customBackgroundOptionOn == 'false') : ?>
+              <label><input type="checkbox" name="custom_background_enable"></label>
+            <?php else : ?>
+              <label><input type="checkbox" name="custom_background_enable" checked></label>
+            <?php endif; ?>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
       <button type="button" class="button button-primary" id="save_options">
         <span class="blocksplus-tooltip --validation">
           <?php esc_html_e('Colours and fonts names needs to use alphabetic characters only (spaces allowed)', 'blocksplus'); ?>

@@ -3,7 +3,7 @@
 * Plugin Name: BlocksPlus
 * Plugin URI: https://marek-onpc.com/plugin
 * Description: A Gutenberg extension plugin, which provides often used blocks with clean and user-friendly design.
-* Version: 1.0.1
+* Version: 1.1.0
 * Author: marekonpc
 * Author URI: https://marek-onPC.com
 * License: GPLv2
