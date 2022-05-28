@@ -56,6 +56,9 @@ function blocksPlusBlocksRegistration() {
   register_block_type( 'blocksplus/modal-block', array(
     'editor_script' => 'blocksplus-script'
   ));
+  register_block_type( 'blocksplus/social-share-buttons-block', array(
+    'editor_script' => 'blocksplus-script'
+  ));
 };
 add_action('init', 'blocksPlusBlocksRegistration');
 

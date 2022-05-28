@@ -1,0 +1,44 @@
+.wp-block-blocksplus-social-share-buttons-block {
+  &__link {
+    display: inline-flex;
+    padding: 10px;
+    text-decoration: none !important;
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  &__share-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__share-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 54px;
+
+    &.facebook {
+      color: #3b5990;
+    }
+
+    &.twitter {
+      color: #08a0e9;
+    }
+
+    &.linkedin {
+      color: #0077b5;
+    }
+
+    &.reddit {
+      color: #ff4500;
+    }
+
+    &.shareicon {
+      color: #333;
+    }
+  }
+}
