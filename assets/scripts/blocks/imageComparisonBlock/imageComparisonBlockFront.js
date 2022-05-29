@@ -1,18 +1,18 @@
 /**
  * Block apperance applied by JavaScript and slider functinality (image width control)
  */
- export function imageComparisonBlockFront() {
+export function imageComparisonBlockFront() {
   const imageComparisonBlocks = document.querySelectorAll('.wp-block-blocksplus-image-comparison-block');
-  
+
   /**
    * Apply same height for block container and images within
    */
   imageComparisonBlocks.forEach(imageComparisonBlock => {
     var imageToComparison = imageComparisonBlock.querySelectorAll('.wp-block-blocksplus-image-comparison-block__image > img'),
-        comparisonSlider = imageComparisonBlock.querySelector('.wp-block-blocksplus-image-comparison-block__slider'),
-        universalWidth = imageToComparison[0].offsetWidth,
-        universalHeight,
-        clickedEvent = false;
+      comparisonSlider = imageComparisonBlock.querySelector('.wp-block-blocksplus-image-comparison-block__slider'),
+      universalWidth = imageToComparison[0].offsetWidth,
+      universalHeight,
+      clickedEvent = false;
 
     if (imageToComparison[0].offsetHeight <= imageToComparison[1].offsetHeight) {
       universalHeight = imageToComparison[1].offsetHeight;
@@ -51,7 +51,7 @@
     /**
      * Change slider's position and image width on slider drag event (click/touch and mouse move)
      */
-     imageComparisonBlock.addEventListener('mousemove', (e) => {
+    imageComparisonBlock.addEventListener('mousemove', (e) => {
       var cursorPositionX = cursorPosition(e, imageComparisonBlock);
 
       if (clickedEvent == false) {
@@ -96,7 +96,7 @@
  */
 function cursorPosition(e, imageContainer) {
   var imageProperties, cursorPositionX = 0;
-  
+
   if (e == e.changedTouches) {
     e = e.changedTouches[0];
   }

@@ -1,5 +1,5 @@
 /**
- * FAQ answer show/hide CSS class toggle function (on front-end)
+ * Social Share Buttons - copy URL button functionality to copy current post/page url on click (on front-end)
  */
 export function socialShareButtonsBlockFront() {
   const socialShareButtons = document.querySelectorAll('.wp-block-blocksplus-social-share-buttons-block__link');

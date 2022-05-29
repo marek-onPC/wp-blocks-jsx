@@ -12,14 +12,14 @@ export const save = (props) => {
   return (
     <div>
       <RichText.Content
-        tagName={ attributes.headingTag }
-        value={ attributes.heading }
-        className={ `wp-block-blocksplus-faq-block__heading --collapsed ${ attributes.headingBgColor != undefined ? "--padding" : "" }` }
-        style={ {
-            fontSize: Number.isInteger(attributes.headingTextSize) != false ? attributes.headingTextSize : null,
-            color: attributes.headingTextColor && attributes.headingTextColor,
-            backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
-        } }
+        tagName={attributes.headingTag}
+        value={attributes.heading}
+        className={`wp-block-blocksplus-faq-block__heading --collapsed ${attributes.headingBgColor != undefined ? "--padding" : ""}`}
+        style={{
+          fontSize: Number.isInteger(attributes.headingTextSize) != false ? attributes.headingTextSize : null,
+          color: attributes.headingTextColor && attributes.headingTextColor,
+          backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
+        }}
       />
 
       <div className="wp-block-blocksplus-faq-block__content">

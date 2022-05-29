@@ -1,9 +1,9 @@
 === BlocksPlus ===
 Contributors: marekonpc
-Tags: blocks, faq, modal, comparison
+Tags: blocks, faq, modal, comparison, social, share
 Requires at least: 5.0
-Tested up to: 5.9.1
-Stable tag: 1.1.0
+Tested up to: 6.0.0
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,7 @@ The features are:
 * FAQ block
 * Image Comparison block
 * Modal block
+* Social Share Button block
 
 == Screenshots ==
 
@@ -36,6 +37,10 @@ The features are:
 4. Modal block
 
 == Changelog ==
+
+= 1.2.0 =
+* Add new block - Social Share Button
+* Tested for WP 6.0.0
 
 = 1.1.0 =
 * Setup for WP features added: custom blocks spacing, custom site's background

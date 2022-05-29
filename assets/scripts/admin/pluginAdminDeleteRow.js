@@ -6,7 +6,7 @@ export default function pluginAdminDeleteRow() {
 
   if (deleteButtons.length > 0) {
     Array.from(deleteButtons).forEach(deleteButton => {
-      deleteButton.addEventListener('click', function() {
+      deleteButton.addEventListener('click', function () {
         deleteButton.parentNode.parentNode.remove();
       });
     });

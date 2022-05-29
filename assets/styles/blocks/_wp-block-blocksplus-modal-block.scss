@@ -32,12 +32,16 @@ body {
 
   &__content {
     width: 90%;
-    height: 85%;
+    height: 85vh;
     background-color: #fff;
     padding: 50px 30px 30px;
-    margin: 5% auto;
+    margin: 5vh auto;
     overflow: auto;
     position: relative;
+
+    //Webkit browsers
+    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
   }
 
   &__close {

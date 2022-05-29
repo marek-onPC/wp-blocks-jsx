@@ -17,27 +17,27 @@ export const edit = (props) => {
    * @param {widthOn} widthOn to define custom container's width
    */
   function imageOnePlaceholder(openEvent, widthOn) {
-    if(attributes.imageOne) {
+    if (attributes.imageOne) {
       return (
         <img
-          src={ attributes.imageOne.imageSrc }
-          onClick={ openEvent }
-          className={ `image ${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
+          src={attributes.imageOne.imageSrc}
+          onClick={openEvent}
+          className={`image ${widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : ""}`}
         />
       );
     }
     else {
       return (
         <div
-          className={ `${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
+          className={`${widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : ""}`}
         >
           <MediaPlaceholder
-            onSelect={ media => { 
-              setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } }); 
-            } }
-            allowedTypes={ ['image'] }
-            multiple={ false }
-            labels={ { title: 'Upload' } }
+            onSelect={media => {
+              setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } });
+            }}
+            allowedTypes={['image']}
+            multiple={false}
+            labels={{ title: 'Upload' }}
           >
           </MediaPlaceholder>
         </div>
@@ -46,27 +46,27 @@ export const edit = (props) => {
   }
 
   function imageTwoPlaceholder(openEvent, widthOn) {
-    if(attributes.imageTwo) {
+    if (attributes.imageTwo) {
       return (
         <img
-          src={ attributes.imageTwo.imageSrc }
-          onClick={ openEvent }
-          className={ `image ${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
+          src={attributes.imageTwo.imageSrc}
+          onClick={openEvent}
+          className={`image ${widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : ""}`}
         />
       );
     }
     else {
       return (
         <div
-          className={ `${ widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : "" }` }
+          className={`${widthOn != undefined ? "blocksplus-editor-image-comparison-block__half-width" : ""}`}
         >
           <MediaPlaceholder
-            onSelect={ media => { 
+            onSelect={media => {
               setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
-            } }
-            allowedTypes={ ['image'] }
-            multiple={ false }
-            labels={ { title: 'Upload' } }
+            }}
+            allowedTypes={['image']}
+            multiple={false}
+            labels={{ title: 'Upload' }}
           >
           </MediaPlaceholder>
         </div>
@@ -103,13 +103,13 @@ export const edit = (props) => {
       icon: 'align-pull-left',
       title: 'Initial positions',
       isActive: attributes.imagesPosition === 'initial',
-      onClick: () => setAttributes( { imagesPosition: 'initial' } ),
+      onClick: () => setAttributes({ imagesPosition: 'initial' }),
     },
     {
       icon: 'align-pull-right',
       title: 'Reverse positions',
       isActive: attributes.imagesPosition === 'reverse',
-      onClick: () => setAttributes( { imagesPosition: 'reverse' } ),
+      onClick: () => setAttributes({ imagesPosition: 'reverse' }),
     },
   ];
 
@@ -119,24 +119,24 @@ export const edit = (props) => {
         <PanelBody title={'Images settings'}>
           <p><strong>Select images to compare:</strong></p>
 
-          <div 
-            className={ `blocksplus-editor-image-comparison-block__sidebar-images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+          <div
+            className={`blocksplus-editor-image-comparison-block__sidebar-images ${attributes.imagesPosition != 'initial' ? "--reverse" : ""}`}
           >
             <div className="blocksplus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
-                  onSelect={ media => { 
+                  onSelect={media => {
                     setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } });
-                  } }
+                  }}
                   type="image"
-                  render={ ({ open }) => imageOnePlaceholder(open) }
+                  render={({ open }) => imageOnePlaceholder(open)}
                 />
-                <Button onClick={ removeImageOne }
-                  isLink 
+                <Button onClick={removeImageOne}
+                  isLink
                   isDestructive
                   className="blocksplus-editor-image-comparison-block__sidebar-remove"
                 >
-                Remove image
+                  Remove image
                 </Button>
               </MediaUploadCheck>
             </div>
@@ -144,64 +144,64 @@ export const edit = (props) => {
             <div className="blocksplus-editor-image-comparison-block__sidebar-image">
               <MediaUploadCheck>
                 <MediaUpload
-                  onSelect={ media => { 
+                  onSelect={media => {
                     setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
-                  } }
+                  }}
                   type="image"
-                  render={ ({ open }) => imageTwoPlaceholder(open) }
+                  render={({ open }) => imageTwoPlaceholder(open)}
                 />
-                <Button onClick={ removeImageTwo }
-                  isLink 
+                <Button onClick={removeImageTwo}
+                  isLink
                   isDestructive
                   className="blocksplus-editor-image-comparison-block__sidebar-remove"
                 >
-                Remove image
+                  Remove image
                 </Button>
               </MediaUploadCheck>
             </div>
           </div>
         </PanelBody>
         <PanelBody title={'Color settings'}>
-          <p>Select a Slider color: <ColorIndicator colorValue={ attributes.sliderColor }/></p>
+          <p>Select a Slider color: <ColorIndicator colorValue={attributes.sliderColor} /></p>
           <ColorPalette
-            value={ attributes.sliderColor }
-            onChange={ sliderColorUpdate } 
+            value={attributes.sliderColor}
+            onChange={sliderColorUpdate}
           />
         </PanelBody>
         <PanelBody title={'Opacity settings'}>
           <p>Select a Slider opacity:</p>
           <RangeControl
-              value={ attributes.sliderOpacity }
-              onChange={ sliderOpacityUpdate }
-              min={ 0 }
-              max={ 1 }
-              step={ 0.05 }
+            value={attributes.sliderOpacity}
+            onChange={sliderOpacityUpdate}
+            min={0}
+            max={1}
+            step={0.05}
           />
         </PanelBody>
       </InspectorControls>
       <BlockControls>
-        <Toolbar controls={ toolbarOptions } />
+        <Toolbar controls={toolbarOptions} />
       </BlockControls>
       <div>
         <div
-          className={ `blocksplus-editor-image-comparison-block__images ${ attributes.imagesPosition != 'initial' ? "--reverse" : "" }` }
+          className={`blocksplus-editor-image-comparison-block__images ${attributes.imagesPosition != 'initial' ? "--reverse" : ""}`}
         >
           <MediaUploadCheck>
             <MediaUpload
-              onSelect={ media => { 
+              onSelect={media => {
                 setAttributes({ imageOne: { imageAlt: media.alt, imageSrc: media.url } });
-              } }
+              }}
               type="image"
-              render={ ({ open }) => imageOnePlaceholder(open, true) }
+              render={({ open }) => imageOnePlaceholder(open, true)}
             />
           </MediaUploadCheck>
           <MediaUploadCheck>
             <MediaUpload
-              onSelect={ media => { 
+              onSelect={media => {
                 setAttributes({ imageTwo: { imageAlt: media.alt, imageSrc: media.url } });
-              } }
+              }}
               type="image"
-              render={ ({ open }) => imageTwoPlaceholder(open, true) }
+              render={({ open }) => imageTwoPlaceholder(open, true)}
             />
           </MediaUploadCheck>
         </div>

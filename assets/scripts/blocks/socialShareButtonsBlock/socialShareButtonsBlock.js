@@ -4,9 +4,8 @@ import { save } from './save';
 const { registerBlockType } = wp.blocks;
 
 export function socialShareButtonsBlock() {
-
   /**
-   * Register new block - FAQ
+   * Register new block - Social Share Buttons
    */
   registerBlockType('blocksplus/social-share-buttons-block', {
     title: 'Social Share Buttons',

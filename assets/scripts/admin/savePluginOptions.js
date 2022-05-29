@@ -7,27 +7,27 @@ export default function savePluginOptions() {
   const saveButton = document.getElementById('save_options');
 
   if (saveButton) {
-    saveButton.addEventListener('click', function() {
+    saveButton.addEventListener('click', function () {
       if (inputValidation('color_palette_name', /^[a-zA-Z() ]+$/) && inputValidation('font_size_name', /^[a-zA-Z() ]+$/)) {
         var dataToSave = {},
-            colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked,
-            colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]'),
-            colorPaletteOptionsObject = {},
-            fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked,
-            fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]'),
-            fontSizesOptionsObject = {},
-            customSpacingOptionOn = document.querySelector('input[name="custom_spacing_enable"]').checked,
-            customBackgroundOptionOn = document.querySelector('input[name="custom_background_enable"]').checked;
+          colorPaletteOn = document.querySelector('input[name="color_palette_enable"]').checked,
+          colorPalette = document.querySelectorAll('tbody[id="color_palette_table"] tr[id*="id_"]'),
+          colorPaletteOptionsObject = {},
+          fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked,
+          fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]'),
+          fontSizesOptionsObject = {},
+          customSpacingOptionOn = document.querySelector('input[name="custom_spacing_enable"]').checked,
+          customBackgroundOptionOn = document.querySelector('input[name="custom_background_enable"]').checked;
 
         saveButton.classList.remove('--invalid-validation');
-    
+
         colorPalette.forEach((paletteElement, index) => {
           colorPaletteOptionsObject[index] = {
             colorName: paletteElement.querySelector('input[name="color_palette_name"]').value,
             colorValue: paletteElement.querySelector('input[name="color_palette_value"]').value
           };
         });
-        
+
         fontSizes.forEach((fontSizeElement, index) => {
           fontSizesOptionsObject[index] = {
             fontName: fontSizeElement.querySelector('input[name="font_size_name"]').value,
@@ -36,20 +36,20 @@ export default function savePluginOptions() {
         });
 
         dataToSave = {
-          colorPalette : {
+          colorPalette: {
             colorPaletteOn,
             colorPaletteOptionsObject
           },
-          fontSizes : {
+          fontSizes: {
             fontSizesOn,
             fontSizesOptionsObject
           },
-          customOptions : {
+          customOptions: {
             customSpacingOptionOn,
             customBackgroundOptionOn
           }
         };
-    
+
         savePluginOptionsAjax(dataToSave);
       } else {
         saveButton.classList.add('--invalid-validation');
@@ -86,26 +86,26 @@ function savePluginOptionsAjax(object) {
     method: 'POST',
     body: dataToSave
   })
-  .then(data => {
-    console.log('Success:', data);
-    spinner.style.display = 'none';
+    .then(data => {
+      console.log('Success:', data);
+      spinner.style.display = 'none';
 
-    if (data.status === 403) {
-      document.getElementById('save_options').classList.add('--forbidden');
+      if (data.status === 403) {
+        document.getElementById('save_options').classList.add('--forbidden');
 
-      setTimeout(() => {
-        document.getElementById('save_options').classList.remove('--forbidden');
-      }, 3000);
-    } else {
-      document.getElementById('save_options').classList.add('--settings-saved');
+        setTimeout(() => {
+          document.getElementById('save_options').classList.remove('--forbidden');
+        }, 3000);
+      } else {
+        document.getElementById('save_options').classList.add('--settings-saved');
 
-      setTimeout(() => {
-        document.getElementById('save_options').classList.remove('--settings-saved');
-      }, 3000);
-    }
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    spinner.style.display = 'none';
-  });
+        setTimeout(() => {
+          document.getElementById('save_options').classList.remove('--settings-saved');
+        }, 3000);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      spinner.style.display = 'none';
+    });
 }

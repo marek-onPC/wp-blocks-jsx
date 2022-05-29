@@ -5,7 +5,7 @@ const { InnerBlocks } = wp.blockEditor;
 /**
  * Version [ 1 ] of deprecated block
  */
-const v1 =   {
+const v1 = {
   attributes: {
     buttonText: {
       type: 'string'
@@ -26,24 +26,24 @@ const v1 =   {
   },
   save: (props) => {
     const { attributes } = props;
-  
+
     return (
       <div className="wp-block-blocksplus-modal-block">
         <div
           className="wp-block-blocksplus-modal-block__button-wrapper"
-          style={ { justifyContent: attributes.buttonPosition } }
+          style={{ justifyContent: attributes.buttonPosition }}
         >
           <Button
             className="wp-block-blocksplus-modal-block__button"
             isDefault
-            style={ {
+            style={{
               fontSize: Number.isInteger(attributes.buttonTextSize) && attributes.buttonTextSize,
               color: attributes.buttonTextColor,
               backgroundColor: attributes.buttonBgColor
-            } }
+            }}
           >
             <RichText.Content
-              value={ attributes.buttonText }
+              value={attributes.buttonText}
             />
           </Button>
         </div>
@@ -61,4 +61,4 @@ const v1 =   {
 /**
  * Package of deprecated save functions (old versions) for Modal block
  */
-export var deprecated = [ v1 ];
+export var deprecated = [v1];

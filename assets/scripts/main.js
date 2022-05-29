@@ -12,7 +12,7 @@ imageComparisonBlock();
 modalBlock();
 socialShareButtonsBlock();
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   faqBlockFront();
   imageComparisonBlockFront();
   modalBlockFront();

@@ -6,11 +6,11 @@
  */
 export default function inputValidation(inputElementToValidate, validationPattern) {
   var inputElements = document.querySelectorAll('[name=' + inputElementToValidate + ']'),
-      validationState;
+    validationState;
 
   if (inputElements.length > 0) {
     inputElements.forEach(inputElement => {
-      if (! validationPattern.test(inputElement.value)) {
+      if (!validationPattern.test(inputElement.value)) {
         validationState = false;
       }
     });

@@ -15,14 +15,14 @@ const { useSelect } = wp.data;
  */
 export const edit = (props) => {
   const { attributes, setAttributes } = props;
-  const editorFontSizes = useSelect(( select ) => {
+  const editorFontSizes = useSelect((select) => {
     return select('core').getThemeSupports();
   });
 
   var fontSizes = [];
 
   if (editorFontSizes['editor-font-sizes']) {
-    editorFontSizes['editor-font-sizes'].map(function(fontSize) {
+    editorFontSizes['editor-font-sizes'].map(function (fontSize) {
       fontSizes.push({
         name: fontSize.name,
         slug: fontSize.slug,
@@ -58,31 +58,31 @@ export const edit = (props) => {
       icon: h3Icon,
       title: 'Heading 3 tag',
       isActive: attributes.headingTag === 'h3',
-      onClick: () => setAttributes( { headingTag: 'h3' } ),
+      onClick: () => setAttributes({ headingTag: 'h3' }),
     },
     {
       icon: h4Icon,
       title: 'Heading 4 tag',
       isActive: attributes.headingTag === 'h4',
-      onClick: () => setAttributes( { headingTag: 'h4' } ),
+      onClick: () => setAttributes({ headingTag: 'h4' }),
     },
     {
       icon: h5Icon,
       title: 'Heading 5 tag',
       isActive: attributes.headingTag === 'h5',
-      onClick: () => setAttributes( { headingTag: 'h5' } ),
+      onClick: () => setAttributes({ headingTag: 'h5' }),
     },
     {
       icon: h6Icon,
       title: 'Heading 6 tag',
       isActive: attributes.headingTag === 'h6',
-      onClick: () => setAttributes( { headingTag: 'h6' } ),
+      onClick: () => setAttributes({ headingTag: 'h6' }),
     },
     {
       icon: pIcon,
       title: 'Paragraph tag',
       isActive: attributes.headingTag === 'p',
-      onClick: () => setAttributes( { headingTag: 'p' } ),
+      onClick: () => setAttributes({ headingTag: 'p' }),
     },
   ];
 
@@ -92,7 +92,7 @@ export const edit = (props) => {
    * @param {tag} tag name to render
    */
   function renderTagOptionsIcon(tag) {
-    switch(tag) {
+    switch (tag) {
       case 'h3':
         return h3Icon;
 
@@ -117,43 +117,43 @@ export const edit = (props) => {
     <Fragment>
       <InspectorControls>
         <BlocksPlusColorPicker
-          title={ 'Color settings' }
-          textColor={ attributes.headingTextColor }
-          textColorCallback={ headingTextColorCallback }
-          textLabel={ 'Text color' }
-          bgColor={ attributes.headingBgColor }
-          bgColorCallback={ headingBgColorCallback }
-          bgLabel={ 'Background color' }
+          title={'Color settings'}
+          textColor={attributes.headingTextColor}
+          textColorCallback={headingTextColorCallback}
+          textLabel={'Text color'}
+          bgColor={attributes.headingBgColor}
+          bgColorCallback={headingBgColorCallback}
+          bgLabel={'Background color'}
         />
         <BlocksPlusFontSizePicker
-          title={ 'Typography' }
-          selectedFontSize={ attributes.headingTextSize }
-          fontSizes={ fontSizes }
-          fontPickerCallback={ handleFontPickerCallback }
+          title={'Typography'}
+          selectedFontSize={attributes.headingTextSize}
+          fontSizes={fontSizes}
+          fontPickerCallback={handleFontPickerCallback}
         />
       </InspectorControls>
       <BlockControls>
         <div className="blocksplus-toolbar">
-        <DropdownMenu
-            icon={ renderTagOptionsIcon(attributes.headingTag) }
+          <DropdownMenu
+            icon={renderTagOptionsIcon(attributes.headingTag)}
             label="Select a direction"
-            controls={ tagOptions }
+            controls={tagOptions}
           />
         </div>
       </BlockControls>
       <div>
         <RichText
-          tagName={ attributes.headingTag }
-          allowedFormats={ [] }
+          tagName={attributes.headingTag}
+          allowedFormats={[]}
           placeholder="FAQ heading"
-          value={ attributes.heading }
-          onChange={ headingUpdate }
-          className={ attributes.headingBgColor && "blocksplus-editor-faq-block" }
-          style={ {
-              fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
-              color: attributes.headingTextColor && attributes.headingTextColor,
-              backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
-          } }
+          value={attributes.heading}
+          onChange={headingUpdate}
+          className={attributes.headingBgColor && "blocksplus-editor-faq-block"}
+          style={{
+            fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
+            color: attributes.headingTextColor && attributes.headingTextColor,
+            backgroundColor: attributes.headingBgColor && attributes.headingBgColor,
+          }}
         />
         <InnerBlocks />
       </div>

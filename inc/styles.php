@@ -8,7 +8,7 @@ function blocksPlusMainScriptAndStyle() {
     'blocksplus-style',
     BLOCKSPLUS_URL . 'dist/styles/main.css',
     array(),
-    '1.0.0',
+    '1.2.0',
     'all'
   );
 
@@ -37,7 +37,7 @@ function blocksPlusEditorStyle() {
     'blocksplus-admin',
     BLOCKSPLUS_URL . 'dist/styles/admin.css',
     array(),
-    '1.0.0',
+    '1.2.0',
     'all'
   );
 };

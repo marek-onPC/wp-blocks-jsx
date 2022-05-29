@@ -1,7 +1,7 @@
 const { Dashicon } = wp.components;
 
 /**
- * Save function for rendering FAQ block on front-end
+ * Save function for rendering Social Share Buttons block on front-end
  *  
  * @param {props} props to access saved data and attributes
  */

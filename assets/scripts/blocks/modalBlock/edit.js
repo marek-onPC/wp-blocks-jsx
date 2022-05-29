@@ -14,7 +14,7 @@ const { useSelect } = wp.data;
  */
 export const edit = (props) => {
   const { attributes, setAttributes } = props;
-  const editorFontSizes = useSelect(( select ) => {
+  const editorFontSizes = useSelect((select) => {
     return select('core').getThemeSupports();
   });
 
@@ -23,7 +23,7 @@ export const edit = (props) => {
    * Setting the theme's custom font sizes
    */
   if (editorFontSizes['editor-font-sizes']) {
-    editorFontSizes['editor-font-sizes'].map(function(fontSize) {
+    editorFontSizes['editor-font-sizes'].map(function (fontSize) {
       fontSizes.push({
         name: fontSize.name,
         slug: fontSize.slug,
@@ -67,60 +67,60 @@ export const edit = (props) => {
       icon: 'align-left',
       title: 'Align button to left',
       isActive: attributes.buttonPosition === 'flex-start',
-      onClick: () => setAttributes( { buttonPosition: 'flex-start' } ),
+      onClick: () => setAttributes({ buttonPosition: 'flex-start' }),
     },
     {
       icon: 'align-center',
       title: 'Align button to center',
       isActive: attributes.buttonPosition === 'center',
-      onClick: () => setAttributes( { buttonPosition: 'center' } ),
+      onClick: () => setAttributes({ buttonPosition: 'center' }),
     },
     {
       icon: 'align-right',
       title: 'Align button to right',
       isActive: attributes.buttonPosition === 'flex-end',
-      onClick: () => setAttributes( { buttonPosition: 'flex-end' } ),
+      onClick: () => setAttributes({ buttonPosition: 'flex-end' }),
     },
   ];
 
-  return(
+  return (
     <Fragment>
       <InspectorControls>
-        <BlocksPlusColorPicker 
-          title={ 'Color settings (button)' }
-          textColor={ attributes.buttonTextColor }
-          textColorCallback={ buttonTextColorCallback }
-          textLabel={ 'Text color' }
-          bgColor={ attributes.buttonBgColor }
-          bgColorCallback={ buttonBgColorCallback }
-          bgLabel={ 'Background color' }
+        <BlocksPlusColorPicker
+          title={'Color settings (button)'}
+          textColor={attributes.buttonTextColor}
+          textColorCallback={buttonTextColorCallback}
+          textLabel={'Text color'}
+          bgColor={attributes.buttonBgColor}
+          bgColorCallback={buttonBgColorCallback}
+          bgLabel={'Background color'}
         />
         <BlocksPlusFontSizePicker
-          title={ 'Typography' }
-          selectedFontSize={ attributes.buttonTextSize }
-          fontSizes={ fontSizes }
-          fontPickerCallback={ handleFontPickerCallback }
+          title={'Typography'}
+          selectedFontSize={attributes.buttonTextSize}
+          fontSizes={fontSizes}
+          fontPickerCallback={handleFontPickerCallback}
         />
       </InspectorControls>
       <BlockControls>
-        <Toolbar controls={ toolbarOptions } />
+        <Toolbar controls={toolbarOptions} />
       </BlockControls>
       <div>
         <div
           className="blocksplus-editor-modal-block__button-wrapper wp-block-button"
-          style={ { justifyContent: attributes.buttonPosition } }
+          style={{ justifyContent: attributes.buttonPosition }}
         >
           <RichText
-            allowedFormats={ [] }
+            allowedFormats={[]}
             className="blocksplus-editor-modal-block__button wp-block-button__link"
             placeholder="Button text"
-            value={ attributes.buttonText }
-            onChange={ buttonTextUpdate }
-            style={ {
+            value={attributes.buttonText}
+            onChange={buttonTextUpdate}
+            style={{
               fontSize: typeof attributes.buttonTextSize === 'number' && attributes.buttonTextSize,
               color: attributes.buttonTextColor && attributes.buttonTextColor,
               backgroundColor: attributes.buttonBgColor && attributes.buttonBgColor
-            } }
+            }}
           />
         </div>
         <div>
@@ -128,5 +128,5 @@ export const edit = (props) => {
         </div>
       </div>
     </Fragment>
-	);
+  );
 };
