@@ -2,8 +2,8 @@
 Contributors: marekonpc
 Tags: blocks, faq, modal, comparison, social, share
 Requires at least: 5.0
-Tested up to: 6.0.0
-Stable tag: 1.2.0
+Tested up to: 6.0.1
+Stable tag: 1.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,9 @@ The features are:
 4. Modal block
 
 == Changelog ==
+
+= 1.2.1 =
+* Tested for WP 6.0.1
 
 = 1.2.0 =
 * Add new block - Social Share Button
