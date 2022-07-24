@@ -63,23 +63,6 @@ function blocksPlusBlocksRegistration() {
 add_action('init', 'blocksPlusBlocksRegistration');
 
 /**
- * Register new blocks category.
- */
-function blocksPlusBlocksCategory($categories) {
-  return array_merge(
-    $categories,
-    array(
-      array(
-        'slug'  => 'blocksplus',
-        'title' => 'BlocksPlus',
-        'icon'  => null,
-      ),
-    )
-  );
-}
-add_filter('block_categories', 'blocksPlusBlocksCategory');
-
-/**
  * Register "color picker" style used on admin page.
  */
 function blocksPlusAdminScript() {

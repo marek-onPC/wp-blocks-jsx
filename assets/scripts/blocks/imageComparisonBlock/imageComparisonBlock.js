@@ -9,10 +9,10 @@ export function imageComparisonBlock() {
    * Register new block - Image Comparison
    */
   registerBlockType('blocksplus/image-comparison-block', {
-    title: 'Image Comparison',
+    title: 'BlocksPlus: Image Comparison',
     description: 'Image Comparison block with slider option to compare images',
     icon: 'format-gallery',
-    category: 'blocksplus',
+    category: 'layout',
     attributes: {
       imageOne: {
         imageAlt: {

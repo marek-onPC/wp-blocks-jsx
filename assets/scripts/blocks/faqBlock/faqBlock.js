@@ -9,10 +9,10 @@ export function faqBlock() {
    * Register new block - FAQ
    */
   registerBlockType('blocksplus/faq-block', {
-    title: 'FAQ',
+    title: 'BlocksPlus: FAQ',
     description: 'FAQ block with clickable heading and collapsible content',
     icon: 'insert-before',
-    category: 'blocksplus',
+    category: 'layout',
     attributes: {
       heading: {
         type: 'string'

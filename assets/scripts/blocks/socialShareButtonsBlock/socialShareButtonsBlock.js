@@ -8,10 +8,10 @@ export function socialShareButtonsBlock() {
    * Register new block - Social Share Buttons
    */
   registerBlockType('blocksplus/social-share-buttons-block', {
-    title: 'Social Share Buttons',
+    title: 'BlocksPlus: Social Share Buttons',
     description: 'Social Share Buttons block to share your current page/post on social media',
     icon: 'share',
-    category: 'blocksplus',
+    category: 'layout',
     attributes: {
       facebook: {
         attribute: 'boolean',

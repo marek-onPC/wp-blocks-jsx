@@ -10,10 +10,10 @@ export function modalBlock() {
    * Register new block - Modal
    */
   registerBlockType('blocksplus/modal-block', {
-    title: 'Modal',
+    title: 'BlocksPlus: Modal',
     description: 'Modal block with button to open modal with content',
     icon: 'feedback',
-    category: 'blocksplus',
+    category: 'layout',
     attributes: {
       buttonText: {
         type: 'string'
