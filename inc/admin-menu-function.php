@@ -13,7 +13,7 @@ function blocksPlusAdminMenuFunction() {
   ?>
 
   <div class="wrap" id="blocksplus_admin">
-    <h1><?php esc_html_e('BlocksPlus', 'blocksplus'); ?></h1>
+    <img style="width: 100%" src="<?php echo BLOCKSPLUS_URL . 'assets/images/banner-option-page.png' ?>">
     <div class="metabox-holder">
       <div class="postbox-container" style="width: 100%">
         <div class="postbox">
