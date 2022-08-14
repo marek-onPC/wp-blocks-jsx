@@ -22,8 +22,8 @@ Maybe some of (beloved) TypeScript in future? Who knows...
 
 ### Development process
 
-**1. **Checking which future could be created/fixed/adjusted (currently based mostly on my own experience with content management)
+**1.** Checking which future could be created/fixed/adjusted (currently based mostly on my own experience with content management)
 **2.** Looking for affordable way of implementing it, with keeping the backwards compatibility
-**3. **Coding, coding, coding
-**4. **Testing the feature on different WP instances
-**5. **Release
+**3.** Coding, coding, coding
+**4.** Testing the feature on different WP instances
+**5.** Release
