@@ -7,7 +7,7 @@ const { Dashicon } = wp.components;
  */
 export const save = (props) => {
   const { attributes } = props;
-  const permalink = wp.data.select("core/editor").getPermalink();
+  const permalink = wp.data.select("core/editor").getCurrentPost().guid.rendered;
 
   return (
     <div className="wp-block-blocksplus-social-share-buttons-block">
