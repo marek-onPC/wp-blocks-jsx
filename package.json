@@ -1,6 +1,6 @@
 {
   "name": "blocksplus",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "WordPress Gutenberg extension plugin",
   "main": "index.js",
   "scripts": {

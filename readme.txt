@@ -38,8 +38,11 @@ The features are:
 
 == Changelog ==
 
-= 1.2.3 =
+= 1.2.4 =
 * Readme changes, text fixes
+
+= 1.2.3 =
+* Updated permalink for Social Share Buttons Block on new post/page
 
 = 1.2.2 =
 * Category for blocks changed (to WP's native one)
