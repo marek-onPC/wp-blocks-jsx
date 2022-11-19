@@ -1,11 +1,11 @@
 <?php
 /**
 * Plugin Name: BlocksPlus
-* Plugin URI: https://marek-onpc.com/plugin
+* Plugin URI: https://github.com/marek-onPC/blocksplus
 * Description: A Gutenberg extension plugin, which provides often used blocks with clean and user-friendly design.
 * Version: 1.2.2
 * Author: marekonpc
-* Author URI: https://marek-onPC.com
+* Author URI: https://marek-onpc.github.io/
 * License: GPLv2
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: blocksplus
