@@ -3,7 +3,7 @@ Contributors: marekonpc
 Tags: blocks, faq, modal, comparison, social, share
 Requires at least: 5.0
 Tested up to: 6.0.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ A Gutenberg extension plugin, which provides often used blocks with clean and us
 == Description ==
 
 BlocksPlus is a WordPress extension plugin for Gutenberg editor. It provides new features and useful blocks to use right away on your page. You can use it freely as you want. Any suggestions can be made by GitHub or WordPress plugin’s page. As possible, new features and blocks will be implemented in the future.
-The entire source code is publicly available on [GitHub](https://github.com/marek-onPC/blocksplus).
+The entire source code is publicly available on [GitHub](https://github.com/marek-onPC/wp-blocks-jsx).
 
 The plugin’s main cons are:
 * lightweight
@@ -37,6 +37,9 @@ The features are:
 5. Social block
 
 == Changelog ==
+
+= 1.2.3 =
+* Readme changes, text fixes
 
 = 1.2.2 =
 * Category for blocks changed (to WP's native one)

@@ -1,6 +1,6 @@
 {
   "name": "blocksplus",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "WordPress Gutenberg extension plugin",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marek-onPC/blocksplus.git"
+    "url": "git+https://github.com/marek-onPC/wp-blocks-jsx.git"
   },
   "keywords": [
     "gutenberg",
@@ -19,9 +19,9 @@
   "author": "Marek S. (marek-onPC)",
   "license": "GNU",
   "bugs": {
-    "url": "https://github.com/marek-onPC/blocksplus/issues"
+    "url": "https://github.com/marek-onPC/wp-blocks-jsx/issues"
   },
-  "homepage": "https://github.com/marek-onPC/blocksplus#readme",
+  "homepage": "https://github.com/marek-onPC/wp-blocks-jsx#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
