@@ -4,8 +4,11 @@ import pluginAdminFontSizes from "./admin/pluginAdminFontSizes";
 import savePluginOptions from "./admin/savePluginOptions";
 import pluginAdminDeleteRow from "./admin/pluginAdminDeleteRow";
 import optionAreaEnable from "./admin/optionAreaEnable";
+import setNoticeCookie from "./admin/setNoticeCookie";
 
 document.addEventListener('DOMContentLoaded', function () {
+  setNoticeCookie();
+
   if (document.getElementById('blocksplus_admin')) {
     loadWpColorPicker();
     pluginAdminColorPalette();

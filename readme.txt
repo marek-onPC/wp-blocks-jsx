@@ -2,8 +2,8 @@
 Contributors: marekonpc
 Tags: blocks, faq, modal, comparison, social, share
 Requires at least: 5.0
-Tested up to: 6.0.1
-Stable tag: 1.2.4
+Tested up to: 6.1.1
+Stable tag: 1.2.5
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,12 @@ The features are:
 5. Social block
 
 == Changelog ==
+
+= 1.2.5 =
+* Tested for WP 6.1.1
+* Fixing Image Comparison error on reseting slider color
+* Fixing Image Comparison error on empty image container (without src attribute)
+* Adding admin panel notice
 
 = 1.2.4 =
 * Readme changes, text fixes
