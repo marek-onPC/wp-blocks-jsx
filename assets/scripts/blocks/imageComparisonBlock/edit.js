@@ -78,7 +78,11 @@ export const edit = (props) => {
    * Component's attribute set functions
    */
   function sliderColorUpdate(newSliderColor) {
-    setAttributes({ sliderColor: newSliderColor });
+    if (!newSliderColor) {
+      setAttributes({ sliderColor: '#ffffff' });
+    } else {
+      setAttributes({ sliderColor: newSliderColor });
+    }
   }
 
   function sliderOpacityUpdate(newSliderOpacity) {

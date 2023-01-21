@@ -5,12 +5,14 @@
  */
 export const save = (props) => {
   const { attributes } = props;
+  const imageOne = !attributes.imageOne ? "" : attributes.imageOne.imageSrc;
+  const imageTwo = !attributes.imageTwo ? "" : attributes.imageTwo.imageSrc;
 
   return (
     <div>
       <div className="wp-block-blocksplus-image-comparison-block__image">
         <img
-          src={attributes.imagesPosition == 'initial' ? attributes.imageTwo.imageSrc : attributes.imageOne.imageSrc}
+          src={attributes.imagesPosition == 'initial' ? imageTwo : imageOne}
         />
       </div>
       <div className="wp-block-blocksplus-image-comparison-block__slider" style={{ opacity: attributes.sliderOpacity }}>
@@ -19,7 +21,7 @@ export const save = (props) => {
       </div>
       <div className="wp-block-blocksplus-image-comparison-block__image">
         <img
-          src={attributes.imagesPosition == 'initial' ? attributes.imageOne.imageSrc : attributes.imageTwo.imageSrc}
+          src={attributes.imagesPosition == 'initial' ? imageOne : imageTwo}
         />
       </div>
     </div>

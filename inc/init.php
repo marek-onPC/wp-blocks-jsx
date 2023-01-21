@@ -45,3 +45,19 @@ function blocksPlusAdminMenu() {
     200);
 }
 add_action('admin_menu','blocksPlusAdminMenu');
+
+/**
+ * Add admin notice box.
+ */
+function blocksPlusAdminMenuNotice() {
+  if (!isset($_COOKIE['blocksplus_notice'])) {
+    ?>
+      <div class="notice notice-success is-dismissible" id="blocksplus_notice">
+        <p><strong><?php _e( 'BlockPlus', 'blocksplus' ); ?></strong></p>
+        <p><?php _e( 'Are you using BlockPlus plugin? Something need fixing or have an idea for a new feature?', 'blocksplus' ); ?></p>
+        <p><a href="https://wordpress.org/plugins/blocksplus/" target="_blank"><?php _e( 'Share your thoughts with us!', 'blocksplus' ); ?></a></p>
+      </div>
+    <?php
+  }
+}
+add_action( 'admin_notices', 'blocksPlusAdminMenuNotice' );
