@@ -5,7 +5,7 @@ import BlocksPlusColorPicker from '../../components/BlocksPlusColorPicker';
 const { RichText, BlockControls, InspectorControls } = wp.editor;
 const { InnerBlocks } = wp.blockEditor;
 const { Fragment } = wp.element;
-const { DropdownMenu } = wp.components;
+const { DropdownMenu, ToggleControl, PanelBody } = wp.components;
 const { useSelect } = wp.data;
 
 /**
@@ -48,6 +48,10 @@ export const edit = (props) => {
 
   function handleFontPickerCallback(fontPickerData) {
     setAttributes({ headingTextSize: fontPickerData });
+  }
+
+  function isHeadingContentSpaceDisabledCallback(isDisabled) {
+    setAttributes({ isHeadingContentSpaceDisabled: isDisabled });
   }
 
   /**
@@ -131,12 +135,20 @@ export const edit = (props) => {
           fontSizes={fontSizes}
           fontPickerCallback={handleFontPickerCallback}
         />
+        <PanelBody title={"Space settings"}>
+          <ToggleControl
+            label="Space between header and content"
+            help={attributes.isHeadingContentSpaceDisabled === true ? 'Space is disabled' : 'Space is present'}
+            checked={attributes.isHeadingContentSpaceDisabled}
+            onChange={isHeadingContentSpaceDisabledCallback}
+          />
+        </PanelBody>
       </InspectorControls>
       <BlockControls>
         <div className="blocksplus-toolbar">
           <DropdownMenu
             icon={renderTagOptionsIcon(attributes.headingTag)}
-            label="Select a direction"
+            label="Select heading HTML tag"
             controls={tagOptions}
           />
         </div>

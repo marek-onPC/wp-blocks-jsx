@@ -35,5 +35,16 @@
     &.--collapsed + div {
       max-height: 0 !important;
     }
+
+    &.--disable-space {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &__content {
+    &.--disable-space,
+    &.--disable-space > *:first-of-type {
+      margin-top: 0 !important;
+    }
   }
 }
