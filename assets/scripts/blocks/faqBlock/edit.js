@@ -135,9 +135,9 @@ export const edit = (props) => {
           fontSizes={fontSizes}
           fontPickerCallback={handleFontPickerCallback}
         />
-        <PanelBody title={"Space settings"}>
+        <PanelBody title={"Header space settings"}>
           <ToggleControl
-            label="Space between header and content"
+            label="Space after header"
             help={attributes.isHeadingContentSpaceDisabled === true ? 'Space is disabled' : 'Space is present'}
             checked={attributes.isHeadingContentSpaceDisabled}
             onChange={isHeadingContentSpaceDisabledCallback}
@@ -160,7 +160,7 @@ export const edit = (props) => {
           placeholder="FAQ heading"
           value={attributes.heading}
           onChange={headingUpdate}
-          className={attributes.headingBgColor && "blocksplus-editor-faq-block"}
+          className={`${attributes.headingBgColor ? "blocksplus-editor-faq-block" : ""} ${attributes.isHeadingContentSpaceDisabled === true ? "--disable-space" : ""}`}
           style={{
             fontSize: Number.isInteger(attributes.headingTextSize) && attributes.headingTextSize,
             color: attributes.headingTextColor && attributes.headingTextColor,

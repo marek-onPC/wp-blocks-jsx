@@ -43,7 +43,7 @@
 
   &__content {
     &.--disable-space,
-    &.--disable-space > *:first-of-type {
+    &.--disable-space > *:first-child {
       margin-top: 0 !important;
     }
   }
