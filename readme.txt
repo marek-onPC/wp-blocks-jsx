@@ -1,9 +1,11 @@
 === BlocksPlus ===
 Contributors: marekonpc
-Tags: blocks, faq, modal, comparison, social, share
+Plugin URI: https://github.com/marek-onPC/wp-blocks-jsx
+Tags: blocks, faq, modal, image, comparison, compare, social, share
 Requires at least: 5.0
 Tested up to: 6.1.1
-Stable tag: 1.2.5
+Stable tag: 1.3.0
+Version: 1.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +39,9 @@ The features are:
 5. Social block
 
 == Changelog ==
+
+= 1.3.0 =
+* FAQ block - added option to disable space after heading
 
 = 1.2.5 =
 * Tested for WP 6.1.1
