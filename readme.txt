@@ -19,7 +19,7 @@ The entire source code is publicly available on [GitHub](https://github.com/mare
 
 The plugin’s main cons are:
 * lightweight
-* clean desgin, consistent with WordPress standards
+* clean design, consistent with WordPress standards
 * easy to use blocks
 
 The features are:
@@ -45,7 +45,7 @@ The features are:
 
 = 1.2.5 =
 * Tested for WP 6.1.1
-* Fixing Image Comparison error on reseting slider color
+* Fixing Image Comparison error on resetting slider color
 * Fixing Image Comparison error on empty image container (without src attribute)
 * Adding admin panel notice
 
