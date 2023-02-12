@@ -3,7 +3,7 @@
 * Plugin Name: BlocksPlus
 * Plugin URI: https://github.com/marek-onPC/wp-blocks-jsx
 * Description: A Gutenberg extension plugin, which provides often used blocks with clean and user-friendly design.
-* Version: 1.2.5
+* Version: 1.3.0
 * Author: marekonpc
 * Author URI: https://marek-onpc.github.io/
 * License: GPLv2

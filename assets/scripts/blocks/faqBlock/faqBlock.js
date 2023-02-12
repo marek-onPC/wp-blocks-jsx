@@ -1,5 +1,6 @@
 import { edit } from './edit';
 import { save } from './save';
+import { deprecated } from './deprecated';
 
 const { registerBlockType } = wp.blocks;
 
@@ -29,11 +30,17 @@ export function faqBlock() {
       },
       headingTextSize: {
         type: 'number'
+      },
+      isHeadingContentSpaceDisabled: {
+        type: 'boolean',
+        default: false
       }
     },
 
     edit: edit,
 
-    save: save
+    save: save,
+
+    deprecated: deprecated
   });
 }

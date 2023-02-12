@@ -1,9 +1,11 @@
 === BlocksPlus ===
 Contributors: marekonpc
-Tags: blocks, faq, modal, comparison, social, share
+Plugin URI: https://github.com/marek-onPC/wp-blocks-jsx
+Tags: blocks, faq, modal, image, comparison, compare, social, share
 Requires at least: 5.0
 Tested up to: 6.1.1
-Stable tag: 1.2.5
+Stable tag: 1.3.0
+Version: 1.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +19,7 @@ The entire source code is publicly available on [GitHub](https://github.com/mare
 
 The plugin’s main cons are:
 * lightweight
-* clean desgin, consistent with WordPress standards
+* clean design, consistent with WordPress standards
 * easy to use blocks
 
 The features are:
@@ -38,9 +40,12 @@ The features are:
 
 == Changelog ==
 
+= 1.3.0 =
+* FAQ block - added option to disable space after heading
+
 = 1.2.5 =
 * Tested for WP 6.1.1
-* Fixing Image Comparison error on reseting slider color
+* Fixing Image Comparison error on resetting slider color
 * Fixing Image Comparison error on empty image container (without src attribute)
 * Adding admin panel notice
 
