@@ -4,13 +4,11 @@ import { imageComparisonBlock } from './blocks/imageComparisonBlock/imageCompari
 import { imageComparisonBlockFront } from './blocks/imageComparisonBlock/imageComparisonBlockFront';
 import { modalBlock } from './blocks/modalBlock/modalBlock';
 import { modalBlockFront } from './blocks/modalBlock/modalBlockFront';
-import { socialShareButtonsBlock } from './blocks/socialShareButtonsBlock/socialShareButtonsBlock';
 import { socialShareButtonsBlockFront } from './blocks/socialShareButtonsBlock/socialShareButtonsBlockFront';
 
 faqBlock();
 imageComparisonBlock();
 modalBlock();
-socialShareButtonsBlock();
 
 window.addEventListener('load', function () {
   faqBlockFront();

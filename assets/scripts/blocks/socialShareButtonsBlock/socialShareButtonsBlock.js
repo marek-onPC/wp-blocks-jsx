@@ -3,7 +3,7 @@ import { save } from './save';
 
 const { registerBlockType } = wp.blocks;
 
-export function socialShareButtonsBlock() {
+(function socialShareButtonsBlock() {
   /**
    * Register new block - Social Share Buttons
    */
@@ -39,4 +39,4 @@ export function socialShareButtonsBlock() {
 
     save: save
   });
-}
+})();

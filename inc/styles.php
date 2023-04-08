@@ -24,6 +24,24 @@ function blocksPlusMainScriptAndStyle() {
     )
   );
 
+  if (is_admin()) {
+    global $pagenow;
+
+    if ($pagenow !== 'site-editor.php') {
+      wp_enqueue_script(
+        'blocksplus-social-share-buttons-block',
+        BLOCKSPLUS_URL . 'dist/scripts/socialShareButtonsBlock.js',
+        array(
+          'wp-blocks',
+          'wp-editor',
+          'wp-block-editor',
+          'wp-element',
+          'wp-components'
+        )
+      );
+    } 
+  }
+
   wp_enqueue_style('dashicons');
 };
 add_action('wp_enqueue_scripts', 'blocksPlusMainScriptAndStyle');
@@ -57,14 +75,12 @@ function blocksPlusBlocksRegistration() {
     'editor_script' => 'blocksplus-script'
   ));
 
-  // Need to separate block scripts to make this run
   if (is_admin()) {
     global $pagenow;
 
     if ($pagenow !== 'site-editor.php') {
-      echo $pagenow;
       register_block_type( 'blocksplus/social-share-buttons-block', array(
-        'editor_script' => 'blocksplus-script'
+        'editor_script' => 'social-share-buttons-block'
       ));
     } 
   }
