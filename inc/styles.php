@@ -56,9 +56,18 @@ function blocksPlusBlocksRegistration() {
   register_block_type( 'blocksplus/modal-block', array(
     'editor_script' => 'blocksplus-script'
   ));
-  register_block_type( 'blocksplus/social-share-buttons-block', array(
-    'editor_script' => 'blocksplus-script'
-  ));
+
+  // Need to separate block scripts to make this run
+  if (is_admin()) {
+    global $pagenow;
+
+    if ($pagenow !== 'site-editor.php') {
+      echo $pagenow;
+      register_block_type( 'blocksplus/social-share-buttons-block', array(
+        'editor_script' => 'blocksplus-script'
+      ));
+    } 
+  }
 };
 add_action('init', 'blocksPlusBlocksRegistration');
 
