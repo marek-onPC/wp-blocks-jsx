@@ -4,7 +4,7 @@ import { deprecated } from './deprecated';
 
 const { registerBlockType } = wp.blocks;
 
-export function modalBlock() {
+(function modalBlock() {
 
   /**
    * Register new block - Modal
@@ -39,4 +39,4 @@ export function modalBlock() {
 
     deprecated: deprecated
   });
-}
+})();

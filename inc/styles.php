@@ -24,6 +24,42 @@ function blocksPlusMainScriptAndStyle() {
     )
   );
 
+  wp_enqueue_script(
+    'blocksplus-faq-block',
+    BLOCKSPLUS_URL . 'dist/scripts/faqBlock.js',
+    array(
+      'wp-blocks',
+      'wp-editor',
+      'wp-block-editor',
+      'wp-element',
+      'wp-components'
+    )
+  );
+
+  wp_enqueue_script(
+    'blocksplus-image-comparison-block',
+    BLOCKSPLUS_URL . 'dist/scripts/imageComparisonBlock.js',
+    array(
+      'wp-blocks',
+      'wp-editor',
+      'wp-block-editor',
+      'wp-element',
+      'wp-components'
+    )
+  );
+
+  wp_enqueue_script(
+    'blocksplus-modal-block',
+    BLOCKSPLUS_URL . 'dist/scripts/modalBlock.js',
+    array(
+      'wp-blocks',
+      'wp-editor',
+      'wp-block-editor',
+      'wp-element',
+      'wp-components'
+    )
+  );
+
   if (is_admin()) {
     global $pagenow;
 
@@ -66,13 +102,13 @@ add_action('admin_enqueue_scripts', 'blocksPlusEditorStyle');
  */
 function blocksPlusBlocksRegistration() {
   register_block_type( 'blocksplus/faq-block', array(
-    'editor_script' => 'blocksplus-script'
+    'editor_script' => 'blocksplus-faq-block'
   ));
   register_block_type( 'blocksplus/image-comparison-block', array(
-    'editor_script' => 'blocksplus-script'
+    'editor_script' => 'blocksplus-image-comparison-block'
   ));
   register_block_type( 'blocksplus/modal-block', array(
-    'editor_script' => 'blocksplus-script'
+    'editor_script' => 'blocksplus-modal-block'
   ));
 
   if (is_admin()) {
@@ -80,7 +116,7 @@ function blocksPlusBlocksRegistration() {
 
     if ($pagenow !== 'site-editor.php') {
       register_block_type( 'blocksplus/social-share-buttons-block', array(
-        'editor_script' => 'social-share-buttons-block'
+        'editor_script' => 'blocksplus-social-share-buttons-block'
       ));
     } 
   }

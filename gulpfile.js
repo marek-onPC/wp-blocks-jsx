@@ -23,10 +23,24 @@ var scriptWatch = './assets/scripts/**/*.js';
 var scriptSrc = './assets/scripts/main.js';
 var scriptDist = './dist/scripts/';
 
-var blocksScriptSrc = [{ 
+var blocksScriptSrc = [
+  {
     fileName: 'socialShareButtonsBlock.js',
     filePath: './assets/scripts/blocks/socialShareButtonsBlock/socialShareButtonsBlock.js'
-  }];
+  },
+  {
+    fileName: 'faqBlock.js',
+    filePath: './assets/scripts/blocks/faqBlock/faqBlock.js'
+  },
+  {
+    fileName: 'imageComparisonBlock.js',
+    filePath: './assets/scripts/blocks/imageComparisonBlock/imageComparisonBlock.js'
+  },
+  {
+    fileName: 'modalBlock.js',
+    filePath: './assets/scripts/blocks/modalBlock/modalBlock.js'
+  }
+];
 
 var adminScriptWatch = './assets/scripts/**/*.js';
 var adminScriptSrc = './assets/scripts/admin.js';
