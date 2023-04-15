@@ -98,6 +98,15 @@ function blocksPlusEditorStyle() {
 add_action('admin_enqueue_scripts', 'blocksPlusEditorStyle');
 
 /**
+ * Register plugin's admin style (for full site editor)
+ */
+function blocksPlusFullSiteEditorStyle()
+{
+  add_editor_style(BLOCKSPLUS_URL . 'dist/styles/admin.css');
+}
+add_action('after_setup_theme', 'blocksPlusFullSiteEditorStyle');
+
+/**
  * Register new blocks in Gutenberg Editor.
  */
 function blocksPlusBlocksRegistration() {
