@@ -4,8 +4,8 @@ Plugin URI: https://github.com/marek-onPC/wp-blocks-jsx
 Tags: blocks, faq, modal, image, comparison, compare, social, share
 Requires at least: 5.0
 Tested up to: 6.2
-Stable tag: 1.3.1
-Version: 1.3.1
+Stable tag: 1.4.0
+Version: 1.4.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,11 @@ The features are:
 5. Social block
 
 == Changelog ==
+
+= 1.4.0 =
+* Adjust blocks and styles for Full Site Editor
+* Disable "color palette" and "font sizes" option when theme uses theme.json
+* Remove "custom background" and "custom spacing" options
 
 = 1.3.1 =
 * Tested for WP 6.2
