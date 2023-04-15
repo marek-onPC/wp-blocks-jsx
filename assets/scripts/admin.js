@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const areaColorPalette = document.getElementById('color_palette_area');
     optionAreaEnable(checkboxColorPalette, areaColorPalette);
 
-    const checkboFontSizes = document.querySelector('input[name="font_sizes_enable"]');
+    const checkboxFontSizes = document.querySelector('input[name="font_sizes_enable"]');
     const areaFontSizes = document.getElementById('font_sizes_area');
-    optionAreaEnable(checkboFontSizes, areaFontSizes);
+    optionAreaEnable(checkboxFontSizes, areaFontSizes);
   }
 });
