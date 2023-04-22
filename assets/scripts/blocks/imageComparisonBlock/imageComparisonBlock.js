@@ -3,7 +3,7 @@ import { save } from './save';
 
 const { registerBlockType } = wp.blocks;
 
-export function imageComparisonBlock() {
+(function imageComparisonBlock() {
 
   /**
    * Register new block - Image Comparison
@@ -52,4 +52,4 @@ export function imageComparisonBlock() {
 
     save: save
   });
-}
+})();

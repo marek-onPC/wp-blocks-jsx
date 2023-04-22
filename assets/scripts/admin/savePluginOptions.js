@@ -15,9 +15,7 @@ export default function savePluginOptions() {
           colorPaletteOptionsObject = {},
           fontSizesOn = document.querySelector('input[name="font_sizes_enable"]').checked,
           fontSizes = document.querySelectorAll('tbody[id="font_sizes_table"] tr[id*="id_"]'),
-          fontSizesOptionsObject = {},
-          customSpacingOptionOn = document.querySelector('input[name="custom_spacing_enable"]').checked,
-          customBackgroundOptionOn = document.querySelector('input[name="custom_background_enable"]').checked;
+          fontSizesOptionsObject = {};
 
         saveButton.classList.remove('--invalid-validation');
 
@@ -43,10 +41,6 @@ export default function savePluginOptions() {
           fontSizes: {
             fontSizesOn,
             fontSizesOptionsObject
-          },
-          customOptions: {
-            customSpacingOptionOn,
-            customBackgroundOptionOn
           }
         };
 

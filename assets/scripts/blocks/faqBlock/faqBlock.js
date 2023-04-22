@@ -4,7 +4,7 @@ import { deprecated } from './deprecated';
 
 const { registerBlockType } = wp.blocks;
 
-export function faqBlock() {
+(function faqBlock() {
 
   /**
    * Register new block - FAQ
@@ -43,4 +43,4 @@ export function faqBlock() {
 
     deprecated: deprecated
   });
-}
+})();

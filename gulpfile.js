@@ -1,4 +1,4 @@
-var gulp = require ( 'gulp' );
+var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass')(require('sass'));
 var cleanCss = require('gulp-clean-css');
@@ -23,6 +23,25 @@ var scriptWatch = './assets/scripts/**/*.js';
 var scriptSrc = './assets/scripts/main.js';
 var scriptDist = './dist/scripts/';
 
+var blocksScriptSrc = [
+  {
+    fileName: 'socialShareButtonsBlock.js',
+    filePath: './assets/scripts/blocks/socialShareButtonsBlock/socialShareButtonsBlock.js'
+  },
+  {
+    fileName: 'faqBlock.js',
+    filePath: './assets/scripts/blocks/faqBlock/faqBlock.js'
+  },
+  {
+    fileName: 'imageComparisonBlock.js',
+    filePath: './assets/scripts/blocks/imageComparisonBlock/imageComparisonBlock.js'
+  },
+  {
+    fileName: 'modalBlock.js',
+    filePath: './assets/scripts/blocks/modalBlock/modalBlock.js'
+  }
+];
+
 var adminScriptWatch = './assets/scripts/**/*.js';
 var adminScriptSrc = './assets/scripts/admin.js';
 
@@ -38,130 +57,165 @@ gulp.task('browserSync', function () {
 
 gulp.task('styles', function () {
   return gulp.src(styleSrc)
-  .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(cleanCss(
       {
         compatibility: 'ie8'
       }
     ))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(styleDist))
-  .pipe(browserSync.reload({
-    stream: true
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(styleDist))
+    .pipe(browserSync.reload({
+      stream: true
     }))
 });
 
 gulp.task('styles:admin', function () {
   return gulp.src(adminStyleSrc)
-  .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(cleanCss(
       {
         compatibility: 'ie8'
       }
     ))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(styleDist))
-  .pipe(browserSync.reload({
-    stream: true
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(styleDist))
+    .pipe(browserSync.reload({
+      stream: true
     }))
 });
 
 gulp.task('stylelint', function () {
   return gulp.src(styleWatch)
-  .pipe(stylelint({
-    failAfterError: global.production ? true : false,
-    reporters: [
-      {
-        formatter: 'string', console: true
-      }
-    ]
-  }));
+    .pipe(stylelint({
+      failAfterError: global.production ? true : false,
+      reporters: [
+        {
+          formatter: 'string', console: true
+        }
+      ]
+    }));
 });
 
 gulp.task('stylelint:admin', function () {
   return gulp.src(adminStyleWatch)
-  .pipe(stylelint({
-    failAfterError: global.production ? true : false,
-    reporters: [
-      {
-        formatter: 'string', console: true
-      }
-    ]
-  }));
+    .pipe(stylelint({
+      failAfterError: global.production ? true : false,
+      reporters: [
+        {
+          formatter: 'string', console: true
+        }
+      ]
+    }));
 });
 
-gulp.task('scripts', function() {
+
+gulp.task('block-scripts', function (resolve) {
+  blocksScriptSrc.forEach((file) => {
+    return browserify({
+      entries: [file.filePath],
+      debug: true
+    })
+      .transform(babelify,
+        {
+          presets: [
+            "@babel/preset-env",
+            "@babel/preset-react"
+          ],
+          sourceMaps: true
+        }
+      )
+      .bundle()
+      .pipe(source(file.fileName))
+      .pipe(buffer())
+      .pipe(sourcemaps.init(
+        {
+          loadMaps: true
+        }
+      ))
+      .pipe(uglify())
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest(scriptDist))
+      .pipe(browserSync.reload({
+        stream: true
+      }))
+  });
+
+  resolve();
+});
+
+gulp.task('scripts', function () {
   return browserify({
     entries: [scriptSrc],
     debug: true
   })
-  .transform(babelify, 
-    {
-      presets: [
-        "@babel/preset-env", 
-        "@babel/preset-react"
-      ],
-      sourceMaps:true
-    }
-  )
-  .bundle()
-  .pipe(source('main.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init(
-    {
-      loadMaps: true
-    }
-  ))
-  .pipe(uglify())
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(scriptDist))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
+    .transform(babelify,
+      {
+        presets: [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ],
+        sourceMaps: true
+      }
+    )
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init(
+      {
+        loadMaps: true
+      }
+    ))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(scriptDist))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 
 gulp.task('eslint', function () {
   return gulp.src(scriptWatch)
-  .pipe(eslint())
-  .pipe(eslint.format())
+    .pipe(eslint())
+    .pipe(eslint.format())
 });
 
-gulp.task('scripts:admin', function() {
+gulp.task('scripts:admin', function () {
   return browserify({
     entries: [adminScriptSrc],
     debug: true
   })
-  .transform(babelify, 
-    {
-      presets: [
-        "@babel/preset-env", 
-        "@babel/preset-react"
-      ],
-      sourceMaps:true
-    }
-  )
-  .bundle()
-  .pipe(source('admin.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init(
-    {
-      loadMaps: true
-    }
-  ))
-  .pipe(uglify())
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(scriptDist))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
+    .transform(babelify,
+      {
+        presets: [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ],
+        sourceMaps: true
+      }
+    )
+    .bundle()
+    .pipe(source('admin.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init(
+      {
+        loadMaps: true
+      }
+    ))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(scriptDist))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 
 gulp.task('eslint:admin', function () {
   return gulp.src(adminScriptWatch)
-  .pipe(eslint())
-  .pipe(eslint.format())
+    .pipe(eslint())
+    .pipe(eslint.format())
 });
 
 gulp.task('watch', gulp.parallel('browserSync', 'stylelint', 'styles', 'stylelint:admin', 'styles:admin', 'eslint', 'scripts', 'eslint:admin', 'scripts:admin', function () {
@@ -182,6 +236,6 @@ gulp.task('clean:dist', async function () {
   return del.sync('./dist');
 })
 
-gulp.task('build' , gulp.series(
-  gulp.parallel('clean:dist', 'styles', 'styles:admin', 'scripts', 'scripts:admin')
+gulp.task('build', gulp.series(
+  gulp.parallel('clean:dist', 'styles', 'styles:admin', 'scripts', 'scripts:admin', 'block-scripts')
 ));

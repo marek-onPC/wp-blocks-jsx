@@ -4,6 +4,9 @@
  * Define Gutenberg's Color Palette set of colors
  */
 function blocksPlusColorPaletteSet() {
+  if (wp_theme_has_theme_json()) {
+    return;
+  }
   $colorPaletteOptionOn = get_option('blocksplus_color_palette_enable');
   $colorPaletteOptions = get_option('blocksplus_color_palette');
 
@@ -36,6 +39,9 @@ add_action('init', 'blocksPlusColorPaletteSet');
  * Define Gutenberg's Font Sizes set of fonts
  */
 function blocksPlusFontSizesSet() {
+  if (wp_theme_has_theme_json()) {
+    return;
+  }
   $fontSizesOptionOn = get_option('blocksplus_font_sizes_enable');
   $fontSizesOptions = get_option('blocksplus_font_sizes');
 
@@ -100,20 +106,3 @@ function blocksPlusFrontEndStyles() {
   }
 };
 add_action('wp_head', 'blocksPlusFrontEndStyles');
-
-/**
- * Define custom options
- */
-function blocksPlusCustomOptions() {
-  $customSpacingOptionOn = get_option('blocksplus_custom_spacing_enable');
-  $customBackgroundOptionOn = get_option('blocksplus_custom_background_enable');
-
-  if ($customSpacingOptionOn != 'false') {
-    add_theme_support('custom-spacing');
-  }
-
-  if ($customBackgroundOptionOn != 'false') {
-    add_theme_support('custom-background');
-  }
-};
-add_action('init', 'blocksPlusCustomOptions');

@@ -30,14 +30,6 @@ function blocksPlusSavePluginOptions() {
       update_option('blocksplus_font_sizes_enable', $fontSizesOptionOn);
       update_option('blocksplus_font_sizes', $fontSizesOptions);
     }
-
-    if (!empty($dataToSave->customOptions)) {
-      $customSpacingOptionOn = $dataToSave->customOptions->customSpacingOptionOn ? 'true' : 'false';
-      $customBackgroundOptionOn = $dataToSave->customOptions->customBackgroundOptionOn ? 'true' : 'false';
-    
-      update_option('blocksplus_custom_spacing_enable', $customSpacingOptionOn);
-      update_option('blocksplus_custom_background_enable', $customBackgroundOptionOn);
-    }
   }
 }
 add_action('wp_ajax_blocksPlusSavePluginOptions', 'blocksPlusSavePluginOptions');
