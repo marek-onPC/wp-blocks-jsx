@@ -34,11 +34,10 @@ The features are:
 
 == Screenshots ==
 
-1. Dashboard plugin's page options
-2. FAQ block
-3. Image Comparison block
-4. Modal block
-5. Social block
+1. FAQ block
+2. Image Comparison block
+3. Modal block
+4. Social block
 
 == Changelog ==
 
