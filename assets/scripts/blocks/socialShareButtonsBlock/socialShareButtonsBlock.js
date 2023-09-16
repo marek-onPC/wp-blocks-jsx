@@ -1,5 +1,6 @@
 import { edit } from './edit';
 import { save } from './save';
+import { deprecated } from './deprecated';
 
 const { registerBlockType } = wp.blocks;
 
@@ -37,6 +38,8 @@ const { registerBlockType } = wp.blocks;
 
     edit: edit,
 
-    save: save
+    save: save,
+
+    deprecated: deprecated
   });
 })();

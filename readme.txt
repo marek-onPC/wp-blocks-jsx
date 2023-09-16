@@ -3,9 +3,9 @@ Contributors: marekonpc
 Plugin URI: https://github.com/marek-onPC/wp-blocks-jsx
 Tags: blocks, faq, modal, image, comparison, compare, social, share
 Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 1.4.0
-Version: 1.4.0
+Tested up to: 6.3
+Stable tag: 1.5.0
+Version: 1.5.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -40,6 +40,10 @@ The features are:
 4. Social block
 
 == Changelog ==
+
+= 1.5.0 =
+* Tested for WP 6.3
+* Change Twitter icon to X icon
 
 = 1.4.0 =
 * Adjust blocks and styles for Full Site Editor
